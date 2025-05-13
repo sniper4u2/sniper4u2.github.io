@@ -1,61 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sniper4u2 - Portfolio</title>
+    <meta name="description" content="Hamzaoui Sofiene - Penetration Tester, Cybersecurity Specialist, and Ethical Hacker">
+    <meta name="keywords" content="Penetration Tester, Cybersecurity, Ethical Hacker, Vulnerability Assessment">
+    <meta name="author" content="Hamzaoui Sofiene">
+    <title>Hamzaoui Sofiene - Cybersecurity Specialist & Ethical Hacker</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- For icons -->
 </head>
+
 <body>
+    <!-- Navigation -->
     <header>
-        <h1>Sniper4u2</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <button class="dark-mode-toggle">&#9788;</button> <!-- Dark mode toggle button -->
+        <div class="container">
+            <h1>Hamzaoui Sofiene</h1>
+            <p>Penetration Tester | Cybersecurity Specialist | Ethical Hacker</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="about">
+    <!-- About Me Section -->
+    <section id="about" class="section">
+        <div class="container">
             <h2>About Me</h2>
-            <p>Welcome to my portfolio! I'm a penetration tester with years of experience...</p>
-        </section>
+            <p>Welcome to my portfolio! I am a professional cybersecurity expert with extensive experience in penetration testing, vulnerability research, and ethical hacking. I am passionate about securing digital environments and solving complex security challenges.</p>
+        </div>
+    </section>
 
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="project-card">
-                <h4>Project 1</h4>
-                <p>Description of Project 1.</p>
-                <a href="#">Learn More</a>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Penetration Testing</h3>
+                    <p>Identifying vulnerabilities in systems and applications to prevent exploits.</p>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Network Security</h3>
+                    <p>Implementing firewalls, IDS/IPS, and monitoring network traffic to ensure safe communication.</p>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-code"></i>
+                    <h3>Exploit Development</h3>
+                    <p>Developing and testing exploits to understand how vulnerabilities can be leveraged by attackers.</p>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-lock"></i>
+                    <h3>Web Application Security</h3>
+                    <p>Securing web applications against common attacks like SQL injection, XSS, and CSRF.</p>
+                </div>
             </div>
-            <div class="project-card">
-                <h4>Project 2</h4>
-                <p>Description of Project 2.</p>
-                <a href="#">Learn More</a>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact">
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <h3>Exploit Automation Tool</h3>
+                    <p>This tool automates the exploitation of common vulnerabilities found in web applications.</p>
+                    <a href="https://github.com/sniper4u2/exploit-automation" target="_blank">View on GitHub</a>
+                </div>
+                <div class="project-card">
+                    <h3>OSINT Web Scraping</h3>
+                    <p>Web scraping script to gather Open Source Intelligence (OSINT) from various public sources.</p>
+                    <a href="https://github.com/sniper4u2/osint-web-scraping" target="_blank">View on GitHub</a>
+                </div>
+                <div class="project-card">
+                    <h3>Payload Generator</h3>
+                    <p>A tool designed to generate custom payloads for various types of penetration testing.</p>
+                    <a href="https://github.com/sniper4u2/payload-generator" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
             <h2>Contact Me</h2>
+            <p>If you would like to discuss cybersecurity strategies, project collaborations, or job opportunities, feel free to contact me.</p>
             <form id="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
                 <button type="submit">Send</button>
             </form>
-        </section>
-    </main>
+            <p>Email me directly: <a href="mailto:hamzaouisofiene2@gmail.com">hamzaouisofiene2@gmail.com</a></p>
+        </div>
+    </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Sniper4u2 - All Rights Reserved</p>
+        <div class="container">
+            <p>&copy; 2025 Hamzaoui Sofiene - All Rights Reserved</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/hamzaouisofiene" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/sniper4u2" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <button class="scroll-to-top">&#8593;</button> <!-- Scroll to top button -->
-    
     <script src="script.js"></script>
 </body>
+
 </html>
