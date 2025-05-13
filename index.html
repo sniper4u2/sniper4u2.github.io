@@ -1,122 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hamzaoui Sofiene - Penetration Tester, Cybersecurity Specialist, and Ethical Hacker">
-    <meta name="keywords" content="Penetration Tester, Cybersecurity, Ethical Hacker, Vulnerability Assessment">
+    <meta name="description" content="Cybersecurity Portfolio of Hamzaoui Sofiene - Penetration Tester, Ethical Hacker">
     <meta name="author" content="Hamzaoui Sofiene">
-    <title>Hamzaoui Sofiene - Cybersecurity Specialist & Ethical Hacker</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- For icons -->
+    <title>Hamzaoui Sofiene - Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
-
 <body>
-    <!-- Navigation -->
-    <header>
+    <header class="header">
         <div class="container">
-            <h1>Hamzaoui Sofiene</h1>
-            <p>Penetration Tester | Cybersecurity Specialist | Ethical Hacker</p>
+            <h1 class="brand-name">Hamzaoui Sofiene</h1>
             <nav>
                 <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#branches">Branches</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- About Me Section -->
-    <section id="about" class="section">
+    <section id="about" class="about">
         <div class="container">
             <h2>About Me</h2>
-            <p>Welcome to my portfolio! I am a professional cybersecurity expert with extensive experience in penetration testing, vulnerability research, and ethical hacking. I am passionate about securing digital environments and solving complex security challenges.</p>
+            <p>I am a professional penetration tester, ethical hacker, and cybersecurity specialist. With years of experience in penetration testing, vulnerability assessments, and red team operations, I have a passion for securing digital environments. Explore my work, and feel free to contact me!</p>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
+    <section id="projects" class="projects">
         <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <div class="skill">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Penetration Testing</h3>
-                    <p>Identifying vulnerabilities in systems and applications to prevent exploits.</p>
-                </div>
-                <div class="skill">
-                    <i class="fas fa-network-wired"></i>
-                    <h3>Network Security</h3>
-                    <p>Implementing firewalls, IDS/IPS, and monitoring network traffic to ensure safe communication.</p>
-                </div>
-                <div class="skill">
-                    <i class="fas fa-code"></i>
-                    <h3>Exploit Development</h3>
-                    <p>Developing and testing exploits to understand how vulnerabilities can be leveraged by attackers.</p>
-                </div>
-                <div class="skill">
-                    <i class="fas fa-lock"></i>
-                    <h3>Web Application Security</h3>
-                    <p>Securing web applications against common attacks like SQL injection, XSS, and CSRF.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-container">
+            <h2>My Projects</h2>
+            <div class="project-list">
                 <div class="project-card">
-                    <h3>Exploit Automation Tool</h3>
-                    <p>This tool automates the exploitation of common vulnerabilities found in web applications.</p>
-                    <a href="https://github.com/sniper4u2/exploit-automation" target="_blank">View on GitHub</a>
+                    <h3>Exploit Automation</h3>
+                    <p>A tool for automating exploit creation.</p>
+                    <a href="https://github.com/sniper4u2/exploit-automation" target="_blank" class="btn">View Project</a>
                 </div>
                 <div class="project-card">
-                    <h3>OSINT Web Scraping</h3>
-                    <p>Web scraping script to gather Open Source Intelligence (OSINT) from various public sources.</p>
-                    <a href="https://github.com/sniper4u2/osint-web-scraping" target="_blank">View on GitHub</a>
+                    <h3>Web Scraping for OSINT</h3>
+                    <p>A tool for gathering intelligence from web sources.</p>
+                    <a href="https://github.com/sniper4u2/web-scraping" target="_blank" class="btn">View Project</a>
                 </div>
                 <div class="project-card">
                     <h3>Payload Generator</h3>
-                    <p>A tool designed to generate custom payloads for various types of penetration testing.</p>
-                    <a href="https://github.com/sniper4u2/payload-generator" target="_blank">View on GitHub</a>
+                    <p>Generate custom payloads for testing and exploitation.</p>
+                    <a href="https://github.com/sniper4u2/payload-generator" target="_blank" class="btn">View Project</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="contact">
         <div class="container">
             <h2>Contact Me</h2>
-            <p>If you would like to discuss cybersecurity strategies, project collaborations, or job opportunities, feel free to contact me.</p>
-            <form id="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-            <p>Email me directly: <a href="mailto:hamzaouisofiene2@gmail.com">hamzaouisofiene2@gmail.com</a></p>
+            <p>For inquiries, collaborations, or consultations, reach out to me at:</p>
+            <p><strong>Email:</strong> <a href="mailto:hamzaouisofiene2@gmail.com">hamzaouisofiene2@gmail.com</a></p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/hmz-sofiene-22a9091b2/" target="_blank" class="social-btn">LinkedIn</a>
+                <a href="https://start.me/p/KMJvbw/hamzaoui-sofiene-tools-case" target="_blank" class="social-btn">Tools Case</a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section id="branches" class="branches">
+        <div class="container">
+            <h2>Branches for Upload & Download</h2>
+            <p>Upload and download your files here:</p>
+            <div class="branch-container">
+                <div class="branch">
+                    <h3>Upload Files</h3>
+                    <input type="file" id="fileUpload" class="file-input">
+                    <button class="btn" onclick="uploadFile()">Upload</button>
+                </div>
+                <div class="branch">
+                    <h3>Download Files</h3>
+                    <button class="btn" onclick="downloadFile()">Download</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <p>&copy; 2025 Hamzaoui Sofiene - All Rights Reserved</p>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/hamzaouisofiene" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/sniper4u2" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/hmz-sofiene-22a9091b2/" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://start.me/p/KMJvbw/hamzaoui-sofiene-tools-case" target="_blank">
+                    <i class="fas fa-cogs"></i> Tools Case
+                </a>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>
