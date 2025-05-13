@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hamzaoui Sofiene | Cybersecurity Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
+  <div id="particles-js"></div>
+
   <header>
     <h1>Hamzaoui Sofiene</h1>
     <h2>Penetration Tester | Cybersecurity Specialist | Ethical Hacker</h2>
@@ -22,65 +25,82 @@
   <section id="about">
     <h2>About Me</h2>
     <p>
-      Welcome to my portfolio! I am a professional cybersecurity expert with extensive experience in penetration testing, vulnerability research, and ethical hacking. I am passionate about securing digital environments and solving complex security challenges.
+      I'm a professional penetration tester, red teamer, and ethical hacker with extensive experience in offensive cybersecurity, OSINT, malware analysis, and network assessments. I provide digital defense solutions across global infrastructure and government networks.
     </p>
   </section>
 
   <section id="projects">
     <h2>My Projects</h2>
+
     <div class="project">
-      <h3>My Portfolio Website</h3>
-      <p>Professional personal portfolio showcasing cybersecurity skills and background.</p>
+      <h3>Portfolio Website</h3>
+      <p>My official personal cybersecurity showcase and GitHub-hosted site.</p>
       <a href="https://github.com/sniper4u2/MyPortfolio" target="_blank">View on GitHub</a>
     </div>
+
     <div class="project">
       <h3>Community Kit</h3>
-      <p>Useful community cybersecurity tools and resources kit.</p>
+      <p>Resources and tools for cybersecurity practitioners.</p>
       <a href="https://github.com/sniper4u2/community_kit" target="_blank">View on GitHub</a>
     </div>
+
     <div class="project">
       <h3>USB Rubber Ducky Payloads</h3>
-      <p>Collection of payloads for USB Rubber Ducky used in red teaming.</p>
+      <p>Payloads designed for HID attacks and Red Team operations.</p>
       <a href="https://github.com/sniper4u2/usbrubberducky-payloads" target="_blank">View on GitHub</a>
     </div>
+
     <div class="project">
       <h3>Awesome OSINT</h3>
-      <p>Curated list of Open Source Intelligence tools and resources.</p>
+      <p>Comprehensive OSINT toolset curated for professional use.</p>
       <a href="https://github.com/sniper4u2/awesome-osint" target="_blank">View on GitHub</a>
     </div>
+
     <div class="project">
       <h3>C1B3RN0T3S</h3>
-      <p>Cybersecurity notes and resources (v4 branch).</p>
+      <p>Structured cybersecurity notes and methodologies.</p>
       <a href="https://github.com/sniper4u2/c1b3rn0t3s/tree/v4/content/notes" target="_blank">View on GitHub</a>
     </div>
   </section>
 
   <section id="resources">
-    <h2>Resources & Links</h2>
+    <h2>Resources</h2>
     <ul>
-      <li><a href="https://start.me/p/KMJvbw/hamzaoui-sofiene-tools-case" target="_blank">My Start.me Tools Case</a></li>
+      <li><a href="https://start.me/p/KMJvbw/hamzaoui-sofiene-tools-case" target="_blank">🛠️ Start.me Toolkit</a></li>
+      <li><a href="https://www.linkedin.com/in/hmz-sofiene-22a9091b2/" target="_blank">🔗 LinkedIn Profile</a></li>
     </ul>
   </section>
 
   <section id="tools">
     <h2>Upload & Download Center</h2>
-    <div>
+    <form>
       <label for="uploadFile">Upload a File:</label>
       <input type="file" id="uploadFile" name="uploadFile" />
-    </div>
+    </form>
     <div>
-      <a href="/downloads/sample-tool.zip" download>Download Sample Tool</a>
+      <a href="/downloads/sample-tool.zip" download>⬇️ Download Sample Tool</a>
+    </div>
+  </section>
+
+  <section id="chatbot">
+    <h2>Chat with My AI Assistant</h2>
+    <div id="chat-window">
+      <div id="chat-log"></div>
+      <input type="text" id="user-input" placeholder="Ask me something..." />
+      <button onclick="handleChat()">Send</button>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact Me</h2>
     <p>Email: <a href="mailto:hamzaouisofiene2@gmail.com">hamzaouisofiene2@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/hmz-sofiene-22a9091b2/" target="_blank">My LinkedIn Profile</a></p>
   </section>
 
   <footer>
     <p>&copy; 2025 Hamzaoui Sofiene - All Rights Reserved</p>
   </footer>
+
+  <script src="particles-config.js"></script>
+  <script src="chatbot.js"></script>
 </body>
 </html>
