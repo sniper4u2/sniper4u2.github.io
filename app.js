@@ -265,7 +265,7 @@ function bindLang(){
 
 /* ========= HERO TERMINAL ========= */
 const HT=[
-  {t:'prompt',tx:'whoami'},{t:'ok',tx:'Sofiane Hamzaoui · Cybersecurity Architect · 20+ Years'},
+  {t:'prompt',tx:'whoami'},{t:'ok',tx:'Sofiene Hamzaoui · Cybersecurity Architect · 20+ Years'},
   {t:'prompt',tx:'cat missions.txt'},{t:'out',tx:'Adarma · IronNet · Rubica · Upwork Top Rated+'},
   {t:'prompt',tx:'ls projects/'},{t:'ok',tx:'c2server/ vaultguard/ ios-bypass/ phalanx-x/'},
   {t:'ok',tx:'uk-insolvency/ cloudflare-disc/ [6 projects]'},
@@ -416,7 +416,7 @@ function openModal(id){
       <div class="mb-hdr">${t.feat_hdr}</div>
       <ul class="mb-feat-list">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>
       <div class="mb-hdr">${t.term_hdr}</div>
-      <div class="mb-preview-hdr">sofiane@darknet:~/${p.id}$</div>
+      <div class="mb-preview-hdr">sofiene@darknet:~/${p.id}$</div>
       <div class="mb-preview">${PREVIEWS[id]||'[*] loading output...'}</div>
     </div>`;
   document.getElementById('modal-bg').classList.remove('hidden');
@@ -437,7 +437,7 @@ function bindTerminal(){
     body.classList.toggle('open');chev.textContent=body.classList.contains('open')?'▼':'▲';
     if(body.classList.contains('open'))inp.focus();
   };
-  ftPrint('Welcome, Sofiane. Type <span style="color:var(--green)">help</span> for commands.','info');
+  ftPrint('Welcome, Sofiene. Type <span style="color:var(--green)">help</span> for commands.','info');
   inp.addEventListener('keydown',e=>{
     if(e.key==='Enter'){
       const cmd=inp.value.trim();if(!cmd)return;
@@ -449,17 +449,17 @@ function bindTerminal(){
 }
 function runCmd(c){
   if(c==='help'||c==='?') ftPrint('whoami · ls · skills · projects · cv · github · vaultguard · contact · neofetch · clear','out');
-  else if(c==='whoami') ftPrint('Sofiane Hamzaoui — Cybersecurity Architect · 20+ Years','ok');
+  else if(c==='whoami') ftPrint('Sofiene Hamzaoui — Cybersecurity Architect · 20+ Years','ok');
   else if(c==='ls'||c==='ls -la') PROJECTS.forEach(p=>ftPrint(`-rwxr-xr-x  ${p.id}/  [${p.status.toUpperCase()}]`,'out'));
   else if(c==='skills'){document.getElementById('skills').scrollIntoView({behavior:'smooth'});ftPrint('→ Navigating to Skills...','ok');}
   else if(c==='projects'){document.getElementById('projects').scrollIntoView({behavior:'smooth'});ftPrint('→ Navigating to Projects...','ok');}
-  else if(c==='cv'){window.open('cv.html','_blank');ftPrint('Opening CV of Sofiane Hamzaoui...','ok');}
+  else if(c==='cv'){window.open('cv.html','_blank');ftPrint('Opening CV of Sofiene Hamzaoui...','ok');}
   else if(c==='contact'){document.getElementById('contact').scrollIntoView({behavior:'smooth'});ftPrint('→ Navigating to Contact...','ok');}
   else if(c==='github'){window.open('https://github.com/spaypeur','_blank');ftPrint('Opening github.com/spaypeur','ok');}
   else if(c==='vaultguard'){window.open('https://vaultguard.pages.dev','_blank');ftPrint('Opening vaultguard.pages.dev','ok');}
   else if(c==='clear'||c==='cls') document.getElementById('ft-out').innerHTML='';
-  else if(c==='neofetch') ftPrint(`<span style="color:var(--green)">sofiane@darknet</span><br>OS: Kali Linux 2024.4 · Shell: zsh 5.9<br>Node: SPAYPEUR · Mode: OFFENSIVE · Repos: 147+<br>Experience: 20+ years · Tools: 50+ · C2: 5 frameworks<br>Clearance: <span style="color:var(--red)">ROOT</span>`,'out');
-  else if(c==='sudo su') ftPrint('You are already root, Sofiane.','ok');
+  else if(c==='neofetch') ftPrint(`<span style="color:var(--green)">sofiene@darknet</span><br>OS: Kali Linux 2024.4 · Shell: zsh 5.9<br>Node: SPAYPEUR · Mode: OFFENSIVE · Repos: 147+<br>Experience: 20+ years · Tools: 50+ · C2: 5 frameworks<br>Clearance: <span style="color:var(--red)">ROOT</span>`,'out');
+  else if(c==='sudo su') ftPrint('You are already root, Sofiene.','ok');
   else if(c==='exit') ftPrint('Nice try. You cannot leave the matrix.','err');
   else ftPrint(`Command not found: ${c} — type <span style="color:var(--green)">help</span>`,'err');
 }
