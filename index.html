@@ -7,280 +7,219 @@
   <title>Sofiene Hamzaoui · Cybersecurity Architect</title>
   <meta name="description" content="Sofiene Hamzaoui (spaypeur) — Cybersecurity Architect 20+ years, C2 Developer, SS7/GTP Specialist, OSINT Analyst, Red Team Operator.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- DYNAMIC BACKGROUND -->
-  <div class="cyber-bg">
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
-    <div class="grid-overlay"></div>
-  </div>
-
   <!-- NAV -->
-  <nav id="nav" class="glass-nav">
+  <nav id="nav">
     <div class="nav-inner">
-      <div class="nav-logo">
-        <span class="logo-icon">⬡</span>
-        <span class="logo-text">S.HAMZAOUI</span>
-      </div>
+      <div class="nav-logo">Sofiene <span class="name-green">Hamzaoui</span></div>
       <div class="nav-links">
         <a href="#projects" data-i18n="nav_projects">Projects</a>
-        <a href="#expertise" data-i18n="nav_skills">Expertise</a>
-        <a href="#arsenal" data-i18n="nav_arsenal">Arsenal</a>
+        <a href="#certificates" data-i18n="nav_certificates">Certificates</a>
+        <a href="#skills" data-i18n="nav_skills">Skills</a>
         <a href="#experience" data-i18n="nav_experience">Experience</a>
+        <a href="#arsenal" data-i18n="nav_arsenal">Arsenal</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <a href="cv.html" class="nav-cv" data-i18n="nav_cv">↓ CV</a>
       </div>
-      <div class="nav-actions">
-        <div class="lang-switch">
-          <button class="lg active" data-lang="en">EN</button>
-          <button class="lg" data-lang="fr">FR</button>
-          <button class="lg" data-lang="ar">AR</button>
-        </div>
-        <a href="cv.html" class="btn-glow">
-          <span>↓ Download CV</span>
-        </a>
+      <div class="lang-switch">
+        <button class="lg active" data-lang="en">EN</button>
+        <button class="lg" data-lang="fr">FR</button>
+        <button class="lg" data-lang="ar">عربي</button>
       </div>
+      <div class="nav-status"><span class="pulse"></span><span data-i18n="nav_online">ONLINE</span></div>
     </div>
   </nav>
 
-  <main class="main-container">
-    
-    <!-- HERO BENTO -->
-    <section id="hero" class="bento-hero">
-      
-      <!-- Main Intro -->
-      <div class="bento-card hero-main glass-panel fade-up">
-        <div class="hero-badge">
-          <span class="pulse-dot"></span>
-          <span id="typed"></span><span class="cur blink">▮</span>
-        </div>
-        <h1 class="hero-title">
-          Engineering <br>
-          <span class="text-gradient">Offensive Security</span> <br>
-          &amp; Defense Systems.
-        </h1>
-        <p class="hero-desc" data-i18n="hero_desc">
-          Architecting institutional defense platforms, exploiting telecom protocols (SS7/GTP), and engineering custom C2 frameworks. Trusted by global enterprises.
-        </p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn-solid">Explore Architecture</a>
-          <div class="social-links">
-            <a href="https://github.com/spaypeur" target="_blank" class="social-icon">GH</a>
-            <a href="https://github.com/sniper4u2" target="_blank" class="social-icon">RT</a>
-          </div>
-        </div>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-tag" data-i18n="hero_tag">// CYBERSECURITY ARCHITECT</div>
+      <h1 class="hero-name">Hamzaoui<br><span class="name-green">Sofiene</span></h1>
+      <div class="hero-role"><span id="typed"></span><span class="cur blink">▮</span></div>
+      <p class="hero-desc" data-i18n="hero_desc">20+ years building offensive security tools, C2 frameworks, and mission-critical infrastructure. Trusted by governments and enterprises across Adarma, IronNet, and Rubica.</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n">20+</span><span class="stat-l" data-i18n="stat_years">Years Active</span></div>
+        <div class="sep">|</div>
+        <div class="stat"><span class="stat-n">147+</span><span class="stat-l" data-i18n="stat_repos">GitHub Repos</span></div>
+        <div class="sep">|</div>
+        <div class="stat"><span class="stat-n">15+</span><span class="stat-l" data-i18n="stat_missions">Major Missions</span></div>
+        <div class="sep">|</div>
+        <div class="stat"><span class="stat-n">50+</span><span class="stat-l" data-i18n="stat_tools">Security Tools</span></div>
+        <div class="sep">|</div>
+        <div class="stat"><span class="stat-n">5</span><span class="stat-l" data-i18n="stat_c2">C2 Frameworks</span></div>
       </div>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary" data-i18n="btn_projects">View Projects</a>
+        <a href="cv.html" class="btn-outline" data-i18n="btn_cv">Download CV</a>
+        <a href="https://github.com/spaypeur" target="_blank" class="btn-ghost">GitHub ↗</a>
+      </div>
+      <div class="hero-tags">
+        <span class="htag" data-i18n="tag_redteam">Red Team Ops</span>
+        <span class="htag" data-i18n="tag_c2">C2 Frameworks</span>
+        <span class="htag">SS7/GTP</span>
+        <span class="htag" data-i18n="tag_ios">iOS Security</span>
+        <span class="htag">OSINT</span>
+        <span class="htag">ZKP</span>
+        <span class="htag" data-i18n="tag_malware">Malware Dev</span>
+        <span class="htag" data-i18n="tag_ai">AI/LLM Security</span>
+        <span class="htag" data-i18n="tag_cve">CVE Research</span>
+      </div>
+    </div>
+    <div class="hero-terminal">
+      <div class="ht-bar">
+        <span class="ht-dot r"></span><span class="ht-dot y"></span><span class="ht-dot g"></span>
+        <span class="ht-title">spaypeur@darknet:~</span>
+      </div>
+      <div class="ht-body" id="ht-body"></div>
+    </div>
+  </section>
 
-      <!-- Identity / Terminal -->
-      <div class="bento-card hero-terminal glass-panel fade-up delay-1">
-        <div class="term-header">
-          <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-          <div class="term-title">sys_identity.sh</div>
-        </div>
-        <div class="term-content" id="ht-body">
-          <!-- Populated by app.js -->
-        </div>
-      </div>
-
-      <!-- Stats Bento -->
-      <div class="bento-card hero-stats glass-panel fade-up delay-2">
-        <div class="stat-item">
-          <div class="stat-val">147+</div>
-          <div class="stat-lbl" data-i18n="stat_repos">GitHub Repos</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-val text-gradient">100%</div>
-          <div class="stat-lbl">Mission Success</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-val">5</div>
-          <div class="stat-lbl" data-i18n="stat_c2">C2 Frameworks</div>
-        </div>
-      </div>
-
-      <!-- Flagship / VaultGuard Promo -->
-      <div class="bento-card hero-flagship glass-panel fade-up delay-3">
-        <div class="flagship-tag">FLAGSHIP STARTUP</div>
-        <div class="flagship-content">
-          <h3>VaultGuard</h3>
-          <p>Institutional Crypto Security &amp; OTC Platform. 137 APIs, ZKP Identity, Sub-450ms global latency.</p>
-          <a href="https://vaultguard.eu.org" target="_blank" class="link-arrow">View Platform ↗</a>
-        </div>
-        <div class="flagship-bg-icon">🔐</div>
-      </div>
-
-    </section>
-
-    <!-- CAPABILITIES / SKILLS -->
-    <section id="expertise" class="section-pad">
-      <div class="section-header fade-up">
-        <h2 class="section-title">Core <span class="text-gradient">Capabilities</span></h2>
-        <div class="section-line"></div>
-      </div>
-      
-      <div class="bento-skills fade-up delay-1">
-        <!-- Technical Bars -->
-        <div class="glass-panel skill-bars-wrapper">
-          <h3 class="panel-title">Proficiency Matrix</h3>
-          <div id="skills-bars" class="skills-list"></div>
-        </div>
-        
-        <!-- Tech Stack Tags -->
-        <div class="glass-panel tags-wrapper">
-          <h3 class="panel-title" data-i18n="sk_tech">Architecture Stack</h3>
-          <div class="tag-cloud" id="tech-tags"></div>
-          
-          <h3 class="panel-title mt-4" data-i18n="sk_tools">Offensive Tooling</h3>
-          <div class="tag-cloud alt-cloud" id="tools-tags"></div>
-          
-          <h3 class="panel-title mt-4" data-i18n="sk_langs">Languages</h3>
-          <div class="tag-cloud" id="lang-tags"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS GRID -->
-    <section id="projects" class="section-pad">
-      <div class="section-header fade-up">
-        <h2 class="section-title">Architectural <span class="text-gradient">Deployments</span></h2>
-        <div class="section-line"></div>
-      </div>
-      
-      <div class="filter-bar glass-panel fade-up delay-1">
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="s-inner">
+      <div class="s-hdr">
+        <div class="s-label">// 01</div>
+        <h2 class="s-title" data-i18n="sec_projects">Featured Projects</h2>
+        <div class="s-line"></div>
         <div class="filters" id="filters">
-          <button class="pf active" data-f="all">All Architecture</button>
-          <button class="pf" data-f="redteam">C2 &amp; Red Team</button>
-          <button class="pf" data-f="crypto">Crypto / Web3</button>
-          <button class="pf" data-f="ios">iOS Security</button>
-          <button class="pf" data-f="ai">AI / LLM</button>
-          <button class="pf" data-f="web">Infrastructure</button>
+          <span class="pf active" data-f="all" data-i18n="f_all">All</span>
+          <span class="pf" data-f="redteam" data-i18n="f_redteam">Red Team</span>
+          <span class="pf" data-f="osint">OSINT</span>
+          <span class="pf" data-f="ios">iOS</span>
+          <span class="pf" data-f="ai">AI/LLM</span>
+          <span class="pf" data-f="crypto" data-i18n="f_crypto">Crypto</span>
+          <span class="pf" data-f="web">Web</span>
+          <span class="pf" data-f="hw" data-i18n="f_hw">Hardware</span>
         </div>
       </div>
+      <div class="proj-grid" id="proj-grid"></div>
+    </div>
+  </section>
 
-      <div class="proj-grid fade-up delay-2" id="proj-grid">
-        <!-- Injected by app.js -->
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="s-inner">
+      <div class="s-hdr">
+        <div class="s-label">// 02</div>
+        <h2 class="s-title" data-i18n="sec_certificates">Certifications & Achievements</h2>
+        <div class="s-line"></div>
       </div>
-    </section>
+      <div class="cert-gallery" id="cert-gallery"></div>
+    </div>
+  </section>
 
-    <!-- ARSENAL / START.ME -->
-    <section id="arsenal" class="section-pad">
-      <div class="arsenal-bento glass-panel fade-up">
-        <div class="arsenal-content">
-          <div class="hero-badge"><span class="pulse-dot" style="background:#8b5cf6;box-shadow:0 0 10px #8b5cf6;"></span> OPERATIONAL TOOLKIT</div>
-          <h2 class="section-title" style="margin-top:1rem;">The Research <span class="text-gradient-alt">Laboratory</span></h2>
-          <p class="arsenal-desc">
-            A curated operational toolkit spanning custom C2 frameworks, post-exploitation suites, SS7 exploitation modules, and intelligence aggregators. This is the exact environment used for advanced telecom security research and red team operations.
-          </p>
-          <a href="https://start.me/p/KMJvbw/hamzaoui-sofiene-tools-case" target="_blank" class="btn-solid btn-alt">Access Full Tool Case ↗</a>
-        </div>
-        <div class="arsenal-visual">
-          <div class="ar-list-preview" id="arsenal-list">
-             <!-- Injected by app.js (we'll style it to look like a scrolling feed of tools) -->
-          </div>
-        </div>
+  <!-- SKILLS -->
+  <section id="skills" class="bg-alt">
+    <div class="s-inner">
+      <div class="s-hdr">
+        <div class="s-label">// 03</div>
+        <h2 class="s-title" data-i18n="sec_skills">Capabilities</h2>
+        <div class="s-line"></div>
       </div>
-    </section>
-
-    <!-- EXPERIENCE & CERTS -->
-    <section id="experience" class="section-pad">
-      <div class="exp-cert-grid">
-        
-        <!-- Experience -->
-        <div class="exp-wrapper">
-          <div class="section-header fade-up">
-            <h2 class="section-title">Operational <span class="text-gradient">History</span></h2>
-            <div class="section-line"></div>
+      <div class="skills-layout">
+        <div id="skills-bars"></div>
+        <div class="sk-right">
+          <div class="sk-block">
+            <div class="sk-block-title" data-i18n="sk_tech">Tech Stack</div>
+            <div class="sk-tags" id="tech-tags"></div>
           </div>
-          <div class="timeline fade-up delay-1" id="timeline">
-            <!-- Injected by app.js -->
+          <div class="sk-block">
+            <div class="sk-block-title" data-i18n="sk_tools">Security Tools</div>
+            <div class="sk-tags" id="tools-tags"></div>
           </div>
-        </div>
-
-        <!-- Certs -->
-        <div class="cert-wrapper">
-          <div class="section-header fade-up">
-            <h2 class="section-title">Global <span class="text-gradient-alt">Certifications</span></h2>
-            <div class="section-line"></div>
-          </div>
-          <div class="cert-gallery fade-up delay-1" id="cert-gallery">
-            <!-- Injected by app.js -->
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section-pad">
-      <div class="contact-bento glass-panel fade-up">
-        <div class="contact-info">
-          <h2 class="section-title">Initiate <span class="text-gradient">Protocol</span></h2>
-          <p class="contact-desc" data-i18n="contact_desc">
-            Currently accepting high-level architectural consultations, telecom security audits, and red team engagements. Direct communications are secured.
-          </p>
-          <div class="contact-links-grid" id="contact-links">
-            <!-- Injected by app.js -->
-          </div>
-        </div>
-        <div class="contact-identity glass-panel-inner">
-          <div class="term-header">
-            <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-            <div class="term-title">target_lock.json</div>
-          </div>
-          <div class="code-block">
-            <span class="c-key">"name"</span>: <span class="c-str">"Sofiene Hamzaoui"</span>,
-            <span class="c-key">"clearance"</span>: <span class="c-str">"Architect Level"</span>,
-            <span class="c-key">"comms"</span>: {
-              <span class="c-key">"email"</span>: <span class="c-str">"admin@vaultguard.eu.org"</span>,
-              <span class="c-key">"node"</span>: <span class="c-str">"+216 22 090 800"</span>
-            },
-            <span class="c-key">"status"</span>: <span class="c-bool">"AVAILABLE"</span>
+          <div class="sk-block">
+            <div class="sk-block-title" data-i18n="sk_langs">Languages</div>
+            <div class="sk-tags" id="lang-tags"></div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="s-inner">
+      <div class="s-hdr">
+        <div class="s-label">// 04</div>
+        <h2 class="s-title" data-i18n="sec_exp">Experience</h2>
+        <div class="s-line"></div>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
 
-  <footer class="glass-footer">
+  <!-- ARSENAL -->
+  <section id="arsenal" class="bg-alt">
+    <div class="s-inner">
+      <div class="s-hdr">
+        <div class="s-label">// 05</div>
+        <h2 class="s-title" data-i18n="sec_arsenal">Tool Arsenal</h2>
+        <div class="s-sub" data-i18n="sec_arsenal_sub">@sniper4u2 · 131 repos &nbsp;|&nbsp; @spaypeur · 16 repos</div>
+        <div class="s-line"></div>
+      </div>
+      <div id="arsenal-list"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="s-inner">
+      <div class="s-hdr">
+        <div class="s-label">// 06</div>
+        <h2 class="s-title" data-i18n="sec_contact">Get In Touch</h2>
+        <div class="s-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <p class="contact-desc" data-i18n="contact_desc">Open for consulting, red team engagements, security architecture, and freelance work. Upwork Top Rated Plus — 100% mission success rate.</p>
+          <div id="contact-links"></div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-line"><span class="cc-k" data-i18n="cc_name">name</span><span class="cc-eq"> = </span><span class="cc-v">"Sofiene Hamzaoui"</span></div>
+          <div class="cc-line"><span class="cc-k">alias</span><span class="cc-eq"> = </span><span class="cc-v">["spaypeur", "sniper4u2"]</span></div>
+          <div class="cc-line"><span class="cc-k">email</span><span class="cc-eq"> = </span><span class="cc-v">"admin@vaultguard.eu.org"</span></div>
+          <div class="cc-line"><span class="cc-k" data-i18n="cc_phone">phone</span><span class="cc-eq"> = </span><span class="cc-v">"+216 22 090 800"</span></div>
+          <div class="cc-line"><span class="cc-k" data-i18n="cc_loc">location</span><span class="cc-eq"> = </span><span class="cc-v cc-loc-val" data-i18n="cc_loc_val">"Tunisia · Remote"</span></div>
+          <div class="cc-line"><span class="cc-k" data-i18n="cc_status">status</span><span class="cc-eq"> = </span><span class="cc-v cc-green" data-i18n="cc_available">AVAILABLE</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
     <div class="footer-inner">
-      <div class="f-left">
-        <span class="logo-icon">⬡</span>
-        <span>S.Hamzaoui © 2026</span>
-      </div>
-      <div class="f-right">
-        Engineered for Elite Operations <span class="sep">|</span> <span class="text-gradient">End-to-End Encrypted</span>
-      </div>
+      <span>Sofiene Hamzaoui · spaypeur · sniper4u2</span>
+      <span data-i18n="footer_built">Built with terminal aesthetics · 2024</span>
+      <span class="cg">⚿ <span data-i18n="footer_enc">Encrypted</span></span>
     </div>
   </footer>
 
   <!-- FLOATING TERMINAL -->
-  <div id="fterm" class="glass-panel" style="position:fixed;bottom:2rem;right:2rem;width:380px;z-index:9999;">
-    <div class="term-header" id="ft-toggle" style="cursor:pointer;justify-content:space-between;">
-      <div style="display:flex;align-items:center;gap:0.5rem;">
-        <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-        <span class="term-title" style="margin:0;">Terminal</span>
-      </div>
-      <span id="ft-chev" style="color:var(--text-muted);font-size:0.8rem;">▲</span>
+  <div id="fterm">
+    <div class="ft-hdr" id="ft-toggle">
+      <span>⬛ Terminal</span><span id="ft-chev">▲</span>
     </div>
-    <div id="ft-body" style="height:0;overflow:hidden;transition:height 0.3s ease;">
-      <div id="ft-out" style="padding:1rem;height:180px;overflow-y:auto;font-family:var(--font-mono);font-size:0.8rem;color:var(--text-muted);"></div>
-      <div style="padding:0.5rem 1rem;border-top:1px solid var(--border-subtle);display:flex;align-items:center;">
-        <span style="color:var(--cyan);font-family:var(--font-mono);margin-right:0.5rem;">$&nbsp;</span>
-        <input id="ft-in" spellcheck="false" autocomplete="off" placeholder="help" style="background:transparent;border:none;color:var(--text-main);font-family:var(--font-mono);width:100%;outline:none;">
+    <div class="ft-body" id="ft-body">
+      <div class="ft-out" id="ft-out"></div>
+      <div class="ft-in-row">
+        <span class="ft-p">$&nbsp;</span>
+        <input id="ft-in" class="ft-input" spellcheck="false" autocomplete="off" placeholder="help">
       </div>
     </div>
   </div>
 
   <!-- MODAL -->
   <div class="modal-bg hidden" id="modal-bg">
-    <div class="modal-win glass-panel">
-      <div class="term-header">
-        <div class="dots"><span class="r" id="modal-close">✕</span><span class="y"></span><span class="g"></span></div>
-        <div id="modal-title" class="term-title"></div>
+    <div class="modal-win">
+      <div class="modal-tb">
+        <div class="m-dots"><span class="dot dr" id="modal-close">✕</span><span class="dot dy"></span><span class="dot dg"></span></div>
+        <div id="modal-title" class="modal-ttl"></div>
+        <div></div>
       </div>
       <div class="modal-body" id="modal-body"></div>
     </div>

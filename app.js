@@ -506,7 +506,7 @@ function renderCertificates(){
   const gallery=document.getElementById('cert-gallery');
   if(!gallery) return;
   gallery.innerHTML=CERTS.map(cert=>`
-    <div class="cert-card reveal" data-cert="${cert.name}" style="cursor:pointer;" onclick="viewCertificate('${cert.name}','${cert.path}')">
+    <div class="cert-card reveal" data-cert="${cert.name}" data-cert-name="${cert.name.replace(/"/g, '&quot;')}" data-cert-path="${cert.path.replace(/"/g, '&quot;')}" style="cursor:pointer;">
       <div class="cert-img-wrap">
         <img src="${cert.path}" alt="${cert.name}" class="cert-img" loading="lazy" onerror="this.style.display='none'">
       </div>
@@ -516,6 +516,22 @@ function renderCertificates(){
       </div>
     </div>
   `).join('');
+  // Add event listeners to cert cards
+  document.querySelectorAll('.cert-card').forEach(card=>{
+    card.addEventListener('click',()=>{
+      const name=card.dataset.certName;
+      const path=card.dataset.certPath;
+      viewCertificate(name,path);
+    });
+  });
+  // Add event listeners to cert cards
+  document.querySelectorAll('.cert-card').forEach(card=>{
+    card.addEventListener('click',()=>{
+      const name=card.dataset.certName;
+      const path=card.dataset.certPath;
+      viewCertificate(name,path);
+    });
+  });
   scrollReveal();
 }
 
