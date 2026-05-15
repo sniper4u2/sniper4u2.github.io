@@ -95,18 +95,11 @@ const PROJECTS=[
    tech:['Python','FastAPI','WebSocket','Redis','Docker','PostgreSQL'],url:'https://github.com/spaypeur',lang:'Python'},
 
   {id:'vaultguard',name:'VaultGuard',icon:'🔐',status:'live',cat:'crypto',
-   desc:{en:'Production-deployed institutional crypto security platform & P2P OTC Desk. Built for high-value crypto transactions with multi-signature custody, Zero-Knowledge Proofs, and institutional-grade security architecture.',
-         fr:'Plateforme de sécurité crypto institutionnelle déployée en production avec bureau OTC P2P, garde multi-signatures, preuves ZKP et architecture de sécurité de niveau institutionnel.',
-         ar:'منصة أمن مؤسسي للعملات الرقمية مع مكتب OTC للتداول P2P، حضانة متعددة التوقيع، إثباتات ZKP وبنية أمنية على مستوى المؤسسات.'},
-   features:['Institutional P2P OTC trading desk','Multi-sig custody (3-of-5)','Zero-Knowledge Proof verification','Real-time threat monitoring','AES-256 communications','KYC/AML compliance','Smart contract security auditing'],
-   tech:['React Native','Node.js','Blockchain','ZKP','AES-256','TypeScript'],url:'https://vaultguard.pages.dev',lang:'TypeScript'},
-
-  {id:'forensight',name:'Forensight',icon:'🔍',status:'active',cat:'osint',
-   desc:{en:'Powerful OSINT framework for digital investigations. Automates image analysis, metadata extraction, and network intelligence with facial recognition, EXIF recovery, OCR, YOLOv8 object detection, and cross-platform footprint tracing.',
-         fr:'Framework OSINT puissant pour les enquêtes numériques avec reconnaissance faciale, extraction de métadonnées, OCR, détection d\'objets YOLOv8 et traçage d\'empreintes numériques multi-plateformes.',
-         ar:'إطار OSINT قوي للتحقيقات الرقمية مع التعرف على الوجوه وبصمة EXIF والتعرف الضوئي على الحروف وكشف الكائنات YOLOv8 وتتبع البصمات الرقمية.'},
-   features:['Facial recognition — MediaPipe engine','EXIF metadata recovery (47 fields)','YOLOv8 object detection','OCR text extraction','Cross-platform footprint tracing','Network intelligence gathering','Evidence chain of custody'],
-   tech:['Python','OpenCV','YOLOv8','MediaPipe','OCR','NetworkX'],url:'https://github.com/spaypeur',lang:'Python'},
+   desc:{en:'Production-deployed institutional crypto security & P2P OTC platform. 137 API endpoints on Cloudflare edge (300+ cities, sub-450ms latency). Multi-sig custody, ZKP identity, AES-256-GCM, WebAuthn/FIDO2, compliance engine — 5 integrated defense layers. Seed round Q2 2026.',
+         fr:'Plateforme institutionnelle de sécurité crypto et OTC P2P déployée sur Cloudflare Edge (300+ villes). 137 endpoints API, garde multi-sig, ZKP, AES-256-GCM, conformité — 5 couches de défense intégrées. Seed Q2 2026.',
+         ar:'منصة أمن مؤسسي للعملات الرقمية وتداول OTC على Cloudflare Edge. 137 نقطة API، حضانة متعددة التوقيع، ZKP، AES-256-GCM، محرك الامتثال — 5 طبقات دفاع متكاملة. جولة بذرية Q2 2026.'},
+   features:['137 API endpoints — 95% backend complete','Institutional P2P OTC desk with progressive identity disclosure','Zero-Knowledge Proof + AES-256-GCM identity vault','Real-time threat intel from 8+ OSINT feeds (Shodan, VirusTotal…)','WebAuthn/FIDO2 biometric auth + JWT + CSRF','Stripe + BTCPay payment rails live','KYC/AML compliance engine','Deployed on Cloudflare Workers — sub-450ms globally'],
+   tech:['React','TypeScript','Cloudflare Workers','Supabase','ZKP','AES-256','WebAuthn','BTCPay'],url:'https://vaultguard.eu.org',lang:'TypeScript'},
 
   {id:'ios-bypass',name:'iOS Activation Bypass',icon:'🍎',status:'classified',cat:'ios',
    desc:{en:'Complete iOS jailbreak + iCloud activation lock bypass toolkit supporting checkra1n, SSH ramdisk injection, patched mobileactivationd binary deployment, and full cross-platform automation for iPhone 6s → iPhone X.',
@@ -129,33 +122,12 @@ const PROJECTS=[
    features:['Real-time insolvency event tracking','Credit score drop alerts (≥5%, ≥10%, ≥20%)','Director change monitoring','Daily/weekly/monthly Excel reports','5-sheet Excel export','Docker + PostgreSQL + Redis + Celery'],
    tech:['Python','FastAPI','React','Celery','PostgreSQL','Redis'],url:'https://github.com/spaypeur',lang:'Python'},
 
-  {id:'adaptixc2',name:'AdaptixC2',icon:'💀',status:'active',cat:'redteam',
-   desc:{en:'Highly modular advanced red team C2 toolkit with extensible module system. Extension Kit API allows custom payload and module development. Full post-exploitation suite with multi-operator support and EDR evasion.',
-         fr:'Framework C2 Red Team modulaire avancé avec API Extension Kit pour le développement de modules personnalisés. Suite complète de post-exploitation avec support multi-opérateurs et évasion EDR.',
-         ar:'إطار C2 معياري متقدم لفرق Red Team مع API Extension Kit لتطوير وحدات مخصصة، وجناح استغلال ما بعد الاختراق كامل مع دعم متعدد المشغلين والتهرب من EDR.'},
-   features:['Modular C2 framework architecture','Extension Kit API for custom modules','Multi-operator team support','Post-exploitation module library','Custom payload builder','Advanced EDR evasion','Encrypted HTTPS C2 comms'],
-   tech:['Go','Python','C','HTTP/S','WebSocket','TLS'],url:'https://github.com/spaypeur/AdaptixC2',lang:'Go'},
-
-  {id:'mcp-hydra',name:'MCP-Hydra',icon:'🧠',status:'beta',cat:'ai',
-   desc:{en:'AI-assisted cybersecurity toolkit connecting LLMs to security tools via the Model Context Protocol (MCP). Enables natural language security operations, automated scanning, and AI-powered threat analysis.',
-         fr:'Boîte à outils de cybersécurité assistée par IA connectant les LLMs aux outils de sécurité via le Protocole de Contexte de Modèle (MCP) pour des opérations en langage naturel.',
-         ar:'مجموعة أدوات أمن سيبراني مدعومة بالذكاء الاصطناعي تربط النماذج اللغوية بأدوات الأمن عبر بروتوكول MCP لعمليات أمنية بلغة طبيعية.'},
-   features:['MCP server implementation','AI-assisted vulnerability scanning','Metasploit MCP bridge','Natural language security ops','Automated NMAP/Shodan queries','Real-time threat intelligence context'],
-   tech:['Python','MCP Protocol','Metasploit','Claude/GPT','FastAPI'],url:'https://github.com/sniper4u2/mcp-hydra',lang:'Python'},
-
   {id:'cloudflare-disc',name:'Cloudflare Discovery',icon:'🌐',status:'active',cat:'web',
    desc:{en:'Cloudflare CDN real-IP discovery tool using StealthyFetcher and async subdomain enumeration. Scans 40+ subdomains against all Cloudflare CIDR ranges to identify unprotected origin servers.',
          fr:'Outil de découverte d\'IP réelles derrière Cloudflare CDN via StealthyFetcher et l\'énumération asynchrone de sous-domaines sur les plages CIDR Cloudflare.',
          ar:'أداة اكتشاف IP الحقيقية خلف Cloudflare CDN باستخدام StealthyFetcher وتعداد النطاقات الفرعية غير المتزامن عبر نطاقات CIDR.'},
    features:['40+ subdomain enumeration','Full Cloudflare CIDR detection','StealthyFetcher bypass engine','Async parallel scanning','Origin IP validation'],
    tech:['Python','asyncio','Scrapling','DNS','socket','ipaddress'],url:'https://github.com/spaypeur',lang:'Python'},
-
-  {id:'megascan',name:'Megascan Pro',icon:'🔧',status:'beta',cat:'hw',
-   desc:{en:'Interactive hardware diagnostic console for Arduino MEGA 2560 PRO. Features PCB component map, TFT display overlay simulation, logic analyzer output, digital multimeter readings, and SPI/I2C bus probing.',
-         fr:'Console de diagnostic matériel interactif pour Arduino MEGA 2560 PRO avec carte PCB, simulation TFT, analyseur logique, multimètre numérique et sonde de bus SPI/I2C.',
-         ar:'وحدة تشخيص أجهزة تفاعلية لـ Arduino MEGA 2560 PRO مع خريطة PCB ومحاكاة شاشة TFT ومحلل منطقي ومقياس متعدد رقمي وتحقيق في ناقلات SPI/I2C.'},
-   features:['TFT display overlay (screen-accurate)','Arduino Mega 2560 Pro PCB map','Interactive component hotspots','Logic analyzer data stream','Digital multimeter simulation','SPI/I2C bus probe','5V power rail monitoring'],
-   tech:['HTML','CSS','JavaScript','Arduino','SPI','I2C','Canvas'],url:'https://github.com/spaypeur',lang:'JavaScript'},
 ];
 
 const SKILLS={
@@ -240,8 +212,9 @@ const ARSENAL=[
 const CONTACTS=[
   {icon:'⬡',label:'GitHub (Primary)',val:'github.com/spaypeur',href:'https://github.com/spaypeur'},
   {icon:'⬡',label:'GitHub (Red Team)',val:'github.com/sniper4u2',href:'https://github.com/sniper4u2'},
-  {icon:'🌐',label:'VaultGuard',val:'vaultguard.pages.dev',href:'https://vaultguard.pages.dev'},
-  {icon:'📧',label:'Email',val:'sofienehamzaoui2@gmail.com',href:'mailto:sofienehamzaoui2@gmail.com'},
+  {icon:'🌐',label:'VaultGuard',val:'vaultguard.eu.org',href:'https://vaultguard.eu.org'},
+  {icon:'📧',label:'Email',val:'admin@vaultguard.eu.org',href:'mailto:admin@vaultguard.eu.org'},
+  {icon:'📄',label:'CV / Resume',val:'spaypeur.github.io/cv.html',href:'cv.html'},
 ];
 
 const TERM_HISTORY=[];let histIdx=-1;
@@ -294,8 +267,8 @@ function bindLang(){
 const HT=[
   {t:'prompt',tx:'whoami'},{t:'ok',tx:'Sofiane Hamzaoui · Cybersecurity Architect · 20+ Years'},
   {t:'prompt',tx:'cat missions.txt'},{t:'out',tx:'Adarma · IronNet · Rubica · Upwork Top Rated+'},
-  {t:'prompt',tx:'ls projects/'},{t:'ok',tx:'c2server/ vaultguard/ forensight/ phalanx-x/'},
-  {t:'ok',tx:'ios-bypass/ adaptixc2/ mcp-hydra/ uk-insolvency/'},
+  {t:'prompt',tx:'ls projects/'},{t:'ok',tx:'c2server/ vaultguard/ ios-bypass/ phalanx-x/'},
+  {t:'ok',tx:'uk-insolvency/ cloudflare-disc/ [6 projects]'},
   {t:'prompt',tx:'./status --check'},{t:'ok',tx:'[ONLINE] All systems operational — stealth mode active'},
 ];
 function renderHeroTerminal(){
@@ -480,7 +453,7 @@ function runCmd(c){
   else if(c==='ls'||c==='ls -la') PROJECTS.forEach(p=>ftPrint(`-rwxr-xr-x  ${p.id}/  [${p.status.toUpperCase()}]`,'out'));
   else if(c==='skills'){document.getElementById('skills').scrollIntoView({behavior:'smooth'});ftPrint('→ Navigating to Skills...','ok');}
   else if(c==='projects'){document.getElementById('projects').scrollIntoView({behavior:'smooth'});ftPrint('→ Navigating to Projects...','ok');}
-  else if(c==='cv'){window.open('Hamzaoui_Sofiene_CV_Complete.pdf','_blank');ftPrint('Opening CV of Sofiane Hamzaoui...','ok');}
+  else if(c==='cv'){window.open('cv.html','_blank');ftPrint('Opening CV of Sofiane Hamzaoui...','ok');}
   else if(c==='contact'){document.getElementById('contact').scrollIntoView({behavior:'smooth'});ftPrint('→ Navigating to Contact...','ok');}
   else if(c==='github'){window.open('https://github.com/spaypeur','_blank');ftPrint('Opening github.com/spaypeur','ok');}
   else if(c==='vaultguard'){window.open('https://vaultguard.pages.dev','_blank');ftPrint('Opening vaultguard.pages.dev','ok');}
