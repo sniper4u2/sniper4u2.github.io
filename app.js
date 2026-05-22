@@ -5,8 +5,8 @@ const T = {
   en:{
     nav_projects:'Projects', nav_certificates:'Certificates', nav_skills:'Skills', nav_experience:'Experience',
     nav_arsenal:'Arsenal', nav_contact:'Contact', nav_cv:'↓ CV', nav_online:'ONLINE',
-    hero_tag:'// CYBERSECURITY ARCHITECT',
-    hero_desc:'20+ years building offensive security tools, C2 frameworks, and mission-critical infrastructure. Trusted by governments and enterprises across Adarma, IronNet, and Rubica.',
+    hero_tag:'// MULTIDISCIPLINARY SYSTEMS ARCHITECT & SECURITY LEADER',
+    hero_desc:'20+ years bridging cybersecurity, telecom protocol defense (SS7/GTP/Diameter), backend and full-stack engineering, systems architecture, infrastructure automation, cryptography, and operational consulting. Proven across Adarma, IronNet, Rubica, and global enterprise clients — from red team operations to production-grade platform engineering.',
     stat_years:'Years Active', stat_repos:'GitHub Repos', stat_missions:'Major Missions',
     stat_tools:'Security Tools', stat_c2:'C2 Frameworks',
     btn_projects:'View Projects', btn_cv:'Download CV',
@@ -18,22 +18,20 @@ const T = {
     sec_contact:'Get In Touch',
     f_all:'All', f_redteam:'Red Team', f_crypto:'Crypto', f_hw:'Hardware',
     sk_tech:'Tech Stack', sk_tools:'Security Tools', sk_langs:'Languages',
-    contact_desc:'Open for consulting, red team engagements, security architecture, and freelance work. Upwork Top Rated Plus — 100% mission success rate.',
+    contact_desc:'Open for consulting, red team engagements, security architecture, backend engineering, telecom security, and infrastructure projects. Upwork Top Rated Plus — 100% mission success rate.',
     cc_name:'name', cc_phone:'phone', cc_loc:'location', cc_loc_val:'"Tunisia · Remote"',
     cc_status:'status', cc_available:'AVAILABLE',
     footer_built:'Built with terminal aesthetics · 2025', footer_enc:'Encrypted',
     view_details:'View Details ▸', open_repo:'View Repository / Live Demo →',
     feat_hdr:'// KEY FEATURES', tech_hdr:'// TECH STACK',
     links_hdr:'// LINKS', term_hdr:'// TERMINAL OUTPUT', overview_hdr:'// OVERVIEW',
-    typed:['Cybersecurity Architect · 20+ Years','C2 Framework Developer',
-           'SS7/GTP Telecom Security Specialist','OSINT & Intelligence Analyst',
-           'Red Team Operator','Full-Stack Security Engineer'],
+    typed:['Multidisciplinary Systems Architect · 20+ Years','Telecom Security & Protocol Defense (SS7/GTP)','C2 Framework Developer & Red Team Operator','Backend / Full-Stack Engineer','Infrastructure & Cloud Automation','Cryptography · ZKP · Blockchain Security','Operational Consulting & Field Specialist','Multilingual: AR · FR · EN · RU · DE'],
   },
   fr:{
     nav_projects:'Projets', nav_certificates:'Certificats', nav_skills:'Compétences', nav_experience:'Expérience',
     nav_arsenal:'Arsenal', nav_contact:'Contact', nav_cv:'↓ CV', nav_online:'EN LIGNE',
-    hero_tag:'// ARCHITECTE CYBERSÉCURITÉ',
-    hero_desc:'Plus de 20 ans à concevoir des outils de sécurité offensive, des frameworks C2 et des infrastructures critiques. Approuvé par des gouvernements et entreprises chez Adarma, IronNet et Rubica.',
+    hero_tag:'// ARCHITECTE SYSTÈMES MULTIDISCIPLINAIRE & LEADER SÉCURITÉ',
+    hero_desc:'Plus de 20 ans en cybersécurité, défense des protocoles télécoms (SS7/GTP/Diameter), ingénierie backend et full-stack, architecture systèmes, automatisation d\'infrastructure, cryptographie et consulting opérationnel. Prouvé chez Adarma, IronNet, Rubica et clients internationaux.',
     stat_years:'Ans d\'Activité', stat_repos:'Dépôts GitHub', stat_missions:'Missions Majeures',
     stat_tools:'Outils Sécurité', stat_c2:'Frameworks C2',
     btn_projects:'Voir les Projets', btn_cv:'Télécharger CV',
@@ -45,22 +43,20 @@ const T = {
     sec_contact:'Me Contacter',
     f_all:'Tout', f_redteam:'Red Team', f_crypto:'Crypto', f_hw:'Matériel',
     sk_tech:'Stack Technique', sk_tools:'Outils Sécurité', sk_langs:'Langues',
-    contact_desc:'Disponible pour du consulting, des missions red team, de l\'architecture sécurité et du freelance. Top Rated Plus sur Upwork — 100% de succès.',
+    contact_desc:'Disponible pour consulting, missions red team, architecture sécurité, ingénierie backend, sécurité télécom et projets d\'infrastructure. Top Rated Plus sur Upwork — 100% de succès.',
     cc_name:'nom', cc_phone:'téléphone', cc_loc:'localisation', cc_loc_val:'"Tunisie · À distance"',
     cc_status:'statut', cc_available:'DISPONIBLE',
     footer_built:'Conçu avec une esthétique terminal · 2025', footer_enc:'Chiffré',
     view_details:'Voir Détails ▸', open_repo:'Voir Dépôt / Démo →',
     feat_hdr:'// FONCTIONNALITÉS CLÉS', tech_hdr:'// STACK TECHNIQUE',
     links_hdr:'// LIENS', term_hdr:'// SORTIE TERMINAL', overview_hdr:'// APERÇU',
-    typed:['Architecte Cybersécurité · 20+ Ans','Développeur de Frameworks C2',
-           'Spécialiste Télécom SS7/GTP','Analyste OSINT & Renseignement',
-           'Opérateur Red Team','Ingénieur Full-Stack Sécurité'],
+    typed:['Architecte Systèmes Multidisciplinaire · 20+ Ans','Sécurité Télécom & Défense Protocolaire (SS7/GTP)','Développeur C2 & Opérateur Red Team','Ingénieur Backend / Full-Stack','Automatisation Infrastructure & Cloud','Cryptographie · ZKP · Sécurité Blockchain','Consulting Opérationnel & Spécialiste Terrain','Multilingue: AR · FR · EN · RU · DE'],
   },
   ar:{
     nav_projects:'المشاريع', nav_certificates:'الشهادات', nav_skills:'المهارات', nav_experience:'الخبرة',
     nav_arsenal:'الترسانة', nav_contact:'التواصل', nav_cv:'↓ السيرة', nav_online:'متصل',
-    hero_tag:'// مهندس الأمن السيبراني',
-    hero_desc:'أكثر من 20 عامًا في بناء أدوات الأمن الهجومي، أطر C2، والبنية التحتية الحيوية. موثوق به من قِبل الحكومات والشركات الكبرى في Adarma وIronNet وRubica.',
+    hero_tag:'// مهندس أنظمة متعدد التخصصات وقائد أمني',
+    hero_desc:'أكثر من 20 عامًا في الأمن السيبراني، دفاع بروتوكولات الاتصالات (SS7/GTP/Diameter)، هندسة Backend وFull-Stack، هندسة الأنظمة، أتمتة البنية التحتية، التشفير، والاستشارات التشغيلية. مُثبت في Adarma وIronNet وRubica وعملاء دوليين.',
     stat_years:'سنوات خبرة', stat_repos:'مستودعات GitHub', stat_missions:'مهمات كبرى',
     stat_tools:'أدوات أمنية', stat_c2:'أطر C2',
     btn_projects:'عرض المشاريع', btn_cv:'تحميل السيرة الذاتية',
@@ -72,16 +68,14 @@ const T = {
     sec_contact:'تواصل معي',
     f_all:'الكل', f_redteam:'Red Team', f_crypto:'كريبتو', f_hw:'أجهزة',
     sk_tech:'التقنيات', sk_tools:'أدوات الأمن', sk_langs:'اللغات',
-    contact_desc:'متاح للاستشارات، عمليات Red Team، هندسة الأمن والعمل الحر. مرتبة Top Rated Plus على Upwork — نسبة نجاح 100%.',
+    contact_desc:'متاح للاستشارات، عمليات Red Team، هندسة الأمن، هندسة Backend، أمن الاتصالات، ومشاريع البنية التحتية. مرتبة Top Rated Plus على Upwork — نسبة نجاح 100%.',
     cc_name:'الاسم', cc_phone:'الهاتف', cc_loc:'الموقع', cc_loc_val:'"تونس · عن بُعد"',
     cc_status:'الحالة', cc_available:'متاح',
     footer_built:'مصمم بأسلوب الطرفية · 2025', footer_enc:'مشفّر',
     view_details:'عرض التفاصيل ▸', open_repo:'عرض المستودع / العرض التجريبي →',
     feat_hdr:'// الميزات الرئيسية', tech_hdr:'// التقنيات المستخدمة',
     links_hdr:'// الروابط', term_hdr:'// مخرجات الطرفية', overview_hdr:'// نظرة عامة',
-    typed:['مهندس أمن سيبراني · 20+ عام','مطوّر أطر C2',
-           'متخصص اتصالات SS7/GTP','محلل OSINT واستخباراتي',
-           'مشغّل Red Team','مهندس Full-Stack أمني'],
+    typed:['مهندس أنظمة متعدد التخصصات · 20+ عام','أمن الاتصالات ودفاع البروتوكولات (SS7/GTP)','مطوّر أطر C2 ومشغّل Red Team','مهندس Backend / Full-Stack','أتمتة البنية التحتية والسحاب','التشفير · ZKP · أمن البلوكشين','استشارات تشغيلية وخبرة ميدانية','متعدد اللغات: عربي · فرنسي · إنجليزي · روسي · ألماني'],
   }
 };
 
@@ -133,52 +127,64 @@ const PROJECTS=[
 const SKILLS={
   en:[
     {n:'Offensive Security / Red Teaming',p:97},{n:'Penetration Testing (Web/Network/Mobile)',p:96},
-    {n:'C2 Framework Development',p:95},{n:'Python / FastAPI / Node.js',p:95},
-    {n:'Network Architecture & Threat Detection',p:92},{n:'OSINT & Digital Intelligence',p:93},
-    {n:'Telecom Security (SS7/GSM/GTP)',p:90},{n:'iOS / Apple Security Research',p:88},
-    {n:'Cloud Security (AWS/GCP)',p:85},{n:'Malware Analysis & Development',p:85},
-    {n:'AI/LLM Integration & Security',p:82},{n:'Blockchain / Crypto Security (ZKP)',p:80},
+    {n:'C2 Framework Development',p:95},{n:'Backend Engineering (Python/FastAPI/Node.js)',p:95},
+    {n:'Telecom Security (SS7/GSM/GTP/Diameter)',p:93},{n:'OSINT & Digital Intelligence',p:93},
+    {n:'Systems Architecture & Infrastructure',p:92},{n:'Network Architecture & Threat Detection',p:92},
+    {n:'Full-Stack Development (React/TypeScript)',p:90},{n:'Cloud Security & Automation (AWS/GCP)',p:88},
+    {n:'Cryptography & Blockchain Security (ZKP)',p:85},{n:'AI/LLM Integration & Security',p:85},
+    {n:'Malware Analysis & Reverse Engineering',p:84},{n:'DevOps / CI-CD / Containerization',p:82},
   ],
   fr:[
     {n:'Sécurité Offensive / Red Team',p:97},{n:'Tests d\'Intrusion (Web/Réseau/Mobile)',p:96},
-    {n:'Développement de Frameworks C2',p:95},{n:'Python / FastAPI / Node.js',p:95},
-    {n:'Architecture Réseau & Détection',p:92},{n:'OSINT & Intelligence Numérique',p:93},
-    {n:'Sécurité Télécom (SS7/GSM/GTP)',p:90},{n:'Sécurité iOS / Recherche Apple',p:88},
-    {n:'Sécurité Cloud (AWS/GCP)',p:85},{n:'Analyse & Dév. de Malware',p:85},
-    {n:'Sécurité IA/LLM',p:82},{n:'Sécurité Blockchain/Crypto (ZKP)',p:80},
+    {n:'Développement de Frameworks C2',p:95},{n:'Ingénierie Backend (Python/FastAPI/Node.js)',p:95},
+    {n:'Sécurité Télécom (SS7/GSM/GTP/Diameter)',p:93},{n:'OSINT & Intelligence Numérique',p:93},
+    {n:'Architecture Systèmes & Infrastructure',p:92},{n:'Architecture Réseau & Détection',p:92},
+    {n:'Développement Full-Stack (React/TypeScript)',p:90},{n:'Sécurité Cloud & Automatisation (AWS/GCP)',p:88},
+    {n:'Cryptographie & Sécurité Blockchain (ZKP)',p:85},{n:'Sécurité IA/LLM',p:85},
+    {n:'Analyse Malware & Rétro-ingénierie',p:84},{n:'DevOps / CI-CD / Conteneurisation',p:82},
   ],
   ar:[
     {n:'الأمن الهجومي / Red Team',p:97},{n:'اختبار الاختراق (ويب/شبكات/موبايل)',p:96},
-    {n:'تطوير أطر C2',p:95},{n:'Python / FastAPI / Node.js',p:95},
-    {n:'هندسة الشبكات واكتشاف التهديدات',p:92},{n:'OSINT والاستخبارات الرقمية',p:93},
-    {n:'أمن الاتصالات (SS7/GSM/GTP)',p:90},{n:'أبحاث أمن iOS / Apple',p:88},
-    {n:'أمن السحاب (AWS/GCP)',p:85},{n:'تحليل وتطوير البرمجيات الخبيثة',p:85},
-    {n:'أمن الذكاء الاصطناعي / LLM',p:82},{n:'أمن البلوكشين / الكريبتو (ZKP)',p:80},
+    {n:'تطوير أطر C2',p:95},{n:'هندسة Backend (Python/FastAPI/Node.js)',p:95},
+    {n:'أمن الاتصالات (SS7/GSM/GTP/Diameter)',p:93},{n:'OSINT والاستخبارات الرقمية',p:93},
+    {n:'هندسة الأنظمة والبنية التحتية',p:92},{n:'هندسة الشبكات واكتشاف التهديدات',p:92},
+    {n:'تطوير Full-Stack (React/TypeScript)',p:90},{n:'أمن السحاب والأتمتة (AWS/GCP)',p:88},
+    {n:'التشفير وأمن البلوكشين (ZKP)',p:85},{n:'أمن الذكاء الاصطناعي / LLM',p:85},
+    {n:'تحليل البرمجيات الخبيثة والهندسة العكسية',p:84},{n:'DevOps / CI-CD / الحاويات',p:82},
   ]
 };
 
-const TECH=['Python','FastAPI','Node.js','TypeScript','React','Go','Bash','C/C#','Docker','Kubernetes','Redis','PostgreSQL','WebSocket','JWT','AES-256','ZKP','PGP','ELK Stack','Prometheus','Grafana'];
-const TOOLS=['Metasploit','Burp Suite','Wireshark','Nmap','Nessus','SQLmap','Hydra','Maltego','Amass','John the Ripper','Shodan','Frida','Ghidra','CyberChef','Volatility','mimikatz'];
-const LANGS=['🇦🇪 Arabic (Native)','🇬🇧 English (Fluent)','🇫🇷 French (Fluent)','🇷🇺 Russian (Good)','🇩🇪 German (Good)'];
+const TECH=['Python','FastAPI','Node.js','TypeScript','React','Go','Bash','C/C#','Docker','Kubernetes','Redis','PostgreSQL','WebSocket','JWT','AES-256','ZKP','PGP','ELK Stack','Prometheus','Grafana','Supabase','Cloudflare Workers','Celery','Terraform','Ansible'];
+const TOOLS=['Metasploit','Burp Suite','Wireshark','Nmap','Nessus','SQLmap','Hydra','Maltego','Amass','John the Ripper','Shodan','Frida','Ghidra','CyberChef','Volatility','mimikatz','Suricata','OWASP ZAP'];
+const LANGS=['🇹🇳 Arabic (Native)','🇬🇧 English (Fluent · IELTS B2)','🇫🇷 French (Fluent)','🇷🇺 Russian (Good · Studied in Russia)','🇩🇪 German (Good)'];
 
 const EXPERIENCE={
   en:[
-    {date:'Oct 2024\n– Dec 2025',title:'Cybersecurity Architect / Threat Detection Consultant',co:'Adarma (Remote) — Banking & Enterprise',items:['Designed Threat Intelligence solutions for global banks and tier-1 enterprises','Built event correlation & behavioral analysis modules in Python/Go integrated with SIEM/SOC','Reduced false positives by 40% through advanced algorithmic filtering','Executed penetration tests and resilience assessments for cloud and on-premise infrastructures']},
-    {date:'Dec 2020\n– Sep 2024',title:'Cybersecurity Architect / Network Consultant',co:'IronNet (Remote) — Network Architecture',items:['Architected secure network infrastructures for Cybera, NetFortis, ShieldWave','Secured cloud environments with advanced encryption and MFA systems','Built monitoring dashboards reducing active security incidents by 30–35%','Managed secure data migration during organizational restructuring']},
-    {date:'Feb 2018\n– Dec 2020',title:'Cybersecurity Architect / Security Consultant',co:'Rubica — SMB & Enterprise Security',items:['Deployed network segmentation, endpoint protection, and AWS/GCP cloud security','Built IDS with Python, ELK, Suricata and automated incident response','Secured APIs with AES-256, JWT, MFA and Zero-Trust policies','Implemented Prometheus/Grafana monitoring — 40% incident reduction']},
-    {date:'Apr 2017\n– Present',title:'Freelance Cybersecurity & Full-Stack Consultant',co:'Upwork — Top Rated Plus ⭐',items:['Security audits, penetration tests, and hardened backend solutions for global clients','Built secure scalable dashboards and internal tools (Python, Node.js, React)','100% mission success rate across all engagements','Clients in banking, fintech, healthcare, and e-commerce sectors']},
+    {date:'Oct 2024\n– May 2025',title:'Cybersecurity Architect / Threat Detection Consultant',co:'Adarma (Remote) — Banking & Enterprise',items:['Designed Threat Intelligence solutions for global Tier-1 banks and enterprises','Built event correlation & behavioral analysis modules in Python/Go integrated with SIEM/SOC','Reduced false positives by 40% through advanced algorithmic filtering','Architected Zero-Trust network segmentation for regulated financial environments']},
+    {date:'Dec 2020\n– Sep 2024',title:'Cybersecurity Architect / Network Security Consultant',co:'IronNet (Remote) — Network Architecture & Threat Detection',items:['Architected secure network infrastructures for Cybera, NetFortis, ShieldWave — 30–35% incident reduction','Secured multi-tenant cloud environments with AES-256, MFA, and automated incident response','Built real-time Prometheus/Grafana monitoring dashboards with automated SOC alerting','Led secure data migration during enterprise restructuring with zero data-loss']},
+    {date:'Feb 2018\n– Dec 2020',title:'Cybersecurity Architect / Security Consultant',co:'Rubica — SMB & Enterprise Security',items:['Deployed network segmentation, endpoint protection, and AWS/GCP cloud hardening for 20+ clients','Built custom IDS using Python, ELK Stack, and Suricata — reduced MTTD by 60%','Secured REST APIs with AES-256, JWT, MFA, and Zero-Trust policies','Implemented Prometheus/Grafana monitoring — 40% incident reduction across managed portfolio']},
+    {date:'Apr 2017\n– Present',title:'Freelance Cybersecurity & Full-Stack Consultant',co:'Upwork — Top Rated Plus ⭐ | Global Clients',items:['100% mission success rate across security audits, penetration tests, and backend engineering','Built production security tools, hardened API backends, and internal dashboards','Clients in banking, fintech, healthcare, e-commerce across North America, Europe, and Middle East','Technologies: Python, FastAPI, Node.js, React, Docker, PostgreSQL, Redis']},
+    {date:'Summers\n2008 – 2011',title:'Hotel Animator / Entertainment Coordinator',co:'International Hotels — Tunisia & Turkey',items:['Caribbean World Monastir, Thalasso Monastir, Ksar Kervansaray (Tunisia) + 5-star hotel in Bodrum, Turkey','~3 years seasonal work: event coordination, guest relations, entertainment programming','Multilingual daily operations in Arabic, French, English, Russian, and German','Strengthened public interaction, teamwork, adaptability, and cross-cultural communication skills']},
+    {date:'2005 – 2010',title:'Professional Heavy Vehicle Operator (Category C+E)',co:'Commercial Transport — Tunisia',items:['5 years operating heavy commercial vehicles with trailers (Cat. C+E license)','Developed discipline, logistics awareness, and operational resilience under pressure','Valid Class C+E heavy vehicle driving license — Vocational Training Diploma (2010)']},
+    {date:'Ongoing',title:'Independent Archaeological Field Practitioner',co:'Historical Sites — Tunisia & Mediterranean',items:['Independent field exploration of archaeological sites across Tunisia and North Africa','Hands-on engagement with cultural heritage, historical analysis, and site documentation','Developed systematic observation, analytical thinking, and field research methodology','Focus areas: Roman, Punic, and Islamic-era archaeological landscapes']},
   ],
   fr:[
-    {date:'Oct 2024\n– Déc 2025',title:'Architecte Cybersécurité / Consultant Détection des Menaces',co:'Adarma (Remote) — Banques & Entreprises',items:['Conception de solutions d\'intelligence des menaces pour banques mondiales','Modules de corrélation d\'événements et d\'analyse comportementale Python/Go','Réduction des faux positifs de 40% via filtrage algorithmique avancé','Tests d\'intrusion et évaluations de résilience pour infrastructures cloud et on-premise']},
-    {date:'Déc 2020\n– Sep 2024',title:'Architecte Cybersécurité / Consultant Réseau',co:'IronNet (Remote) — Architecture Réseau',items:['Infrastructures réseau sécurisées pour Cybera, NetFortis, ShieldWave','Sécurisation des environnements cloud avec chiffrement avancé et MFA','Tableaux de bord de surveillance réduisant les incidents de 30–35%','Migration sécurisée des données lors de restructurations organisationnelles']},
-    {date:'Fév 2018\n– Déc 2020',title:'Architecte Cybersécurité / Consultant Sécurité',co:'Rubica — PME & Grandes Entreprises',items:['Déploiement de segmentation réseau, protection des terminaux et sécurité cloud','Outils IDS avec Python, ELK, Suricata et réponse automatisée aux incidents','Sécurisation APIs avec AES-256, JWT, MFA et politiques Zero-Trust','Monitoring Prometheus/Grafana — réduction de 40% des incidents']},
-    {date:'Avr 2017\n– Présent',title:'Consultant Freelance Cybersécurité & Full-Stack',co:'Upwork — Top Rated Plus ⭐',items:['Audits de sécurité, tests d\'intrusion et solutions backend renforcées','Tableaux de bord sécurisés et outils internes (Python, Node.js, React)','100% de taux de succès sur toutes les missions','Clients dans la banque, fintech, santé et e-commerce']},
+    {date:'Oct 2024\n– Mai 2025',title:'Architecte Cybersécurité / Consultant Détection des Menaces',co:'Adarma (Remote) — Banques & Entreprises',items:['Conception de solutions d\'intelligence des menaces pour banques mondiales Tier-1','Modules de corrélation d\'événements et d\'analyse comportementale Python/Go intégrés SIEM/SOC','Réduction des faux positifs de 40% via filtrage algorithmique avancé','Architecture Zero-Trust pour environnements financiers réglementés']},
+    {date:'Déc 2020\n– Sep 2024',title:'Architecte Cybersécurité / Consultant Réseau',co:'IronNet (Remote) — Architecture Réseau',items:['Infrastructures réseau sécurisées pour Cybera, NetFortis, ShieldWave — réduction de 30–35% des incidents','Sécurisation des environnements cloud multi-tenant avec AES-256 et MFA','Tableaux de bord Prometheus/Grafana avec alertes SOC automatisées','Migration sécurisée des données avec zéro perte lors de restructurations']},
+    {date:'Fév 2018\n– Déc 2020',title:'Architecte Cybersécurité / Consultant Sécurité',co:'Rubica — PME & Grandes Entreprises',items:['Déploiement de segmentation réseau et sécurité cloud pour 20+ clients','IDS personnalisé avec Python, ELK, Suricata — réduction MTTD de 60%','Sécurisation APIs avec AES-256, JWT, MFA et politiques Zero-Trust','Monitoring Prometheus/Grafana — réduction de 40% des incidents']},
+    {date:'Avr 2017\n– Présent',title:'Consultant Freelance Cybersécurité & Full-Stack',co:'Upwork — Top Rated Plus ⭐ | Clients Internationaux',items:['100% de taux de succès sur audits de sécurité, tests d\'intrusion et ingénierie backend','Outils de sécurité en production, APIs renforcées et tableaux de bord internes','Clients dans la banque, fintech, santé, e-commerce en Amérique du Nord, Europe et Moyen-Orient','Technologies: Python, FastAPI, Node.js, React, Docker, PostgreSQL, Redis']},
+    {date:'Étés\n2008 – 2011',title:'Animateur Hôtelier / Coordinateur de Divertissement',co:'Hôtels Internationaux — Tunisie & Turquie',items:['Caribbean World Monastir, Thalasso Monastir, Ksar Kervansaray (Tunisie) + hôtel 5 étoiles à Bodrum, Turquie','~3 ans de travail saisonnier: coordination d\'événements, relations clients, programmation','Opérations quotidiennes multilingues en arabe, français, anglais, russe et allemand','Compétences renforcées: interaction publique, travail d\'équipe, adaptabilité interculturelle']},
+    {date:'2005 – 2010',title:'Conducteur Professionnel Poids Lourds (Catégorie C+E)',co:'Transport Commercial — Tunisie',items:['5 ans de conduite de véhicules lourds avec remorques (permis Cat. C+E)','Discipline, logistique et résilience opérationnelle sous pression','Permis C+E valide — Diplôme de Formation Professionnelle (2010)']},
+    {date:'En cours',title:'Praticien Indépendant en Archéologie de Terrain',co:'Sites Historiques — Tunisie & Méditerranée',items:['Exploration indépendante de sites archéologiques en Tunisie et Afrique du Nord','Engagement pratique avec le patrimoine culturel, l\'analyse historique et la documentation','Développement de méthodes d\'observation systématique et de recherche de terrain','Domaines: paysages archéologiques romains, puniques et de l\'ère islamique']},
   ],
   ar:[
-    {date:'أكت 2024\n– ديس 2025',title:'مهندس أمن سيبراني / مستشار اكتشاف التهديدات',co:'Adarma (عن بُعد) — البنوك والمؤسسات',items:['تصميم حلول استخبارات التهديدات للبنوك العالمية','بناء وحدات تحليل سلوكي وربط الأحداث بلغة Python/Go','تقليل الإيجابيات الكاذبة بنسبة 40% عبر تصفية خوارزمية متقدمة','اختبارات اختراق وتقييمات مرونة للبنية التحتية السحابية والمحلية']},
-    {date:'ديس 2020\n– سبت 2024',title:'مهندس أمن سيبراني / مستشار شبكات',co:'IronNet (عن بُعد) — هندسة الشبكات',items:['تصميم بنى تحتية شبكية آمنة لـ Cybera وNetFortis وShieldWave','تأمين البيئات السحابية بالتشفير المتقدم والمصادقة متعددة العوامل','لوحات مراقبة أمنية قللت الحوادث بنسبة 30–35%','ترحيل آمن للبيانات خلال إعادة الهيكلة التنظيمية']},
-    {date:'فبر 2018\n– ديس 2020',title:'مهندس أمن سيبراني / مستشار أمني',co:'Rubica — الشركات الصغيرة والكبيرة',items:['نشر تجزئة الشبكات وحماية النقاط الطرفية وأمن السحاب','بناء IDS بلغة Python وELK وSuricata مع استجابة تلقائية للحوادث','تأمين APIs بـ AES-256 وJWT وMFA وسياسات Zero-Trust','مراقبة Prometheus/Grafana — تقليل الحوادث بنسبة 40%']},
-    {date:'أبر 2017\n– الحاضر',title:'مستشار مستقل في الأمن السيبراني وتطوير البرمجيات',co:'Upwork — Top Rated Plus ⭐',items:['تدقيقات أمنية واختبارات اختراق وحلول خادم محصّنة للعملاء العالميين','بناء لوحات تحكم آمنة وأدوات داخلية (Python وNode.js وReact)','نسبة نجاح 100% في جميع المهمات','عملاء في البنوك والتكنولوجيا المالية والرعاية الصحية والتجارة الإلكترونية']},
+    {date:'أكت 2024\n– مايو 2025',title:'مهندس أمن سيبراني / مستشار اكتشاف التهديدات',co:'Adarma (عن بُعد) — البنوك والمؤسسات',items:['تصميم حلول استخبارات التهديدات للبنوك العالمية من المستوى الأول','بناء وحدات تحليل سلوكي وربط الأحداث بلغة Python/Go مدمجة مع SIEM/SOC','تقليل الإيجابيات الكاذبة بنسبة 40% عبر تصفية خوارزمية متقدمة','هندسة تجزئة شبكات Zero-Trust للبيئات المالية المنظمة']},
+    {date:'ديس 2020\n– سبت 2024',title:'مهندس أمن سيبراني / مستشار شبكات',co:'IronNet (عن بُعد) — هندسة الشبكات',items:['تصميم بنى تحتية شبكية آمنة لـ Cybera وNetFortis وShieldWave — تقليل الحوادث 30–35%','تأمين البيئات السحابية متعددة المستأجرين بـ AES-256 والمصادقة متعددة العوامل','لوحات مراقبة Prometheus/Grafana مع تنبيهات SOC تلقائية','ترحيل آمن للبيانات بدون خسارة خلال إعادة الهيكلة']},
+    {date:'فبر 2018\n– ديس 2020',title:'مهندس أمن سيبراني / مستشار أمني',co:'Rubica — الشركات الصغيرة والكبيرة',items:['نشر تجزئة الشبكات وحماية النقاط الطرفية وتعزيز السحاب لأكثر من 20 عميل','بناء IDS مخصص بـ Python وELK وSuricata — تقليل MTTD بنسبة 60%','تأمين APIs بـ AES-256 وJWT وMFA وسياسات Zero-Trust','مراقبة Prometheus/Grafana — تقليل الحوادث بنسبة 40%']},
+    {date:'أبر 2017\n– الحاضر',title:'مستشار مستقل في الأمن السيبراني وتطوير البرمجيات',co:'Upwork — Top Rated Plus ⭐ | عملاء دوليون',items:['نسبة نجاح 100% في تدقيقات أمنية واختبارات اختراق وهندسة backend','بناء أدوات أمنية إنتاجية وAPIs محصنة ولوحات تحكم داخلية','عملاء في البنوك والتكنولوجيا المالية والرعاية الصحية والتجارة الإلكترونية','التقنيات: Python, FastAPI, Node.js, React, Docker, PostgreSQL, Redis']},
+    {date:'صيف\n2008 – 2011',title:'منشط فندقي / منسق ترفيه',co:'فنادق دولية — تونس وتركيا',items:['Caribbean World المنستير، Thalasso المنستير، قصر كارافانسراي (تونس) + فندق 5 نجوم في بودروم، تركيا','~3 سنوات عمل موسمي: تنسيق الفعاليات، علاقات الضيوف، البرمجة الترفيهية','عمليات يومية متعددة اللغات بالعربية والفرنسية والإنجليزية والروسية والألمانية','تعزيز مهارات التفاعل العام والعمل الجماعي والتكيف والتواصل بين الثقافات']},
+    {date:'2005 – 2010',title:'سائق مركبات ثقيلة محترف (فئة C+E)',co:'النقل التجاري — تونس',items:['5 سنوات في تشغيل المركبات التجارية الثقيلة مع المقطورات (رخصة C+E)','تطوير الانضباط والوعي اللوجستي والمرونة التشغيلية تحت الضغط','رخصة C+E سارية — دبلوم تدريب مهني (2010)']},
+    {date:'مستمر',title:'ممارس مستقل في الآثار الميدانية',co:'مواقع تاريخية — تونس والبحر المتوسط',items:['استكشاف ميداني مستقل للمواقع الأثرية في تونس وشمال أفريقيا','مشاركة عملية مع التراث الثقافي والتحليل التاريخي والتوثيق','تطوير منهجيات المراقبة المنهجية والتفكير التحليلي والبحث الميداني','مجالات التركيز: المناظر الأثرية الرومانية والبونيقية والإسلامية']},
   ]
 };
 
@@ -265,7 +271,8 @@ function bindLang(){
 
 /* ========= HERO TERMINAL ========= */
 const HT=[
-  {t:'prompt',tx:'whoami'},{t:'ok',tx:'Sofiene Hamzaoui · Cybersecurity Architect · 20+ Years'},
+  {t:'prompt',tx:'whoami'},{t:'ok',tx:'Sofiene Hamzaoui · Systems Architect & Security Leader · 20+ Years'},
+  {t:'prompt',tx:'cat domains.txt'},{t:'out',tx:'Cybersecurity · Telecom · Backend · Infrastructure · Cryptography'},
   {t:'prompt',tx:'cat missions.txt'},{t:'out',tx:'Adarma · IronNet · Rubica · Upwork Top Rated+'},
   {t:'prompt',tx:'ls projects/'},{t:'ok',tx:'c2server/ vaultguard/ ios-bypass/ phalanx-x/'},
   {t:'ok',tx:'uk-insolvency/ cloudflare-disc/ [6 projects]'},
@@ -449,7 +456,7 @@ function bindTerminal(){
 }
 function runCmd(c){
   if(c==='help'||c==='?') ftPrint('whoami · ls · skills · projects · cv · github · vaultguard · contact · neofetch · clear','out');
-  else if(c==='whoami') ftPrint('Sofiene Hamzaoui — Cybersecurity Architect · 20+ Years','ok');
+  else if(c==='whoami') ftPrint('Sofiene Hamzaoui — Systems Architect & Security Leader · 20+ Years','ok');
   else if(c==='ls'||c==='ls -la') PROJECTS.forEach(p=>ftPrint(`-rwxr-xr-x  ${p.id}/  [${p.status.toUpperCase()}]`,'out'));
   else if(c==='skills'){document.getElementById('skills').scrollIntoView({behavior:'smooth'});ftPrint('→ Navigating to Skills...','ok');}
   else if(c==='projects'){document.getElementById('projects').scrollIntoView({behavior:'smooth'});ftPrint('→ Navigating to Projects...','ok');}
@@ -488,43 +495,56 @@ function skillsIO(){
 
 /* ========= CERTIFICATES ========= */
 const CERTS=[
-  {name:'Foundational C# with Microsoft',path:'CERTS/Foundational C# with MICROSOFT CERT.png'},
-  {name:'Frontend Dev Library V8',path:'CERTS/FrontendDevLibrary V8 CERT.png'},
-  {name:'Fundamentals Of LLMs',path:'CERTS/Fundumentals Of LLM\'s.png'},
-  {name:'HuggingFace Agent Course',path:'CERTS/HuggingFace AGENT COURSE CERT.png'},
-  {name:'Legacy Frontend Dev',path:'CERTS/Legacy Frontend dev CERT.png'},
-  {name:'Scientific Computing with Python',path:'CERTS/ScientificComputingWith PYTHON CERT.png'},
-  {name:'Web Design V8',path:'CERTS/WebDesign V8 CERT.png'},
-  {name:'Fundamentals of LLM Courses',path:'CERTS/fundamental of the llm courses CERT.png'},
-  {name:'Security Certification 2023',path:'CERTS/To Text 01-12-2023 04.51.jpg'},
-  {name:'Achievement Badge 1',path:'CERTS/1656392131272.png'},
-  {name:'Achievement Badge 2',path:'CERTS/1656392266799.png'},
-  {name:'Achievement Badge 3',path:'CERTS/1656392289426.png'},
+  // === CYBERSECURITY & IBM SKILLSBUILD ===
+  {name:'IBM — Incident Response & Systems Forensics',path:'CERTS/IBMDesign20260517-31-56ttdj.pdf',cat:'security'},
+  {name:'IBM — Security Operations & Management',path:'CERTS/IBMDesign20260517-31-ri1ujw.pdf',cat:'security'},
+  {name:'IBM — Vulnerability Management',path:'CERTS/IBMDesign20260517-31-zakfhg.pdf',cat:'security'},
+  {name:'IBM — System & Network Security',path:'CERTS/IBMDesign20260517-32-95dzak.pdf',cat:'security'},
+  {name:'IBM — Cloud Security',path:'CERTS/IBMDesign20260517-31-yrpb2o.pdf',cat:'security'},
+  {name:'IBM — GRC & Data Privacy',path:'CERTS/IBMDesign20260517-32-q3zrgg.pdf',cat:'security'},
+  {name:'IBM — Cybersecurity Fluency Pathway (6 Microcredentials)',path:'CERTS/Completion Certificate _ SkillsBuild.pdf',cat:'security'},
+  {name:'IBM — Getting Started with Cybersecurity',path:'CERTS/IBMDesign20260517-31-bop0jt.pdf',cat:'security'},
+  // === AI & MACHINE LEARNING ===
+  {name:'HuggingFace — AI Agents Course',path:'CERTS/HuggingFace AGENT COURSE CERT.png',cat:'ai'},
+  {name:'HuggingFace / DeepLearning.AI — Fundamentals of LLMs',path:'CERTS/Fundumentals Of LLM\'s.png',cat:'ai'},
+  // === SOFTWARE ENGINEERING ===
+  {name:'Microsoft / freeCodeCamp — Foundational C#',path:'CERTS/Foundational C# with MICROSOFT CERT.png',cat:'engineering'},
+  {name:'freeCodeCamp — Scientific Computing with Python',path:'CERTS/ScientificComputingWith PYTHON CERT.png',cat:'engineering'},
+  {name:'freeCodeCamp — Frontend Dev Libraries V8',path:'CERTS/FrontendDevLibrary V8 CERT.png',cat:'engineering'},
+  {name:'freeCodeCamp — Web Design Certification V8',path:'CERTS/WebDesign V8 CERT.png',cat:'engineering'},
+  {name:'freeCodeCamp — Legacy Frontend Development',path:'CERTS/Legacy Frontend dev CERT.png',cat:'engineering'},
+  // === LANGUAGE & PROFESSIONAL ===
+  {name:'IELTS General Training — Band 5.5 / CEFR B2 (British Council)',path:'CERTS/20230322_002937.jpg',cat:'language'},
+  // === AVIATION & TRANSPORT ===
+  {name:'CMFC — Flight Dispatcher Diploma (Civil Aviation)',path:'CERTS/20230322_002732.jpg',cat:'aviation'},
+  {name:'Vocational Training — Heavy Vehicle C+E License',path:'CERTS/20230322_002637.jpg',cat:'transport'},
+  // === EDUCATION ===
+  {name:'Baccalaureate Diploma — Arts (Tunisia)',path:'CERTS/To Text 01-12-2023 04.51.jpg',cat:'education'},
+  {name:'University of Ryazan — Pharmaceutical Studies (Russia)',path:'CERTS/1656392266799.png',cat:'education'},
+  {name:'Academy of Pharmacy Perm — 3rd Year Studies (Russia)',path:'CERTS/1656392289426.png',cat:'education'},
 ];
 
 function renderCertificates(){
   const gallery=document.getElementById('cert-gallery');
   if(!gallery) return;
-  gallery.innerHTML=CERTS.map(cert=>`
+  const catIcons={security:'🔐',ai:'🤖',engineering:'💻',language:'🌍',aviation:'✈️',transport:'🚛',education:'🎓'};
+  const catColors={security:'var(--green)',ai:'var(--purple)',engineering:'var(--blue)',language:'var(--amber)',aviation:'var(--blue)',transport:'var(--amber)',education:'var(--dim)'};
+  gallery.innerHTML=CERTS.map(cert=>{
+    const isPdf=cert.path.endsWith('.pdf');
+    const icon=catIcons[cert.cat]||'📜';
+    const color=catColors[cert.cat]||'var(--green)';
+    const imgHtml=isPdf
+      ?`<div class="cert-pdf-placeholder" style="display:flex;align-items:center;justify-content:center;min-height:200px;background:var(--bg3);font-size:4rem;">${icon}</div>`
+      :`<img src="${cert.path}" alt="${cert.name}" class="cert-img" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'cert-pdf-placeholder\\' style=\\'display:flex;align-items:center;justify-content:center;min-height:200px;background:var(--bg3);font-size:4rem;\\'>${icon}</div>'">`;
+    return `
     <div class="cert-card reveal" data-cert="${cert.name}" data-cert-name="${cert.name.replace(/"/g, '&quot;')}" data-cert-path="${cert.path.replace(/"/g, '&quot;')}" style="cursor:pointer;">
-      <div class="cert-img-wrap">
-        <img src="${cert.path}" alt="${cert.name}" class="cert-img" loading="lazy" onerror="this.style.display='none'">
-      </div>
+      <div class="cert-img-wrap">${imgHtml}</div>
       <div class="cert-label">
         <span class="cert-name">${cert.name}</span>
-        <span class="cert-icon">📜</span>
+        <span class="cert-icon" style="color:${color}">${icon}</span>
       </div>
-    </div>
-  `).join('');
-  // Add event listeners to cert cards
-  document.querySelectorAll('.cert-card').forEach(card=>{
-    card.addEventListener('click',()=>{
-      const name=card.dataset.certName;
-      const path=card.dataset.certPath;
-      viewCertificate(name,path);
-    });
-  });
-  // Add event listeners to cert cards
+    </div>`;
+  }).join('');
   document.querySelectorAll('.cert-card').forEach(card=>{
     card.addEventListener('click',()=>{
       const name=card.dataset.certName;
