@@ -496,14 +496,14 @@ function skillsIO(){
 /* ========= CERTIFICATES ========= */
 const CERTS=[
   // === CYBERSECURITY & IBM SKILLSBUILD ===
-  {name:'IBM — Incident Response & Systems Forensics',path:'CERTS/IBMDesign20260517-31-56ttdj.pdf',cat:'security'},
-  {name:'IBM — Security Operations & Management',path:'CERTS/IBMDesign20260517-31-ri1ujw.pdf',cat:'security'},
-  {name:'IBM — Vulnerability Management',path:'CERTS/IBMDesign20260517-31-zakfhg.pdf',cat:'security'},
-  {name:'IBM — System & Network Security',path:'CERTS/IBMDesign20260517-32-95dzak.pdf',cat:'security'},
-  {name:'IBM — Cloud Security',path:'CERTS/IBMDesign20260517-31-yrpb2o.pdf',cat:'security'},
-  {name:'IBM — GRC & Data Privacy',path:'CERTS/IBMDesign20260517-32-q3zrgg.pdf',cat:'security'},
-  {name:'IBM — Cybersecurity Fluency Pathway (6 Microcredentials)',path:'CERTS/Completion Certificate _ SkillsBuild.pdf',cat:'security'},
-  {name:'IBM — Getting Started with Cybersecurity',path:'CERTS/IBMDesign20260517-31-bop0jt.pdf',cat:'security'},
+  {name:'IBM — Incident Response & Systems Forensics',path:'CERTS/Incedent response and sys forensics.png',cat:'security'},
+  {name:'IBM — Security Operations & Management',path:'CERTS/Cybersecurity operation and manager.png',cat:'security'},
+  {name:'IBM — Vulnerability Management',path:'CERTS/vuln management.png',cat:'security'},
+  {name:'IBM — System & Network Security',path:'CERTS/system and network security.png',cat:'security'},
+  {name:'IBM — Cloud Security',path:'CERTS/Cloud security.png',cat:'security'},
+  {name:'IBM — GRC & Data Privacy',path:'CERTS/governance, risk, compliance, and data privacy.png',cat:'security'},
+  {name:'IBM — Cybersecurity Fluency Pathway (6 Microcredentials)',path:'CERTS/Completion Certificate _ SkillsBuild-1.png',cat:'security'},
+  {name:'IBM — Getting Started with Cybersecurity',path:'CERTS/Getting started with cybersec.png',cat:'security'},
   // === AI & MACHINE LEARNING ===
   {name:'HuggingFace — AI Agents Course',path:'CERTS/HuggingFace AGENT COURSE CERT.png',cat:'ai'},
   {name:'HuggingFace / DeepLearning.AI — Fundamentals of LLMs',path:'CERTS/Fundumentals Of LLM\'s.png',cat:'ai'},
@@ -514,13 +514,15 @@ const CERTS=[
   {name:'freeCodeCamp — Web Design Certification V8',path:'CERTS/WebDesign V8 CERT.png',cat:'engineering'},
   {name:'freeCodeCamp — Legacy Frontend Development',path:'CERTS/Legacy Frontend dev CERT.png',cat:'engineering'},
   // === LANGUAGE & PROFESSIONAL ===
-  {name:'IELTS General Training — Band 5.5 / CEFR B2 (British Council)',path:'CERTS/20230322_002937.jpg',cat:'language'},
+  {name:'IELTS General Training — Band 5.5 / CEFR B2 (British Council)',path:'CERTS/IELTS B2.jpg',cat:'language'},
   // === AVIATION & TRANSPORT ===
-  {name:'CMFC — Flight Dispatcher Diploma (Civil Aviation)',path:'CERTS/20230322_002732.jpg',cat:'aviation'},
-  {name:'Vocational Training — Heavy Vehicle C+E License',path:'CERTS/20230322_002637.jpg',cat:'transport'},
+  {name:'CMFC — Personnel Navigant Commercial (Civil Aviation)',path:'CERTS/personnel navigation commercial.png',cat:'aviation'},
+  {name:'CMFC — Civil Aviation Agent Diploma',path:'CERTS/civil aviation agent.jpg',cat:'aviation'},
+  {name:'Vocational Training — Heavy Vehicle C+E License',path:'CERTS/driving vehicules with trailers C+E diplome.jpg',cat:'transport'},
+  {name:'Vocational Training — Driving Vehicles with Trailers',path:'CERTS/driving vihecules with trailers diplome.jpg',cat:'transport'},
   // === EDUCATION ===
-  {name:'Baccalaureate Diploma — Arts (Tunisia)',path:'CERTS/To Text 01-12-2023 04.51.jpg',cat:'education'},
-  {name:'University of Ryazan — Pharmaceutical Studies (Russia)',path:'CERTS/1656392266799.png',cat:'education'},
+  {name:'Baccalaureate Diploma — Arts (Tunisia)',path:'CERTS/high school gradutation diplome.jpg',cat:'education'},
+  {name:'University of Ryazan — Pharmaceutical Studies (Russia)',path:'CERTS/1st year pharmacology.png',cat:'education'},
   {name:'Academy of Pharmacy Perm — 3rd Year Studies (Russia)',path:'CERTS/1656392289426.png',cat:'education'},
 ];
 
