@@ -220,7 +220,7 @@ const CONTACTS=[
   {icon:'⬡',label:'GitHub (Red Team)',val:'github.com/sniper4u2',href:'https://github.com/sniper4u2'},
   {icon:'🌐',label:'VaultGuard',val:'vaultguard.eu.org',href:'https://vaultguard.eu.org'},
   {icon:'📧',label:'Email',val:'admin@vaultguard.eu.org',href:'mailto:admin@vaultguard.eu.org'},
-  {icon:'📄',label:'CV / Resume',val:'spaypeur.github.io/cv.html',href:'cv.html'},
+  {icon:'📄',label:'CV / Resume',val:'spaypeur.github.io/CERTS/Hamzaoui_Sofiene_CV_Complete.pdf',href:'CERTS/Hamzaoui_Sofiene_CV_Complete.pdf'},
 ];
 
 const TERM_HISTORY=[];let histIdx=-1;
@@ -460,7 +460,7 @@ function runCmd(c){
   else if(c==='ls'||c==='ls -la') PROJECTS.forEach(p=>ftPrint(`-rwxr-xr-x  ${p.id}/  [${p.status.toUpperCase()}]`,'out'));
   else if(c==='skills'){document.getElementById('skills').scrollIntoView({behavior:'smooth'});ftPrint('→ Navigating to Skills...','ok');}
   else if(c==='projects'){document.getElementById('projects').scrollIntoView({behavior:'smooth'});ftPrint('→ Navigating to Projects...','ok');}
-  else if(c==='cv'){window.open('cv.html','_blank');ftPrint('Opening CV of Sofiene Hamzaoui...','ok');}
+  else if(c==='cv'){window.open('CERTS/Hamzaoui_Sofiene_CV_Complete.pdf','_blank');ftPrint('Opening CV of Sofiene Hamzaoui...','ok');}
   else if(c==='contact'){document.getElementById('contact').scrollIntoView({behavior:'smooth'});ftPrint('→ Navigating to Contact...','ok');}
   else if(c==='github'){window.open('https://github.com/spaypeur','_blank');ftPrint('Opening github.com/spaypeur','ok');}
   else if(c==='vaultguard'){window.open('https://vaultguard.pages.dev','_blank');ftPrint('Opening vaultguard.pages.dev','ok');}
