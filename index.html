@@ -1,230 +1,410 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' fill='%2300E5FF'>&gt;_</text></svg>">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sofiene Hamzaoui · Multidisciplinary Systems Leader</title>
-  <meta name="description" content="Sofiene Hamzaoui (spaypeur) — 20+ years in cybersecurity, telecom security, backend engineering, systems architecture, infrastructure automation, and operational consulting.">
+  <title>Sofiene Hamzaoui · AI & LLM Engineer · Senior Systems Architect</title>
+  <meta name="description" content="Sofiene Hamzaoui — Senior AI/LLM Engineer, Systems Architect, and Full-Stack Developer with 20+ years of experience. Expert in local LLM deployment, RAG pipelines, AWS Bedrock, and AI agent development.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>🧠</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <link rel="stylesheet" href="style.css">
+  <meta name="keywords" content="AI Engineer, LLM Engineer, Systems Architect, RAG Pipeline, llama.cpp, GGUF, AWS Bedrock, ChromaDB, FastAPI, VaultGuard, Sofiene Hamzaoui, spaypeur, AI Agent Developer">
+  <meta name="author" content="Sofiene Hamzaoui">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://spaypeur.github.io/">
+  <meta property="og:title" content="Sofiene Hamzaoui · Senior AI/LLM Engineer & Systems Architect">
+  <meta property="og:description" content="Senior AI/LLM Engineer with 20+ years experience. Local LLMs, RAG pipelines, multi-agent orchestration, and enterprise backend systems.">
+  <meta property="og:site_name" content="Sofiene.AI">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sofiene Hamzaoui · Senior AI/LLM Engineer">
+  <meta name="twitter:description" content="Senior AI/LLM Engineer & Systems Architect. Local LLMs, RAG pipelines, AWS Bedrock, multi-agent orchestration.">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sofiene Hamzaoui",
+    "alternateName": "spaypeur",
+    "jobTitle": "Senior AI/LLM Engineer & Systems Architect",
+    "url": "https://spaypeur.github.io/",
+    "sameAs": ["https://github.com/spaypeur","https://vaultguard.eu.org","https://spaypeur.start.me"],
+    "email": "admin@vaultguard.eu.org",
+    "knowsAbout": ["Large Language Models","RAG Pipelines","llama.cpp","GGUF","AWS Bedrock","Multi-Agent Systems","FastAPI","Python","TypeScript","Cloudflare Workers"]
+  }
+  </script>
+
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <div class="nav-inner">
-      <div class="nav-logo">Sofiene <span class="name-green">Hamzaoui</span></div>
-      <div class="nav-links">
-        <a href="#projects" data-i18n="nav_projects">Projects</a>
-        <a href="#certificates" data-i18n="nav_certificates">Certificates</a>
-        <a href="#skills" data-i18n="nav_skills">Skills</a>
-        <a href="#experience" data-i18n="nav_experience">Experience</a>
-        <a href="#arsenal" data-i18n="nav_arsenal">Arsenal</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
-        <a href="CERTS/Hamzaoui_Sofiene_CV_Complete.pdf" class="nav-cv" data-i18n="nav_cv">↓ CV (PDF)</a>
-      </div>
-      <div class="lang-switch">
-        <button class="lg active" data-lang="en">EN</button>
-        <button class="lg" data-lang="fr">FR</button>
-        <button class="lg" data-lang="ar">عربي</button>
-      </div>
-      <div class="nav-status"><span class="pulse"></span><span data-i18n="nav_online">ONLINE</span></div>
-    </div>
-  </nav>
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-orb"></div>
+    <div class="loader-text">Initializing Universe</div>
+    <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
+    <div class="loader-pct" id="loader-pct">0%</div>
+  </div>
+</div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-inner">
-      <div class="hero-tag" data-i18n="hero_tag">// MULTIDISCIPLINARY SYSTEMS ARCHITECT & SECURITY LEADER</div>
-      <h1 class="hero-name">Hamzaoui<br><span class="name-green">Sofiene</span></h1>
-      <div class="hero-role"><span id="typed"></span><span class="cur blink">▮</span></div>
-      <p class="hero-desc" data-i18n="hero_desc">20+ years bridging cybersecurity, telecom protocol defense (SS7/GTP/Diameter), backend and full-stack engineering, systems architecture, infrastructure automation, cryptography, and operational consulting. Proven across Adarma, IronNet, Rubica, and global enterprise clients — from red team operations to production-grade platform engineering.</p>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-n">20+</span><span class="stat-l" data-i18n="stat_years">Years Active</span></div>
-        <div class="sep">|</div>
-        <div class="stat"><span class="stat-n">147+</span><span class="stat-l" data-i18n="stat_repos">GitHub Repos</span></div>
-        <div class="sep">|</div>
-        <div class="stat"><span class="stat-n">15+</span><span class="stat-l" data-i18n="stat_missions">Major Missions</span></div>
-        <div class="sep">|</div>
-        <div class="stat"><span class="stat-n">50+</span><span class="stat-l" data-i18n="stat_tools">Security Tools</span></div>
-        <div class="sep">|</div>
-        <div class="stat"><span class="stat-n">5</span><span class="stat-l" data-i18n="stat_c2">C2 Frameworks</span></div>
-      </div>
-      <div class="hero-btns">
-        <a href="#projects" class="btn-primary" data-i18n="btn_projects">View Projects</a>
-        <a href="CERTS/Hamzaoui_Sofiene_CV_Complete.pdf" class="btn-outline" data-i18n="btn_cv">Download CV</a>
-        <a href="https://github.com/spaypeur" target="_blank" class="btn-ghost">GitHub ↗</a>
-      </div>
-      <div class="hero-tags">
-        <span class="htag" data-i18n="tag_redteam">Red Team Ops</span>
-        <span class="htag" data-i18n="tag_c2">C2 Frameworks</span>
-        <span class="htag">SS7/GTP</span>
-        <span class="htag">Backend Engineering</span>
-        <span class="htag">Infrastructure</span>
-        <span class="htag">OSINT</span>
-        <span class="htag">ZKP</span>
-        <span class="htag" data-i18n="tag_ai">AI/LLM Security</span>
-        <span class="htag">DevOps</span>
-      </div>
-    </div>
-    <div class="hero-terminal">
-      <div class="ht-bar">
-        <span class="ht-dot r"></span><span class="ht-dot y"></span><span class="ht-dot g"></span>
-        <span class="ht-title">spaypeur@darknet:~</span>
-      </div>
-      <div class="ht-body" id="ht-body"></div>
-    </div>
-  </section>
+<!-- HUD NAV -->
+<nav id="hud-nav">
+  <div class="hud-logo">
+    <span class="hud-dot"></span>
+    <span>SOFIENE<span class="accent">.</span>AI</span>
+  </div>
+  <div class="hud-links">
+    <button class="hud-btn active" data-section="hero">HOME</button>
+    <button class="hud-btn" data-section="about">ABOUT</button>
+    <button class="hud-btn" data-section="ai-expertise">AI/LLM</button>
+    <button class="hud-btn" data-section="projects">PROJECTS</button>
+    <button class="hud-btn" data-section="certificates">CERTS</button>
+    <button class="hud-btn" data-section="experience">TIMELINE</button>
+    <button class="hud-btn" data-section="contact">CONTACT</button>
+    <a href="CERTS/Hamzaoui_Sofiene_CV_Complete.pdf" class="hud-cv" target="_blank">↓ CV</a>
+  </div>
+  <div class="hud-status"><span class="hud-pulse"></span> LIVE</div>
+</nav>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="s-inner">
-      <div class="s-hdr">
-        <div class="s-label">// 01</div>
-        <h2 class="s-title" data-i18n="sec_projects">Featured Projects</h2>
-        <div class="s-line"></div>
-        <div class="filters" id="filters">
-          <span class="pf active" data-f="all" data-i18n="f_all">All</span>
-          <span class="pf" data-f="redteam" data-i18n="f_redteam">Red Team</span>
-          <span class="pf" data-f="osint">OSINT</span>
-          <span class="pf" data-f="ios">iOS</span>
-          <span class="pf" data-f="ai">AI/LLM</span>
-          <span class="pf" data-f="crypto" data-i18n="f_crypto">Crypto</span>
-          <span class="pf" data-f="web">Web</span>
-          <span class="pf" data-f="hw" data-i18n="f_hw">Hardware</span>
+<!-- 3D CANVAS -->
+<canvas id="universe"></canvas>
+
+<!-- PLANET LABELS (orbit UI) -->
+<div id="planet-labels"></div>
+
+<!-- SCROLL INDICATOR -->
+<div id="scroll-hint">
+  <div class="scroll-line"></div>
+  <span>EXPLORE</span>
+</div>
+
+<!-- ===== SECTIONS ===== -->
+
+<!-- HERO -->
+<section id="hero" class="panel active">
+  <div class="panel-inner hero-panel">
+    <div class="hero-eyebrow">// SENIOR AI ENGINEER & SYSTEMS ARCHITECT</div>
+    <h1 class="hero-title">
+      <span class="hero-first">Sofiene</span>
+      <span class="hero-last">Hamzaoui</span>
+    </h1>
+    <div class="hero-role-wrap">
+      <span class="hero-role" id="typed-role"></span>
+      <span class="hero-cursor">▮</span>
+    </div>
+    <p class="hero-bio">
+      Senior AI/LLM Engineer with 20+ years building production-grade systems.  
+      Architecting intelligent systems — from local GGUF inference clusters to  
+      cloud-scale RAG pipelines on AWS Bedrock. Self-hosted LLM deployments,  
+      custom AI agents, vector databases, and multi-modal model orchestration.
+    </p>
+    <div class="hero-chips">
+      <span class="chip chip-ai">🧠 LLM Engineering</span>
+      <span class="chip chip-ai">⚡ GGUF / llama.cpp</span>
+      <span class="chip chip-ai">🔗 RAG Pipelines</span>
+      <span class="chip chip-ai">☁️ AWS Bedrock</span>
+      <span class="chip chip-ai">🤖 AI Agents</span>
+      <span class="chip chip-ai">🎯 Fine-Tuning</span>
+      <span class="chip">🐍 Python / FastAPI</span>
+      <span class="chip">⚛️ React / TypeScript</span>
+      <span class="chip">🐳 Docker / Kubernetes</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">20+</div><div class="hstat-l">Years Active</div></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><div class="hstat-n">8</div><div class="hstat-l">LLM Models Deployed</div></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><div class="hstat-n">35B+</div><div class="hstat-l">Param Models Run</div></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><div class="hstat-n">102</div><div class="hstat-l">AI Skills Indexed</div></div>
+    </div>
+    <div class="hero-cta">
+      <button class="btn-glow" onclick="goSection('ai-expertise')">Explore AI Work</button>
+      <button class="btn-outline" onclick="goSection('projects')">Projects</button>
+      <a href="https://github.com/spaypeur" target="_blank" class="btn-ghost">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="panel">
+  <div class="panel-inner">
+    <div class="section-label">// 01 — ABOUT</div>
+    <h2 class="section-title">Who Is <span class="accent">Sofiene</span></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a <strong>Senior AI/LLM Engineer and Systems Architect</strong> based in Tunisia, working remotely with global teams. My career spans 20+ years across AI/ML, cybersecurity, full-stack engineering, and infrastructure automation.</p>
+        <br>
+        <p>My current focus is at the intersection of <strong>AI engineering and systems architecture</strong> — deploying and optimizing large language models for production use, building multi-agent orchestration systems, and creating intelligent backends that leverage the latest advances in NLP and generative AI.</p>
+        <br>
+        <p>I maintain a <strong>full local LLM inference cluster</strong> with 7 quantized models (up to 35B parameters), integrated RAG pipelines using ChromaDB and sentence-transformers, and self-hosted Open WebUI serving as a development sandbox for AI product prototyping.</p>
+        <div class="about-langs">
+          <span class="lang-badge">🇹🇳 Arabic</span>
+          <span class="lang-badge">🇬🇧 English</span>
+          <span class="lang-badge">🇫🇷 Français</span>
+          <span class="lang-badge">🇷🇺 Русский</span>
+          <span class="lang-badge">🇩🇪 Deutsch</span>
         </div>
       </div>
-      <div class="proj-grid" id="proj-grid"></div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATES -->
-  <section id="certificates">
-    <div class="s-inner">
-      <div class="s-hdr">
-        <div class="s-label">// 02</div>
-        <h2 class="s-title" data-i18n="sec_certificates">Certifications & Achievements</h2>
-        <div class="s-line"></div>
-      </div>
-      <div class="cert-gallery" id="cert-gallery"></div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="bg-alt">
-    <div class="s-inner">
-      <div class="s-hdr">
-        <div class="s-label">// 03</div>
-        <h2 class="s-title" data-i18n="sec_skills">Capabilities</h2>
-        <div class="s-line"></div>
-      </div>
-      <div class="skills-layout">
-        <div id="skills-bars"></div>
-        <div class="sk-right">
-          <div class="sk-block">
-            <div class="sk-block-title" data-i18n="sk_tech">Tech Stack</div>
-            <div class="sk-tags" id="tech-tags"></div>
-          </div>
-          <div class="sk-block">
-            <div class="sk-block-title" data-i18n="sk_tools">Security Tools</div>
-            <div class="sk-tags" id="tools-tags"></div>
-          </div>
-          <div class="sk-block">
-            <div class="sk-block-title" data-i18n="sk_langs">Languages</div>
-            <div class="sk-tags" id="lang-tags"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="s-inner">
-      <div class="s-hdr">
-        <div class="s-label">// 04</div>
-        <h2 class="s-title" data-i18n="sec_exp">Experience</h2>
-        <div class="s-line"></div>
-      </div>
-      <div class="timeline" id="timeline"></div>
-    </div>
-  </section>
-
-  <!-- ARSENAL -->
-  <section id="arsenal" class="bg-alt">
-    <div class="s-inner">
-      <div class="s-hdr">
-        <div class="s-label">// 05</div>
-        <h2 class="s-title" data-i18n="sec_arsenal">Tool Arsenal</h2>
-        <div class="s-sub" data-i18n="sec_arsenal_sub">@sniper4u2 · 131 repos &nbsp;|&nbsp; @spaypeur · 16 repos</div>
-        <div class="s-line"></div>
-      </div>
-      <div id="arsenal-list"></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="s-inner">
-      <div class="s-hdr">
-        <div class="s-label">// 06</div>
-        <h2 class="s-title" data-i18n="sec_contact">Get In Touch</h2>
-        <div class="s-line"></div>
-      </div>
-      <div class="contact-grid">
-        <div>
-          <p class="contact-desc" data-i18n="contact_desc">Open for consulting, red team engagements, security architecture, and freelance work. Upwork Top Rated Plus — 100% mission success rate.</p>
-          <div id="contact-links"></div>
-        </div>
-        <div class="contact-card">
-          <div class="cc-line"><span class="cc-k" data-i18n="cc_name">name</span><span class="cc-eq"> = </span><span class="cc-v">"Sofiene Hamzaoui"</span></div>
-          <div class="cc-line"><span class="cc-k">alias</span><span class="cc-eq"> = </span><span class="cc-v">["spaypeur", "sniper4u2"]</span></div>
-          <div class="cc-line"><span class="cc-k">email</span><span class="cc-eq"> = </span><span class="cc-v">"admin@vaultguard.eu.org"</span></div>
-          <div class="cc-line"><span class="cc-k" data-i18n="cc_phone">phone</span><span class="cc-eq"> = </span><span class="cc-v">"+216 22 090 800"</span></div>
-          <div class="cc-line"><span class="cc-k" data-i18n="cc_loc">location</span><span class="cc-eq"> = </span><span class="cc-v cc-loc-val" data-i18n="cc_loc_val">"Tunisia · Remote"</span></div>
-          <div class="cc-line"><span class="cc-k" data-i18n="cc_status">status</span><span class="cc-eq"> = </span><span class="cc-v cc-green" data-i18n="cc_available">AVAILABLE</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <span>Sofiene Hamzaoui · spaypeur · sniper4u2</span>
-      <span data-i18n="footer_built">Built with terminal aesthetics · 2024</span>
-      <span class="cg">⚿ <span data-i18n="footer_enc">Encrypted</span></span>
-    </div>
-  </footer>
-
-  <!-- FLOATING TERMINAL -->
-  <div id="fterm">
-    <div class="ft-hdr" id="ft-toggle">
-      <span>⬛ Terminal</span><span id="ft-chev">▲</span>
-    </div>
-    <div class="ft-body" id="ft-body">
-      <div class="ft-out" id="ft-out"></div>
-      <div class="ft-in-row">
-        <span class="ft-p">$&nbsp;</span>
-        <input id="ft-in" class="ft-input" spellcheck="false" autocomplete="off" placeholder="help">
+      <div class="about-card">
+        <div class="acard-row"><span class="acard-k">name</span><span class="acard-eq">=</span><span class="acard-v">"Sofiene Hamzaoui"</span></div>
+        <div class="acard-row"><span class="acard-k">alias</span><span class="acard-eq">=</span><span class="acard-v">["spaypeur", "sniper4u2"]</span></div>
+        <div class="acard-row"><span class="acard-k">role</span><span class="acard-eq">=</span><span class="acard-v">"Senior AI/LLM Engineer"</span></div>
+        <div class="acard-row"><span class="acard-k">location</span><span class="acard-eq">=</span><span class="acard-v">"Tunisia · Remote"</span></div>
+        <div class="acard-row"><span class="acard-k">email</span><span class="acard-eq">=</span><span class="acard-v">"admin@vaultguard.eu.org"</span></div>
+        <div class="acard-row"><span class="acard-k">phone</span><span class="acard-eq">=</span><span class="acard-v">"+216 22 090 800"</span></div>
+        <div class="acard-row"><span class="acard-k">clearance</span><span class="acard-eq">=</span><span class="acard-status">AVAILABLE</span></div>
+        <div class="acard-row"><span class="acard-k">upwork</span><span class="acard-eq">=</span><span class="acard-gold">"Top Rated Plus ⭐"</span></div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- MODAL -->
-  <div class="modal-bg hidden" id="modal-bg">
-    <div class="modal-win">
-      <div class="modal-tb">
-        <div class="m-dots"><span class="dot dr" id="modal-close">✕</span><span class="dot dy"></span><span class="dot dg"></span></div>
-        <div id="modal-title" class="modal-ttl"></div>
-        <div></div>
+<!-- AI/LLM EXPERTISE -->
+<section id="ai-expertise" class="panel">
+  <div class="panel-inner">
+    <div class="section-label">// 02 — AI & LLM EXPERTISE</div>
+    <h2 class="section-title">AI <span class="accent">Engineering</span></h2>
+    <p class="section-sub">Deep technical AI/LLM skills proven through real deployments — not just API calls</p>
+
+    <div class="ai-domains">
+
+      <div class="ai-domain-card" id="card-local">
+        <div class="adc-icon">⚡</div>
+        <div class="adc-title">Local LLM Inference</div>
+        <div class="adc-sub">GGUF · llama.cpp · LM Studio · Ollama</div>
+        <ul class="adc-list">
+          <li>7 quantized models deployed (12B–35B params)</li>
+          <li>Compiled llama.cpp binary with CUDA/ROCm/Vulkan probes</li>
+          <li>GPU layer offloading strategy: CUDA, ROCm, and Vulkan backend selection</li>
+          <li>Quantization formats: IQ4_XS, Q4_K_M, Q8_K_P, Q2_K_P</li>
+          <li>MoE architecture models (Qwen3.6 35B — 256 experts)</li>
+          <li>Multimodal vision projectors (mmproj files)</li>
+        </ul>
+        <div class="adc-models">
+          <span class="model-tag">Mistral-Nemo 12B</span>
+          <span class="model-tag">Qwen3-30B A3B</span>
+          <span class="model-tag">Gemma-4 E4B</span>
+          <span class="model-tag">Qwen3.6 27B</span>
+          <span class="model-tag">Qwen3.6 35B MoE</span>
+        </div>
       </div>
-      <div class="modal-body" id="modal-body"></div>
+
+      <div class="ai-domain-card" id="card-rag">
+        <div class="adc-icon">🔗</div>
+        <div class="adc-title">RAG Pipelines & Vector DB</div>
+        <div class="adc-sub">ChromaDB · Sentence-Transformers · OpenSearch</div>
+        <ul class="adc-list">
+          <li>Production RAG pipelines: ingest → embed → retrieve → generate</li>
+          <li>ChromaDB 1.5.2 self-hosted (Rust bindings)</li>
+          <li>Sentence-Transformers 5.4.0 — all-MiniLM-L6-v2 + nomic-embed</li>
+          <li>LangChain text splitters for document chunking</li>
+          <li>OpenSearch + BM25 hybrid sparse/dense retrieval</li>
+          <li>Multi-format ingestion: PDF, DOCX, PPTX, XLSX, OCR</li>
+        </ul>
+        <div class="adc-models">
+          <span class="model-tag">all-MiniLM-L6-v2</span>
+          <span class="model-tag">nomic-embed-text</span>
+          <span class="model-tag">ChromaDB</span>
+          <span class="model-tag">OpenSearch</span>
+        </div>
+      </div>
+
+      <div class="ai-domain-card" id="card-cloud">
+        <div class="adc-icon">☁️</div>
+        <div class="adc-title">Cloud AI & APIs</div>
+        <div class="adc-sub">AWS Bedrock · OpenAI · Anthropic · Azure AI</div>
+        <ul class="adc-list">
+          <li>AWS Bedrock configured (us-east-1, credentials, model ID)</li>
+          <li>OpenAI Python client v2.29.0 + CLI</li>
+          <li>Anthropic Claude native CLI with project history</li>
+          <li>Azure AI Document Intelligence 1.0.2</li>
+          <li>inference.sh — 150+ models (FLUX, Veo, Gemini, Kimi)</li>
+          <li>Multi-provider routing and fallback strategies</li>
+        </ul>
+        <div class="adc-models">
+          <span class="model-tag">AWS Bedrock</span>
+          <span class="model-tag">Claude API</span>
+          <span class="model-tag">OpenAI v2</span>
+          <span class="model-tag">Azure AI</span>
+        </div>
+      </div>
+
+      <div class="ai-domain-card" id="card-agents">
+        <div class="adc-icon">🤖</div>
+        <div class="adc-title">AI Agents & Orchestration</div>
+        <div class="adc-sub">Custom Agents · MCP · Multi-model workflows</div>
+        <ul class="adc-list">
+          <li>Built "Mythos Learner" — self-enhancing AI agent from scratch</li>
+          <li>102-skill knowledge system (auto-indexed from SKILL.md files)</li>
+          <li>MCP (Model Context Protocol) server integration</li>
+          <li>Open Interpreter as code-execution agent</li>
+          <li>Multi-agent C2 framework with AI decision layer</li>
+          <li>Tool-use, function-calling, structured output pipelines</li>
+        </ul>
+        <div class="adc-models">
+          <span class="model-tag">Mythos Agent</span>
+          <span class="model-tag">MCP Protocol</span>
+          <span class="model-tag">OpenInterpreter</span>
+          <span class="model-tag">LM Studio</span>
+        </div>
+      </div>
+
+      <div class="ai-domain-card" id="card-platform">
+        <div class="adc-icon">🖥️</div>
+        <div class="adc-title">AI Platform Engineering</div>
+        <div class="adc-sub">Open WebUI · FastAPI · Self-hosted LLM stacks</div>
+        <ul class="adc-list">
+          <li>Open WebUI 0.9.6 — self-hosted ChatGPT alternative</li>
+          <li>Full stack: FastAPI + Redis + ChromaDB + Ollama backend</li>
+          <li>CTranslate2 INT8/FP16 optimized inference</li>
+          <li>ONNX Runtime 1.24.3 cross-platform model serving</li>
+          <li>PyTorch 2.12 (CUDA) + Triton GPU kernel compiler</li>
+          <li>Custom OpenAI-compatible REST API server (GGUF models)</li>
+        </ul>
+        <div class="adc-models">
+          <span class="model-tag">Open WebUI</span>
+          <span class="model-tag">PyTorch 2.12</span>
+          <span class="model-tag">CTranslate2</span>
+          <span class="model-tag">ONNX Runtime</span>
+        </div>
+      </div>
+
+      <div class="ai-domain-card" id="card-dev">
+        <div class="adc-icon">💻</div>
+        <div class="adc-title">AI Development Toolchain</div>
+        <div class="adc-sub">25+ AI IDEs · Aider · Continue · Claude CLI</div>
+        <ul class="adc-list">
+          <li>25+ AI coding assistants configured (Cursor, Copilot, Codeium, TabNine…)</li>
+          <li>Continue IDE with local Ollama backend (chat + autocomplete + embeddings)</li>
+          <li>Aider — AI-powered git commit and code editing</li>
+          <li>Claude CLI (Anthropic native, 3 startups, project history)</li>
+          <li>IDE-agnostic skill system symlinked across all editors</li>
+          <li>Custom ai_llm_discovery.py scanner for AI artifact indexing</li>
+        </ul>
+        <div class="adc-models">
+          <span class="model-tag">Cursor</span>
+          <span class="model-tag">Continue</span>
+          <span class="model-tag">Aider</span>
+          <span class="model-tag">Claude CLI</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Python Stack -->
+    <div class="stack-section">
+      <div class="stack-title">🐍 Python AI/ML Stack Installed</div>
+      <div class="stack-pills">
+        <span class="pill pill-1">transformers 5.5.4</span>
+        <span class="pill pill-1">torch 2.12.0 (CUDA)</span>
+        <span class="pill pill-1">sentence-transformers 5.4.0</span>
+        <span class="pill pill-1">openai 2.29.0</span>
+        <span class="pill pill-1">safetensors 0.7.0</span>
+        <span class="pill pill-1">tokenizers 0.22.2</span>
+        <span class="pill pill-1">tiktoken 0.12.0</span>
+        <span class="pill pill-1">gguf 0.19.0</span>
+        <span class="pill pill-2">chromadb 1.5.2</span>
+        <span class="pill pill-2">open-webui 0.9.6</span>
+        <span class="pill pill-2">langchain-text-splitters</span>
+        <span class="pill pill-2">onnxruntime 1.24.3</span>
+        <span class="pill pill-2">rank-bm25</span>
+        <span class="pill pill-2">mcp 1.26.0</span>
+        <span class="pill pill-3">numpy 2.4.6</span>
+        <span class="pill pill-3">scikit-learn 1.9.0</span>
+        <span class="pill pill-3">scipy 1.17.1</span>
+        <span class="pill pill-3">triton 3.7.0</span>
+        <span class="pill pill-3">sentencepiece 0.2.1</span>
+        <span class="pill pill-3">rapidocr-onnxruntime</span>
+      </div>
     </div>
   </div>
+</section>
 
-  <script src="app.js"></script>
+<!-- PROJECTS -->
+<section id="projects" class="panel">
+  <div class="panel-inner">
+    <div class="section-label">// 03 — PROJECTS</div>
+    <h2 class="section-title">Featured <span class="accent">Work</span></h2>
+    <div class="proj-filters" id="proj-filters">
+      <button class="pf active" data-f="all">All</button>
+      <button class="pf" data-f="ai">AI/LLM</button>
+      <button class="pf" data-f="backend">Backend</button>
+      <button class="pf" data-f="crypto">Crypto</button>
+      <button class="pf" data-f="platform">Platform</button>
+    </div>
+    <div class="proj-grid" id="proj-grid"></div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates" class="panel">
+  <div class="panel-inner">
+    <div class="section-label">// 04 — CERTIFICATIONS</div>
+    <h2 class="section-title">Credentials & <span class="accent">Achievements</span></h2>
+    <div class="cert-filter-row" id="cert-filters">
+      <button class="cf active" data-cf="all">All</button>
+      <button class="cf" data-cf="ai">AI/LLM</button>
+      <button class="cf" data-cf="security">Security</button>
+      <button class="cf" data-cf="engineering">Engineering</button>
+      <button class="cf" data-cf="education">Education</button>
+    </div>
+    <div class="cert-galaxy" id="cert-gallery"></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="panel">
+  <div class="panel-inner">
+    <div class="section-label">// 05 — EXPERIENCE</div>
+    <h2 class="section-title">Career <span class="accent">Timeline</span></h2>
+    <div class="timeline-3d" id="timeline"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="panel">
+  <div class="panel-inner">
+    <div class="section-label">// 06 — CONTACT</div>
+    <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+    <p class="contact-desc">Open for AI/LLM engineering contracts, senior architecture roles, consulting, and full-stack development. Upwork Top Rated Plus — 100% mission success rate.</p>
+    <div class="contact-layout">
+      <div class="contact-links" id="contact-links"></div>
+      <div class="contact-card">
+        <div class="cc-title">// PROFILE</div>
+        <div class="cc-row"><span class="cc-k">name</span> = <span class="cc-v">"Sofiene Hamzaoui"</span></div>
+        <div class="cc-row"><span class="cc-k">specialization</span> = <span class="cc-v">"AI/LLM Engineering"</span></div>
+        <div class="cc-row"><span class="cc-k">email</span> = <span class="cc-v">"admin@vaultguard.eu.org"</span></div>
+        <div class="cc-row"><span class="cc-k">phone</span> = <span class="cc-v">"+216 22 090 800"</span></div>
+        <div class="cc-row"><span class="cc-k">location</span> = <span class="cc-v">"Tunisia · Remote"</span></div>
+        <div class="cc-row"><span class="cc-k">status</span> = <span class="cc-status">AVAILABLE</span></div>
+        <div class="cc-row"><span class="cc-k">rate</span> = <span class="cc-gold">"Negotiable / Contract"</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="modal-bg" class="modal-hidden">
+  <div class="modal-wrap">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-head" id="modal-head"></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<footer>
+  <span>Sofiene Hamzaoui · spaypeur · AI/LLM Engineer · 2026</span>
+  <span>Built with Three.js + vanilla JS · No frameworks needed</span>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
