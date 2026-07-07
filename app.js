@@ -495,13 +495,10 @@ function animate() {
 
 /* ========= SCROLL & NAVIGATION MANAGEMENT ========= */
 
-let lastScrollTime = 0;
-const scrollCooldown = 800; // ms
+let isTransitioning = false;
+let scrollTimeout = null;
 
 function handleScroll(e) {
-  const now = Date.now();
-  if (now - lastScrollTime < scrollCooldown) return;
-
   // Respect panel-inner scroll boundaries — don't hijack scroll while user reads content
   const inner = document.querySelector('section.panel.active .panel-inner');
   if (inner && inner.scrollHeight > inner.clientHeight) {
@@ -511,12 +508,21 @@ function handleScroll(e) {
     if (e.deltaY < 0 && !atTop)    return;   // still content above — let it scroll
   }
 
+  if (scrollTimeout) clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    isTransitioning = false;
+  }, 200);
+
+  if (isTransitioning) return;
+
+  if (Math.abs(e.deltaY) < 15) return;
+
   if (e.deltaY > 0) {
     navigateSection(1);
   } else {
     navigateSection(-1);
   }
-  lastScrollTime = now;
+  isTransitioning = true;
 }
 
 function navigateSection(direction) {
@@ -837,10 +843,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Key navigation
   document.addEventListener('keydown', e => {
+    if (isTransitioning) return;
     if (e.key === 'ArrowDown' || e.key === 'PageDown') {
       navigateSection(1);
+      isTransitioning = true;
+      setTimeout(() => { isTransitioning = false; }, 600);
     } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
       navigateSection(-1);
+      isTransitioning = true;
+      setTimeout(() => { isTransitioning = false; }, 600);
     }
   });
 
