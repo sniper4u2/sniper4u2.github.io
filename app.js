@@ -495,42 +495,8 @@ function animate() {
 
 /* ========= SCROLL & NAVIGATION MANAGEMENT ========= */
 
-let isTransitioning = false;
-let scrollTimeout = null;
 
-function handleScroll(e) {
-  // Respect panel-inner scroll boundaries — don't hijack scroll while user reads content
-  const inner = document.querySelector('section.panel.active .panel-inner');
-  if (inner && inner.scrollHeight > inner.clientHeight) {
-    const atBottom = inner.scrollTop + inner.clientHeight >= inner.scrollHeight - 4;
-    const atTop    = inner.scrollTop <= 4;
-    if (e.deltaY > 0 && !atBottom) return;   // still content below — let it scroll
-    if (e.deltaY < 0 && !atTop)    return;   // still content above — let it scroll
-  }
-
-  if (scrollTimeout) clearTimeout(scrollTimeout);
-  scrollTimeout = setTimeout(() => {
-    isTransitioning = false;
-  }, 200);
-
-  if (isTransitioning) return;
-
-  if (Math.abs(e.deltaY) < 15) return;
-
-  if (e.deltaY > 0) {
-    navigateSection(1);
-  } else {
-    navigateSection(-1);
-  }
-  isTransitioning = true;
-}
-
-function navigateSection(direction) {
-  let newIdx = activeSectionIdx + direction;
-  if (newIdx >= 0 && newIdx < sectionOrder.length) {
-    goSection(sectionOrder[newIdx]);
-  }
-}
+/* ========= SCROLL & NAVIGATION MANAGEMENT ========= */
 
 function goSection(sectionId) {
   const newIdx = sectionOrder.indexOf(sectionId);
@@ -538,12 +504,7 @@ function goSection(sectionId) {
 
   activeSectionIdx = newIdx;
 
-  // Toggle active DOM panel
-  document.querySelectorAll('section.panel').forEach(panel => {
-    panel.classList.toggle('active', panel.id === sectionId);
-  });
-
-  // Toggle active Nav state
+  // Update active nav state only — sections are always visible in vertical scroll
   document.querySelectorAll('.hud-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.section === sectionId);
   });
@@ -552,6 +513,7 @@ function goSection(sectionId) {
     animateSkillBadges();
   }
 }
+
 
 function animateSkillBadges() {
   document.querySelectorAll('.adc-list li').forEach((li, idx) => {
@@ -806,9 +768,33 @@ function closeModal() {
 document.addEventListener('DOMContentLoaded', () => {
   init3D();
 
-  // Navigation Links click bindings
+  // Navigation: click scrolls smoothly to the section
   document.querySelectorAll('.hud-btn').forEach(btn => {
-    btn.onclick = () => goSection(btn.dataset.section);
+    btn.onclick = (e) => {
+      e.preventDefault();
+      const sectionId = btn.dataset.section;
+      const targetEl = document.getElementById(sectionId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+  });
+
+  // IntersectionObserver: detect which section is in viewport, update 3D camera target
+  const observerOptions = {
+    root: null,
+    rootMargin: '-35% 0px -35% 0px',
+    threshold: 0
+  };
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        goSection(entry.target.id);
+      }
+    });
+  }, observerOptions);
+  document.querySelectorAll('section.panel').forEach(section => {
+    sectionObserver.observe(section);
   });
 
   // Project filters
@@ -829,7 +815,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   });
 
-  // Modal close binding
+  // Modal close
   document.getElementById('modal-close').onclick = closeModal;
   document.getElementById('modal-bg').onclick = (e) => {
     if (e.target.id === 'modal-bg') closeModal();
@@ -838,34 +824,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeModal();
   });
 
-  // Mouse wheel scroll hijack
-  window.addEventListener('wheel', handleScroll, { passive: true });
-
-  // Key navigation
-  document.addEventListener('keydown', e => {
-    if (isTransitioning) return;
-    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-      navigateSection(1);
-      isTransitioning = true;
-      setTimeout(() => { isTransitioning = false; }, 600);
-    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-      navigateSection(-1);
-      isTransitioning = true;
-      setTimeout(() => { isTransitioning = false; }, 600);
-    }
-  });
-
-  // Render static data structures
+  // Render data
   renderProjects();
   renderCertificates();
   renderTimeline();
   renderContact();
 
   typeEffect();
-
-  // Animate hero stat counters on load
   animateHeroStats();
 });
+
 
 /* ========= HERO STAT COUNTER ANIMATION ========= */
 
