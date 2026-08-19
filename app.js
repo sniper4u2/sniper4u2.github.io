@@ -150,53 +150,7 @@ const CERTS = [
   { name: 'Baccalaureate Diploma — Arts (Tunisia)', path: 'CERTS/high school gradutation diplome.jpg', cat: 'education' }
 ];
 
-const EXPERIENCE = [
-  {
-    date: 'Oct 2024\n– Present',
-    title: 'Senior AI Systems Architect & Platform Consultant',
-    co: 'Adarma & Global Clients (Remote)',
-    items: [
-      'Architected local LLM execution sandbox using llama.cpp and CUDA offloading strategies.',
-      'Designed self-hosted RAG pipeline integrating ChromaDB vector storage and sentence-transformer embeddings.',
-      'Configured secure model pipelines using AWS Bedrock with strict IAM and fallback policies.',
-      'Built multi-agent planning agents mapping file environments, executing automated checks, and compiling metadata.',
-      'Supervised secure deployment of local REST interfaces compatible with OpenAI protocol standards.'
-    ]
-  },
-  {
-    date: 'Dec 2020\n– Sep 2024',
-    title: 'Senior Systems Engineer / Backend Developer',
-    co: 'IronNet & Global Enterprises (Remote)',
-    items: [
-      'Designed high-throughput data processing workflows using FastAPI, Redis, and Celery worker rings.',
-      'Optimized backend telemetry ingestion routes decreasing overhead latency by 35%.',
-      'Configured multi-tenant dashboard architectures using React and TypeScript on Cloudflare Workers CDN.',
-      'Supervised migrations and database replication tasks with zero service outages.',
-      'Engineered real-time server alerting and monitoring utilizing Prometheus & Grafana dashboard structures.'
-    ]
-  },
-  {
-    date: 'Feb 2018\n– Dec 2020',
-    title: 'Full Stack & Infrastructure Engineer',
-    co: 'Rubica & SMB Portfolios',
-    items: [
-      'Developed microservice backends utilizing Python and Node.js with secure token authorization protocols.',
-      'Containerized development stacks using Docker Compose and Kubernetes configurations.',
-      'Implemented automated continuous integration/deployment pipeline patterns reducing iteration timelines.',
-      'Engineered structured document ingestion tools parsing files and populating transactional databases.'
-    ]
-  },
-  {
-    date: 'Apr 2017\n– Present',
-    title: 'Freelance Software & AI Solutions Consultant',
-    co: 'Upwork (Top Rated Plus ⭐)',
-    items: [
-      'Successfully completed over 50 projects for clients in North America, Europe, and Middle East.',
-      'Delivered customized APIs, complex database schemas, real-time WebSockets solutions, and vector search integrations.',
-      'Maintained 100% Client Satisfaction Score with continuous repeat business engagement.'
-    ]
-  }
-];
+
 
 const CONTACTS = [
   { icon: '💻', label: 'GitHub', val: 'github.com/spaypeur', href: 'https://github.com/spaypeur' },
@@ -212,7 +166,7 @@ const CONTACTS = [
 let scene, camera, renderer;
 let stars, starGeometry, starMaterial;
 let planets = [];
-const sectionOrder = ['hero', 'about', 'ai-expertise', 'projects', 'certificates', 'experience', 'contact'];
+const sectionOrder = ['hero', 'about', 'ai-expertise', 'projects', 'certificates', 'contact'];
 let activeSectionIdx = 0;
 let currentLookAt = new THREE.Vector3(0, 0, 0);
 
@@ -223,7 +177,6 @@ const PLANET_POSITIONS = {
   'ai-expertise': new THREE.Vector3(-10, -50, -90),
   projects: new THREE.Vector3(-80, 20, 20),
   certificates: new THREE.Vector3(100, -10, 80),
-  experience: new THREE.Vector3(30, 70, -30),
   contact: new THREE.Vector3(-40, -80, 40)
 };
 
@@ -638,32 +591,7 @@ function renderCertificates(filter = 'all') {
   });
 }
 
-/* ========= TIMELINE RENDERING ========= */
 
-function renderTimeline() {
-  const tl = document.getElementById('timeline');
-  if (!tl) return;
-  tl.innerHTML = '';
-
-  EXPERIENCE.forEach(e => {
-    const item = document.createElement('div');
-    item.className = 'tl-item';
-    item.innerHTML = `
-      <div class="tl-node"></div>
-      <div class="tl-content">
-        <div class="tl-head">
-          <div>
-            <div class="tl-title">${e.title}</div>
-            <div class="tl-company">${e.co}</div>
-          </div>
-          <div class="tl-date">${e.date.replace('\n', ' ')}</div>
-        </div>
-        <ul class="tl-list">${e.items.map(item => `<li>${item}</li>`).join('')}</ul>
-      </div>
-    `;
-    tl.appendChild(item);
-  });
-}
 
 /* ========= CONTACT DETAILS RENDERING ========= */
 
@@ -827,7 +755,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render data
   renderProjects();
   renderCertificates();
-  renderTimeline();
   renderContact();
 
   typeEffect();
