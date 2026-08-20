@@ -3,20 +3,58 @@
 /* ========= DATA DEFINITIONS ========= */
 
 const ROLES = [
-  "Senior AI/LLM Engineer",
-  "Systems Architect",
-  "RAG & Agent Developer",
-  "Full-Stack Platform Engineer"
+  "AI & LLM Engineer",
+  "LLM Dataset Engineer",
+  "Technical Forensics Analyst",
+  "Cybersecurity Engineer",
+  "Systems Architect"
 ];
 
 const PROJECTS = [
   {
+    id: 'b13-sft-dataset',
+    name: 'B13 Cybersecurity SFT Dataset Collection',
+    icon: '🤗',
+    status: 'live',
+    cat: 'ai',
+    desc: 'Master ChatML cybersecurity dataset containing 16,594 SFT samples, 10,000 technical CVE records, 5,591 code security samples, and 130,173 evaluation records published on Hugging Face.',
+    features: [
+      '16,594 unified ChatML SFT training samples',
+      '10,000 technical CVEs with Chain-of-Thought reasoning',
+      '5,591 static code analysis samples with CWE mapping',
+      '1,003 multi-turn red-team pentesting workflows',
+      '130,173 security evaluation records across agent skills'
+    ],
+    tech: ['HuggingFace', 'Python', 'Parquet', 'ChatML', 'SFT', 'Datasets'],
+    url: 'https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets',
+    liveUrl: 'https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets',
+    lang: 'Python / JSON'
+  },
+  {
+    id: 'gaia-agent',
+    name: 'GAIA Agent Unit 5',
+    icon: '🤖',
+    status: 'live',
+    cat: 'ai',
+    desc: 'Autonomous AI agent console deployed on Hugging Face Spaces using smolagents/CodeAgent with web search, webpage visitation, and dynamic tool execution.',
+    features: [
+      'Powered by smolagents & CodeAgent framework',
+      'Qwen2.5-Coder-32B backend via HF InferenceClient',
+      'Integrated DuckDuckGo and webpage visitation tools',
+      'Gradio interactive agent console UI'
+    ],
+    tech: ['Python', 'smolagents', 'CodeAgent', 'Gradio', 'HuggingFace Spaces'],
+    url: 'https://huggingface.co/spaces/sofienehmz/gaia-agent-unit5',
+    liveUrl: 'https://huggingface.co/spaces/sofienehmz/gaia-agent-unit5',
+    lang: 'Python'
+  },
+  {
     id: 'c2server',
-    name: 'AI-Integrated C2 Server',
+    name: 'AI-Integrated C2 Server Framework',
     icon: '⚙️',
     status: 'active',
     cat: 'ai',
-    desc: 'Advanced command & control framework with FastAPI, WebSockets, and autonomous AI pentesting agent orchestration. Combines legacy exploit modules with dynamic LLM planning.',
+    desc: 'Command & control framework with FastAPI, WebSockets, and autonomous AI pentesting agent orchestration. Combines security modules with dynamic LLM planning.',
     features: [
       'Multi-agent C2 session orchestration',
       'FastAPI + WebSockets real-time messaging',
@@ -31,7 +69,7 @@ const PROJECTS = [
   },
   {
     id: 'phalanx',
-    name: 'Phalanx X Local API',
+    name: 'Phalanx X Local API Server',
     icon: '⚡',
     status: 'beta',
     cat: 'ai',
@@ -50,16 +88,16 @@ const PROJECTS = [
   },
   {
     id: 'vaultguard',
-    name: 'VaultGuard institutional P2P',
+    name: 'VaultGuard Institutional P2P',
     icon: '🔐',
     status: 'live',
     cat: 'crypto',
-    desc: 'Institutional P2P crypto security & OTC settlement engine. Deployed on Cloudflare Workers edge across 300+ cities. Implements ZKP identity vaults and WebAuthn/FIDO2 biometrics.',
+    desc: 'Institutional P2P crypto security & OTC settlement engine. Deployed on Cloudflare Workers edge. Implements ZKP identity vaults and WebAuthn/FIDO2 biometrics.',
     features: [
       '137 API endpoints running on Cloudflare Edge',
       'Zero-Knowledge Proof progressive identity disclosure',
       'Multi-sig institution custody protocol',
-      'Real-time threat monitoring from Shodan/VirusTotal',
+      'Real-time threat monitoring integrations',
       'Stripe & BTCPay payment integration',
       'FIDO2/WebAuthn passwordless biometric logic'
     ],
@@ -144,29 +182,30 @@ const CERTS = [
   { name: 'freeCodeCamp — Web Design Certification V8', path: 'CERTS/WebDesign V8 CERT.png', cat: 'engineering' },
   { name: 'freeCodeCamp — Legacy Frontend Development', path: 'CERTS/Legacy Frontend dev CERT.png', cat: 'engineering' },
   { name: 'IELTS General Training — Band 5.5 / B2 (British Council)', path: 'CERTS/IELTS B2.jpg', cat: 'education' },
-  { name: 'CMFC — Personnel Navigant Commercial (Civil Aviation)', path: 'CERTS/personnel navigation commercial.png', cat: 'education' },
+  { name: 'Civil Aviation — Flight Dispatcher Diploma N°228/2008', path: 'CERTS/civil aviation agent.jpg', cat: 'education' },
+  { name: 'CMFC — Personnel Navigant Commercial (Civil Aviation Cabin Crew)', path: 'CERTS/personnel navigation commercial.png', cat: 'education' },
+  { name: 'Perm State Pharmacy Academy (Russia) — 3rd Year Certificate', path: 'CERTS/1656392289426.png', cat: 'education' },
+  { name: 'Ryazan State Medical University (Russia) — 2nd Year Pharmacy Certificate', path: 'CERTS/1st year pharmacology.png', cat: 'education' },
   { name: 'Vocational Training — Heavy Vehicle C+E License', path: 'CERTS/driving vehicules with trailers C+E diplome.jpg', cat: 'education' },
   { name: 'Vocational Training — Driving Vehicles with Trailers', path: 'CERTS/driving vihecules with trailers diplome.jpg', cat: 'education' },
   { name: 'Baccalaureate Diploma — Arts (Tunisia)', path: 'CERTS/high school gradutation diplome.jpg', cat: 'education' }
 ];
 
-
-
 const CONTACTS = [
+  { icon: '🤗', label: 'Hugging Face', val: 'huggingface.co/sofienehmz', href: 'https://huggingface.co/sofienehmz', highlight: true },
   { icon: '💻', label: 'GitHub', val: 'github.com/spaypeur', href: 'https://github.com/spaypeur' },
-  { icon: '🛡️', label: 'VaultGuard', val: 'vaultguard.eu.org', href: 'https://vaultguard.eu.org', highlight: true },
-  { icon: '🛠️', label: 'Tools Case', val: 'hamzaoui-sofiene-tools-case', href: 'https://start.me/p/KMJvbw/hamzaoui-sofiene-tools-case', highlight: true },
+  { icon: '🛡️', label: 'VaultGuard Org', val: 'vaultguard.eu.org', href: 'https://vaultguard.eu.org', highlight: true },
+  { icon: '🛠️', label: 'Tools Case', val: 'hamzaoui-sofiene-tools-case', href: 'https://start.me/p/KMJvbw/hamzaoui-sofiene-tools-case' },
   { icon: '📧', label: 'Email', val: 'admin@vaultguard.eu.org', href: 'mailto:admin@vaultguard.eu.org' },
   { icon: '📄', label: 'CV / Resume', val: 'CV (Complete PDF)', href: 'CERTS/Hamzaoui_Sofiene_CV_Complete.pdf' }
 ];
-
 
 /* ========= 3D UNIVERSE SCENE (THREE.JS) ========= */
 
 let scene, camera, renderer;
 let stars, starGeometry, starMaterial;
 let planets = [];
-const sectionOrder = ['hero', 'about', 'ai-expertise', 'projects', 'certificates', 'contact'];
+const sectionOrder = ['hero', 'about', 'ai-expertise', 'huggingface', 'projects', 'experience', 'certificates', 'contact'];
 let activeSectionIdx = 0;
 let currentLookAt = new THREE.Vector3(0, 0, 0);
 
@@ -175,7 +214,9 @@ const PLANET_POSITIONS = {
   hero: new THREE.Vector3(30, 0, 0),
   about: new THREE.Vector3(90, 40, -40),
   'ai-expertise': new THREE.Vector3(-10, -50, -90),
+  huggingface: new THREE.Vector3(50, -30, -70),
   projects: new THREE.Vector3(-80, 20, 20),
+  experience: new THREE.Vector3(40, 70, 30),
   certificates: new THREE.Vector3(100, -10, 80),
   contact: new THREE.Vector3(-40, -80, 40)
 };
@@ -617,9 +658,10 @@ function renderContact() {
 /* ========= MODAL SYSTEM ========= */
 
 const PREVIEWS = {
+  'b13-sft-dataset': '$ huggingface-cli dataset info sofienehmz/b13-cybersecurity-sft-datasets\n[*] Dataset: sofienehmz/b13-cybersecurity-sft-datasets\n[+] Config master_unified: 16,594 ChatML samples\n[+] Config vulnerabilities_v3: 10,000 CVE samples\n[+] Config code_security: 5,591 SAST samples\n[+] Config redteam_pentest: 1,003 conversations\n[+] Evals: 130,173 security records',
+  'gaia-agent': '$ python gaia_agent.py\n[*] Initializing smolagents CodeAgent engine...\n[+] Backend model: Qwen2.5-Coder-32B-Instruct (HF Inference)\n[+] Registered tools: DuckDuckGoSearch, VisitWebpage\n[+] Gradio UI active on Hugging Face Space',
   c2server: '$ ./c2server --start\n[*] Loading configurations...\n[+] SS7 exploitation module: initialized\n[+] Auto-agent scanning active\n[*] C2 daemon listening on websocket :8000\n[+] Mythos Learner status: CONNECTED\n[+] Active sessions: 3 remote agents configured',
   phalanx: '$ python phalanx.py --model qwen3.6-35b-moe.gguf\n[*] Initializing model loader...\n[+] Loaded Qwen3.6-35B-A3B (MoE 256 experts)\n[*] System VRAM: 80.00 GB (NVIDIA A100)\n[*] Offloaded 80 layers to GPU (CUDA)\n[+] REST Endpoint active at http://localhost:8080/v1',
-
   vaultguard: '$ vaultguard status\n[+] Protocol status: ACTIVE\n[+] 137 Edge functions running on Cloudflare Workers\n[*] Biometric WebAuthn check: PASSED\n[+] Cold wallet multi-sig nodes: 3/5 verified\n[+] ZKP Identity check: VALIDATED',
   insolvency: '$ monitor run\n[*] Scraping UK public insolvency directories...\n[+] Indexed 1,247 firms\n[-] Detected credit drops on 4 firms\n[*] Formatted Celery dispatch pipeline\n[+] Daily Excel report sent to admins',
   'mythos-learner': '$ mythos-learner scan --dir /home/b13/\n[*] Scanning codebase directories...\n[+] Indexed 102 operational skills\n[+] Saved local state to learner_state.json\n[*] Local Ollama check: qwen2.5-coder active\n[+] Agent planning sequence complete',
@@ -766,10 +808,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function animateHeroStats() {
   const stats = [
-    { el: null, selector: '.hstat:nth-child(1) .hstat-n', end: 20, suffix: '+', duration: 1200 },
-    { el: null, selector: '.hstat:nth-child(3) .hstat-n', end: 8,  suffix: '',  duration: 800  },
-    { el: null, selector: '.hstat:nth-child(5) .hstat-n', end: 35, suffix: 'B+',duration: 1000 },
-    { el: null, selector: '.hstat:nth-child(7) .hstat-n', end: 102,suffix: '',  duration: 1400 }
+    { el: null, selector: '.hstat:nth-child(1) .hstat-n', end: 22, suffix: 'M+', duration: 1200 },
+    { el: null, selector: '.hstat:nth-child(3) .hstat-n', end: 7,  suffix: '',   duration: 800  },
+    { el: null, selector: '.hstat:nth-child(5) .hstat-n', end: 35, suffix: 'B+', duration: 1000 },
+    { el: null, selector: '.hstat:nth-child(7) .hstat-n', end: 102,suffix: '',   duration: 1400 }
   ];
 
   stats.forEach(({ selector, end, suffix, duration }) => {
@@ -777,7 +819,6 @@ function animateHeroStats() {
     if (!el) return;
 
     const startTime = performance.now();
-    const startVal = 0;
 
     function tick(now) {
       const elapsed = now - startTime;
