@@ -3,28 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sofiene Hamzaoui · AI & LLM Engineer · Senior Systems Architect</title>
-  <meta name="description" content="Sofiene Hamzaoui — Multidisciplinary AI/LLM Engineer, Systems Architect, Cybersecurity Engineer and Technical Investigator. Expert in local LLM deployment, RAG pipelines, cybersecurity SFT datasets, and AI agent development on Hugging Face.">
+  <title>Sofiene Hamzaoui · Frontier AI/LLM Research Engineer · Systems Architect</title>
+  <meta name="description" content="Sofiene Hamzaoui (sniper4u2) — Frontier AI & LLM Research Engineer, Neuro-Symbolic Systems Architect, and Technical Investigator. Creator of HSPN-MAI ARC-AGI solver, 22M+ token SFT datasets, and local MoE inference architectures.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>🧠</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <meta name="keywords" content="AI Engineer, LLM Engineer, Systems Architect, RAG Pipeline, llama.cpp, GGUF, AWS Bedrock, ChromaDB, FastAPI, VaultGuard, Sofiene Hamzaoui, sniper4u2, sofienehmz, HuggingFace, cybersecurity dataset, LLM fine-tuning, SFT, AI Agent Developer, Software Forensics">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- Background engine: real-time WebGL2 ray-marcher. This import map is the
+       only module-resolution mechanism on the page and every target is a local
+       file under vendor/ - there is no CDN anywhere in the load path.
+       The photographic fallback is NASA SVS footage, self-hosted at 1080p; its
+       41 MB 4K original is streamed only on >=2560px displays and only if the
+       fallback tier is actually armed. Nothing is preloaded for either tier:
+       the 167 KB (gzip) module is the critical resource on the 3D path, and the
+       poster is only the fallback's base layer. -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/three.module.min.js",
+      "three/addons/": "./vendor/three/addons/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="style.css?v=6.0">
+  <meta name="keywords" content="AI Engineer, LLM Fine-Tuning, SFT Datasets, Neuro-Symbolic, ARC-AGI, HSPN-MAI, Kraken HTR, llama.cpp, GGUF, MoE, Qwen, Transformers, PyTorch, CUDA, Systems Architecture, Cybersecurity, Sofiene Hamzaoui, sniper4u2">
   <meta name="author" content="Sofiene Hamzaoui">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sniper4u2.github.io/">
-  <meta property="og:title" content="Sofiene Hamzaoui · AI/LLM Engineer, Cybersecurity &amp; Systems Architect">
-  <meta property="og:description" content="Multidisciplinary AI/LLM Engineer, Cybersecurity Engineer &amp; Technical Investigator. Local LLMs, RAG pipelines, HuggingFace SFT datasets, AI agents.">
-  <meta property="og:site_name" content="Sofiene.AI">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Sofiene Hamzaoui · AI/LLM Engineer &amp; Cybersecurity">
-  <meta name="twitter:description" content="AI/LLM Engineer, Cybersecurity Engineer &amp; Technical Investigator. Local LLMs, RAG, HuggingFace SFT datasets, AI agents.">
+  <meta property="og:title" content="Sofiene Hamzaoui · Frontier AI &amp; LLM Systems Architect">
+  <meta property="og:description" content="Frontier AI &amp; LLM Research Engineer, Neuro-Symbolic ARC-AGI solver author, HTR PyTorch pipelines, and HuggingFace SFT datasets.">
+  <meta property="og:site_name" content="SOFIENE.AI">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -32,120 +42,487 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Sofiene Hamzaoui",
-        "jobTitle": "AI/LLM Engineer, Cybersecurity Engineer & Systems Architect",
+    "alternateName": "sniper4u2",
+    "jobTitle": "Frontier AI & LLM Systems Engineer, Systems Architect",
     "url": "https://sniper4u2.github.io/",
-    "sameAs": ["https://github.com/sniper4u2","https://huggingface.co/sofienehmz","https://vaultguard.eu.org","https://start.me/p/KMJvbw/hamzaoui-sofiene-tools-case"],
+    "sameAs": ["https://github.com/sniper4u2","https://huggingface.co/sofienehmz","https://vaultguard.eu.org"],
     "email": "admin@vaultguard.eu.org",
-    "knowsAbout": ["Large Language Models","RAG Pipelines","llama.cpp","GGUF","LLM Fine-Tuning","SFT Datasets","Cybersecurity","Software Forensics","Multi-Agent Systems","FastAPI","Python","Cloudflare Workers"]
+    "knowsAbout": ["Frontier Large Language Models","Neuro-Symbolic ARC-AGI","Supervised Fine-Tuning (SFT)","ChatML Trajectories","Kraken HTR OCR","llama.cpp & GGUF Quantization","PyTorch Distributed","FastAPI","Systems Forensics"]
   }
   </script>
-
 </head>
 <body>
 
-<!-- LOADING SCREEN -->
+<!-- ATMOSPHERIC CINEMATIC OVERLAYS -->
+<div class="cinematic-vignette"></div>
+
+<!-- ==========================================================================
+     BACKGROUND — TWO TIERS, ONE FRAME SLOT
+     --------------------------------------------------------------------------
+     TIER 1 (live): #universe — real-time WebGL2 null-geodesic ray-marcher
+       (blackhole.js + vendored three.js r160). True 3D, and resolution is
+       whatever the panel is: the drawing buffer is min(devicePixelRatio, 2)
+       x tier-scale, so a 4K display gets a true 3840x2160 render. No CDN.
+     TIER 2 (photographic): #cinema — NASA SVS "Black Hole with Accretion Disk
+       Visualization" (SVS14619, Caltech-IPAC / Robert Hurt, public domain).
+       Armed ONLY when tier 1 cannot paint: no WebGL2, shader/draw failure,
+       context loss, reduced-motion, save-data, 2G. In that case the video is
+       not fetched until the tier decision is made, so a healthy desktop never
+       downloads a single byte of footage.
+     ========================================================================== -->
+<canvas id="universe" aria-hidden="true"></canvas>
+
+<div id="cinema" aria-hidden="true">
+  <div class="cine-layer is-active" data-shot="orbit">
+    <video class="cine-video" preload="auto" muted loop playsinline webkit-playsinline
+           disablepictureinpicture poster="assets/gargantua-orbit-poster.jpg"></video>
+    <img class="cine-poster" src="assets/gargantua-orbit-poster.jpg" alt=""
+         width="1920" height="1080" decoding="async" fetchpriority="high">
+  </div>
+  <div class="cine-layer" data-shot="closeup">
+    <video class="cine-video" preload="none" muted loop playsinline webkit-playsinline
+           disablepictureinpicture poster="assets/gargantua-closeup-poster.jpg"></video>
+    <img class="cine-poster" src="assets/gargantua-closeup-poster.jpg" alt=""
+         width="1920" height="1080" decoding="async" loading="lazy">
+  </div>
+</div>
+
+<!-- CINEMATIC REACTOR LOADER -->
 <div id="loader">
   <div class="loader-inner">
-    <div class="loader-orb"></div>
-    <div class="loader-text">Initializing Universe</div>
+    <div class="loader-reactor">
+      <div class="reactor-ring"></div>
+      <div class="reactor-ring-inner"></div>
+      <div class="reactor-core"></div>
+    </div>
+    <div class="loader-text">SPOOLING ACCRETION DISK</div>
+    <div class="loader-sub">// RAY-MARCHING SCHWARZSCHILD GEODESICS</div>
     <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
     <div class="loader-pct" id="loader-pct">0%</div>
   </div>
 </div>
 
-<!-- HUD NAV -->
+<!-- HUD NAVIGATION -->
 <nav id="hud-nav">
-  <div class="hud-logo">
-    <span class="hud-dot"></span>
+  <a href="#hero" class="hud-logo">
+    <span class="hud-pulse"></span>
     <span>SOFIENE<span class="accent">.</span>AI</span>
-  </div>
+    <span class="hud-tag">CLEARANCE 55</span>
+  </a>
   <div class="hud-links">
-    <button class="hud-btn active" data-section="hero">HOME</button>
-    <button class="hud-btn" data-section="about">ABOUT</button>
-    <button class="hud-btn" data-section="ai-expertise">AI/LLM</button>
-    <button class="hud-btn" data-section="huggingface">HF 🤗</button>
-    <button class="hud-btn" data-section="projects">PROJECTS</button>
-    <button class="hud-btn" data-section="experience">EXPERIENCE</button>
-    <button class="hud-btn" data-section="certificates">CERTS</button>
-    <button class="hud-btn" data-section="contact">CONTACT</button>
-    <a href="CERTS/Hamzaoui_Sofiene_CV_Complete.pdf" class="hud-cv" target="_blank">↓ CV</a>
+    <button class="hud-btn active" data-section="hero">CORE</button>
+    <button class="hud-btn" data-section="ai-expertise">NEURAL STACK</button>
+    <button class="hud-btn" data-section="huggingface">HUGGING FACE</button>
+    <button class="hud-btn" data-section="projects">AI RESEARCH &amp; PROJECTS</button>
+    <button class="hud-btn" data-section="about">ARCHITECT PROFILE</button>
+    <button class="hud-btn" data-section="certificates">CREDENTIALS</button>
+    <button class="hud-btn" data-section="contact">SECURE COMMS</button>
+    <a href="CERTS/Hamzaoui_Sofiene_CV_Complete.pdf" class="hud-cv" target="_blank">
+      <span>↓</span> DOSSIER CV
+    </a>
   </div>
-  <div class="hud-status"><span class="hud-pulse"></span> LIVE</div>
+  <div class="hud-status-box">
+    <span class="ht-dot"></span>
+    <span>RUNTIME: ONLINE (CUDA ACTIVE)</span>
+  </div>
 </nav>
 
-<!-- 3D CANVAS -->
-<canvas id="universe"></canvas>
-
-<!-- PLANET LABELS (orbit UI) -->
-<div id="planet-labels"></div>
-
-<!-- SCROLL INDICATOR -->
-<div id="scroll-hint">
-  <div class="scroll-line"></div>
-  <span>EXPLORE</span>
-</div>
-
-<!-- ===== SECTIONS ===== -->
-
-<!-- HERO -->
+<!-- ==========================================================================
+     SECTION 00: COMMAND DECK / HERO
+     ========================================================================== -->
 <section id="hero" class="panel active">
   <div class="panel-inner hero-panel">
-    <div class="hero-eyebrow">// SENIOR AI ENGINEER & SYSTEMS ARCHITECT</div>
-    <h1 class="hero-title">
-      <span class="hero-first">Sofiene</span>
-      <span class="hero-last">Hamzaoui</span>
-    </h1>
-    <div class="hero-role-wrap">
-      <span class="hero-role" id="typed-role"></span>
-      <span class="hero-cursor">▮</span>
+    <div class="hero-content">
+      <div class="hero-badge-row">
+        <span class="clearance-badge">⚡ CLEARANCE LEVEL 55</span>
+        <span class="hud-tag">AUTONOMOUS SYSTEMS ARCHITECT</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="name-first">Sofiene</span>
+        <span class="name-last">Hamzaoui</span>
+      </h1>
+      <div class="hero-role-wrap">
+        <span>&gt;&gt;</span>
+        <span class="hero-role" id="typed-role">AI &amp; LLM Systems Architect</span>
+        <span class="hero-cursor">▮</span>
+      </div>
+      <p class="hero-manifesto">
+        <strong>Senior Systems Architect, Neuro-Symbolic AI Researcher &amp; Systems Investigator.</strong>
+        Engineering cognitive systems across the full machine intelligence lifecycle: from out-of-distribution
+        generalization on ARC-AGI benchmarks and custom 22M+ token SFT dataset curation to distributed 50-epoch GPU
+        HTR training and local MoE GGUF tensor serving. Operating across all 9 technical layers—from silicon and CUDA kernels
+        to agentic orchestration and multi-sig security protocols.
+      </p>
+
+      <div class="competence-matrix">
+        <span class="c-tag primary">🧩 Neuro-Symbolic ARC-AGI</span>
+        <span class="c-tag primary">🤗 22M+ Token SFT Datasets</span>
+        <span class="c-tag primary">⚡ GGUF &amp; llama.cpp MoE</span>
+        <span class="c-tag amber">📜 Kraken HTR &amp; PyTorch</span>
+        <span class="c-tag amber">🤖 Autonomous Agent Frameworks</span>
+        <span class="c-tag">🔗 ChromaDB RAG Pipelines</span>
+        <span class="c-tag">🛡️ Systems Forensics &amp; Pentesting</span>
+        <span class="c-tag">🐍 Python / CUDA / FastAPI</span>
+        <span class="c-tag">🐳 Cloudflare Edge &amp; Docker</span>
+      </div>
+
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="goSection('projects')">Inspect AI Deployments ➔</button>
+        <button class="btn-secondary" onclick="goSection('huggingface')">Hugging Face Hub 🤗</button>
+        <a href="https://github.com/sniper4u2" target="_blank" class="btn-ghost">GitHub @sniper4u2 ↗</a>
+      </div>
     </div>
-    <p class="hero-bio">
-      Multidisciplinary AI/LLM Engineer, Cybersecurity Specialist &amp; Technical Investigator based in Tunisia.
-      Building intelligent systems — from local GGUF inference clusters and custom cybersecurity SFT datasets
-      to multi-agent orchestration on Hugging Face. Author of the B13 Cybersecurity Dataset (22M tokens).
-      Background spanning AI, software engineering, security, aviation, and heavy-vehicle operations.
-    </p>
-    <div class="hero-chips">
-      <span class="chip chip-ai">🧠 LLM Engineering</span>
-      <span class="chip chip-ai">⚡ GGUF / llama.cpp</span>
-      <span class="chip chip-ai">🔗 RAG Pipelines</span>
-      <span class="chip chip-ai">🤗 HuggingFace SFT</span>
-      <span class="chip chip-ai">🤖 AI Agents</span>
-      <span class="chip chip-ai">🎯 LLM Fine-Tuning</span>
-      <span class="chip">🛡️ Cybersecurity</span>
-      <span class="chip">🔍 Software Forensics</span>
-      <span class="chip">🐍 Python / FastAPI</span>
-      <span class="chip">🐳 Docker / Linux</span>
-    </div>
-    <div class="hero-stats">
-      <div class="hstat"><div class="hstat-n">22M+</div><div class="hstat-l">Tokens Curated &amp; SFT</div></div>
-      <div class="hstat-div"></div>
-      <div class="hstat"><div class="hstat-n">130K+</div><div class="hstat-l">Security Evals Tracked</div></div>
-      <div class="hstat-div"></div>
-      <div class="hstat"><div class="hstat-n">35B+</div><div class="hstat-l">MoE Quantized Inference</div></div>
-      <div class="hstat-div"></div>
-      <div class="hstat"><div class="hstat-n">102</div><div class="hstat-l">Agentic AI Skills</div></div>
-    </div>
-    <div class="hero-cta">
-      <button class="btn-glow" onclick="goSection('ai-expertise')">Explore AI Work</button>
-      <button class="btn-outline" onclick="goSection('huggingface')">HuggingFace 🤗</button>
-      <a href="https://github.com/sniper4u2" target="_blank" class="btn-ghost">GitHub ↗</a>
+
+    <!-- Live Telemetry Monitor Card -->
+    <div class="hero-telemetry-card">
+      <div class="ht-head">
+        <div class="ht-title">
+          <span>// RUNTIME ARCHITECTURE TELEMETRY</span>
+        </div>
+        <div class="ht-status">
+          <span class="ht-dot"></span>
+          <span>SYSTEM CALIBRATED</span>
+        </div>
+      </div>
+      <div class="ht-grid">
+        <div class="ht-stat">
+          <div class="ht-stat-val cyan" data-target="22" data-suffix="M+">22M+</div>
+          <div class="ht-stat-label">SFT Tokens Curated</div>
+        </div>
+        <div class="ht-stat">
+          <div class="ht-stat-val amber" data-target="130" data-suffix="K+">130K+</div>
+          <div class="ht-stat-label">Security Eval Records</div>
+        </div>
+        <div class="ht-stat">
+          <div class="ht-stat-val cyan" data-target="35" data-suffix="B">35B</div>
+          <div class="ht-stat-label">MoE Quantized Weights</div>
+        </div>
+        <div class="ht-stat">
+          <div class="ht-stat-val amber" data-target="102" data-suffix="">102</div>
+          <div class="ht-stat-label">Agent Skills Auto-Indexed</div>
+        </div>
+      </div>
+      <div class="ht-terminal">
+<span class="t-prompt">b13@quantum-rig:~$</span> run-diagnostics --system-level
+<span class="t-hilite">[+] Core:</span> Neuro-Symbolic HSPN-MAI Active (ARC-AGI-3)
+<span class="t-hilite">[+] Dataset Hub:</span> sofienehmz/b13-cybersecurity-sft (Verified)
+<span class="t-hilite">[+] HTR Trainer:</span> Kraken CNN+LiGRU+CTC (50 Epochs Checkpoint)
+<span class="t-hilite">[+] Local LLM:</span> Qwen2.5-MOE-19B Q4_K_M Offloaded to CUDA
+<span class="t-hilite">[+] Security Clearance:</span> Level 55 Systems Architect Authorized
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ==========================================================================
+     SECTION 01: FRONTIER AI & LLM ENGINEERING EXPERTISE
+     ========================================================================== -->
+<section id="ai-expertise" class="panel">
+  <div class="panel-inner">
+    <div class="section-label">// 01 — ARCHITECTURAL BLUEPRINT</div>
+    <h2 class="section-title">Deep <span class="accent">AI &amp; LLM Engineering</span></h2>
+    <p class="section-sub">
+      Treating machine learning and LLM engineering not as high-level API calling, but as a rigorous systems-engineering discipline:
+      strict data contracts, neuro-symbolic program synthesis, local tensor sharding, and invariant enforcement.
+    </p>
+
+    <div class="ai-domains-grid">
+      <!-- Domain 1 -->
+      <div class="domain-card highlight-amber">
+        <div class="dc-header">
+          <div class="dc-icon">🧩</div>
+          <div class="dc-title-wrap">
+            <h3 class="dc-title">Neuro-Symbolic Reasoning &amp; ARC-AGI</h3>
+            <div class="dc-sub">HSPN-MAI Architecture · Program Synthesis · OOD Generalization</div>
+          </div>
+        </div>
+        <ul class="dc-list">
+          <li><strong>System 1 Intuitive Priors:</strong> Neural networks acting as fast topological priors bounding combinatorial program search spaces.</li>
+          <li><strong>System 2 Verified Synthesis:</strong> Deterministic DSL program synthesis engine executing and proving state transformations.</li>
+          <li><strong>Topological Symmetry Invariance:</strong> Rotation, reflection, palette permutation, and multi-object decomposition.</li>
+          <li><strong>10-Page Research Treatise:</strong> Authored formal theoretical blueprint for ARC Prize 2026 out-of-distribution reasoning.</li>
+        </ul>
+        <div class="dc-pills">
+          <span class="m-pill">ARC-AGI-2/3</span>
+          <span class="m-pill">Neuro-Symbolic</span>
+          <span class="m-pill">DSL Proof</span>
+          <span class="m-pill">Active Inference</span>
+        </div>
+      </div>
+
+      <!-- Domain 2 -->
+      <div class="domain-card">
+        <div class="dc-header">
+          <div class="dc-icon">🤗</div>
+          <div class="dc-title-wrap">
+            <h3 class="dc-title">Dataset Curation &amp; SFT Fine-Tuning</h3>
+            <div class="dc-sub">ChatML Trajectories · Chain-of-Thought · Schema Invariants</div>
+          </div>
+        </div>
+        <ul class="dc-list">
+          <li><strong>Master SFT Curation:</strong> 16,874 unified ChatML training samples spanning vulnerability research, SAST, and offensive workflows.</li>
+          <li><strong>Reasoning Synthesis:</strong> 10,000 technical CVEs enriched with rigorous multi-step Chain-of-Thought (CoT) explanations.</li>
+          <li><strong>Evaluation Honesty:</strong> 130,173 security evaluation benchmarks assessing AI agent tool-calling safety and skill boundaries.</li>
+          <li><strong>Contamination Controls:</strong> Strict n-gram deduplication, MinHash LSH, and immutable Parquet lineage contracts.</li>
+        </ul>
+        <div class="dc-pills">
+          <span class="m-pill">Hugging Face Datasets</span>
+          <span class="m-pill">ChatML</span>
+          <span class="m-pill">CoT Synthesis</span>
+          <span class="m-pill">Parquet</span>
+        </div>
+      </div>
+
+      <!-- Domain 3 -->
+      <div class="domain-card highlight-amber">
+        <div class="dc-header">
+          <div class="dc-icon">⚡</div>
+          <div class="dc-title-wrap">
+            <h3 class="dc-title">Local GGUF &amp; MoE Tensor Inference</h3>
+            <div class="dc-sub">llama.cpp · CUDA Layer Offloading · Quantization · Phalanx X</div>
+          </div>
+        </div>
+        <ul class="dc-list">
+          <li><strong>Quantized MoE Deployment:</strong> Serving 19B–35B parameter mixture-of-experts models locally with optimized VRAM paging.</li>
+          <li><strong>Custom REST Engine:</strong> Built Phalanx X, an ultra-low latency OpenAI-compatible server executing GGUF weights.</li>
+          <li><strong>Quantization Mastery:</strong> Deep benchmarking across IQ4_XS, Q4_K_M, and Q8_K_P formats balancing perplexity vs throughput.</li>
+          <li><strong>Hardware Acceleration:</strong> Native compilation with CUDA 12.x, cuBLAS, and Vulkan compute fallbacks.</li>
+        </ul>
+        <div class="dc-pills">
+          <span class="m-pill">llama.cpp</span>
+          <span class="m-pill">CUDA Offload</span>
+          <span class="m-pill">MoE Routing</span>
+          <span class="m-pill">Phalanx X</span>
+        </div>
+      </div>
+
+      <!-- Domain 4 -->
+      <div class="domain-card">
+        <div class="dc-header">
+          <div class="dc-icon">📜</div>
+          <div class="dc-title-wrap">
+            <h3 class="dc-title">Deep HTR &amp; Computer Vision OCR</h3>
+            <div class="dc-sub">PyTorch Lightning · Kraken HTR · Sauvola Binarization · RapidFuzz</div>
+          </div>
+        </div>
+        <ul class="dc-list">
+          <li><strong>50-Epoch GPU Training:</strong> Deep CNN + LiGRU + CTC loss training pipeline on degraded historical manuscripts.</li>
+          <li><strong>Adaptive Preprocessing:</strong> Sauvola local window binarization and contrast equalization eliminating ink bleed and artifacts.</li>
+          <li><strong>Transductive Consensus:</strong> 6-model voting engine utilizing RapidFuzz token edit-distance with suspicion gating.</li>
+          <li><strong>Metric Optimization:</strong> Rigorous character error rate (CER) and word error rate (WER) minimization.</li>
+        </ul>
+        <div class="dc-pills">
+          <span class="m-pill">PyTorch Lightning</span>
+          <span class="m-pill">Kraken HTR</span>
+          <span class="m-pill">LiGRU CTC</span>
+          <span class="m-pill">Consensus Fusion</span>
+        </div>
+      </div>
+
+      <!-- Domain 5 -->
+      <div class="domain-card">
+        <div class="dc-header">
+          <div class="dc-icon">🤖</div>
+          <div class="dc-title-wrap">
+            <h3 class="dc-title">Autonomous Agents &amp; MCP Integration</h3>
+            <div class="dc-sub">smolagents · CodeAgent · Gradio · Model Context Protocol</div>
+          </div>
+        </div>
+        <ul class="dc-list">
+          <li><strong>GAIA Agent Unit 5:</strong> Multi-tool autonomous agent deployed on Hugging Face Spaces with web navigation and code execution.</li>
+          <li><strong>Model Context Protocol (MCP):</strong> Implemented structured tools, resources, and prompts for security toolchains.</li>
+          <li><strong>Mythos Learner Agent:</strong> Self-enhancing repo introspection agent indexing 102 operational skills into semantic indices.</li>
+          <li><strong>Deterministic Guardrails:</strong> Sandboxed code execution, token budget ceilings, and failure-resilient fallback chains.</li>
+        </ul>
+        <div class="dc-pills">
+          <span class="m-pill">MCP Protocol</span>
+          <span class="m-pill">smolagents</span>
+          <span class="m-pill">CodeAgent</span>
+          <span class="m-pill">Gradio Spaces</span>
+        </div>
+      </div>
+
+      <!-- Domain 6 -->
+      <div class="domain-card highlight-amber">
+        <div class="dc-header">
+          <div class="dc-icon">⚖️</div>
+          <div class="dc-title-wrap">
+            <h3 class="dc-title">Fairness &amp; Socio-Spatial AI Modeling</h3>
+            <div class="dc-sub">Algorithmic Equity · Geospatial Vectors · Non-Parametric Calibration</div>
+          </div>
+        </div>
+        <ul class="dc-list">
+          <li><strong>Multi-Source Geo Ingestion:</strong> Ingesting Overture Maps building footprints, Census TIGER lines, and CDC SVI metrics.</li>
+          <li><strong>High-Throughput DuckDB:</strong> Vector parquet stream querying directly over HTTPFS for massive spatial datasets.</li>
+          <li><strong>Seed Invariance:</strong> Strict reproducible random state enforcement (`SEED=4217`) across cross-validation folds.</li>
+          <li><strong>Disparity Mitigation:</strong> Non-parametric probability calibration ensuring equitable predictions across demographic splits.</li>
+        </ul>
+        <div class="dc-pills">
+          <span class="m-pill">DuckDB HTTPFS</span>
+          <span class="m-pill">GeoPandas</span>
+          <span class="m-pill">Overture Maps</span>
+          <span class="m-pill">Fairness Metrics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SECTION 02: HUGGING FACE ECOSYSTEM & DATASETS
+     ========================================================================== -->
+<section id="huggingface" class="panel">
+  <div class="panel-inner">
+    <div class="section-label">// 02 — PUBLIC MODEL &amp; DATASET REGISTRY</div>
+    <h2 class="section-title">Hugging Face <span class="accent">Ecosystem</span></h2>
+    <p class="section-sub">
+      Open-source contributions, datasets, and autonomous agents published under
+      <a href="https://huggingface.co/sofienehmz" target="_blank" style="color:var(--cyan);text-decoration:underline;">sofienehmz</a>
+      and <a href="https://huggingface.co/vaultguard" target="_blank" style="color:var(--amber);text-decoration:underline;">vaultguard</a>.
+    </p>
+
+    <div class="ai-domains-grid">
+      <!-- HF Card 1 -->
+      <div class="domain-card highlight-amber">
+        <div class="dc-header">
+          <div class="dc-icon">🤗</div>
+          <div class="dc-title-wrap">
+            <h3 class="dc-title">B13 Cybersecurity SFT Dataset Collection</h3>
+            <div class="dc-sub">HF Dataset: sofienehmz/b13-cybersecurity-sft-datasets · 22M Tokens · MIT</div>
+          </div>
+        </div>
+        <ul class="dc-list">
+          <li><strong>16,874 Master ChatML Samples:</strong> Curated multi-stage SFT dataset combining vulnerability forensics, secure coding, and penetration testing.</li>
+          <li><strong>10,000 Technical CVE Records:</strong> 15 structured feature attributes with step-by-step Chain-of-Thought (CoT) reasoning.</li>
+          <li><strong>5,591 Static Code Analysis Samples:</strong> Real-world CWE mappings, flaw identification, and secure remediation code snippets.</li>
+          <li><strong>1,003 Multi-Turn Pentest Workflows:</strong> Real operational red-team trajectories across reconnaissance, exploitation, and post-exploitation.</li>
+          <li><strong>130,173 Security Evaluation Records:</strong> Automated security grading across agent skills and MCP tools (evals_repo_grades).</li>
+        </ul>
+        <div class="dc-pills">
+          <span class="m-pill">ChatML Format</span>
+          <span class="m-pill">16.8k Samples</span>
+          <span class="m-pill">10k CVEs</span>
+          <span class="m-pill">130k Evals</span>
+          <span class="m-pill">Parquet</span>
+        </div>
+        <div style="margin-top:1.2rem;">
+          <a href="https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets" target="_blank" class="btn-primary" style="font-size:0.75rem; padding:0.5rem 1rem;">
+            Inspect on Hugging Face 🤗
+          </a>
+        </div>
+      </div>
+
+      <!-- HF Card 2 -->
+      <div class="domain-card">
+        <div class="dc-header">
+          <div class="dc-icon">🤖</div>
+          <div class="dc-title-wrap">
+            <h3 class="dc-title">GAIA Agent Unit 5 (Autonomous Console)</h3>
+            <div class="dc-sub">HF Space: sofienehmz/gaia-agent-unit5 · Gradio · smolagents / CodeAgent</div>
+          </div>
+        </div>
+        <ul class="dc-list">
+          <li><strong>Autonomous Agent Architecture:</strong> Powered by the `smolagents` and `CodeAgent` frameworks for dynamic tool calling.</li>
+          <li><strong>Backend Model:</strong> Orchestrated via Qwen2.5-Coder-32B-Instruct running on Hugging Face InferenceClientModel.</li>
+          <li><strong>Active Tools:</strong> DuckDuckGoSearchTool, VisitWebpageTool, and isolated Python execution sandboxes.</li>
+          <li><strong>Gradio Console:</strong> Real-time streaming UI with thought inspectability and execution trace logging.</li>
+        </ul>
+        <div class="dc-pills">
+          <span class="m-pill">smolagents</span>
+          <span class="m-pill">CodeAgent</span>
+          <span class="m-pill">Qwen2.5-Coder-32B</span>
+          <span class="m-pill">Gradio Space</span>
+        </div>
+        <div style="margin-top:1.2rem;">
+          <a href="https://huggingface.co/spaces/sofienehmz/gaia-agent-unit5" target="_blank" class="btn-primary" style="font-size:0.75rem; padding:0.5rem 1rem;">
+            Launch Agent Console 🤖
+          </a>
+        </div>
+      </div>
+
+      <!-- HF Card 3 -->
+      <div class="domain-card">
+        <div class="dc-header">
+          <div class="dc-icon">🛡️</div>
+          <div class="dc-title-wrap">
+            <h3 class="dc-title">VaultGuard B13 Model Repository</h3>
+            <div class="dc-sub">HF Model: sofienehmz/b13 · Vaultguard Foundation</div>
+          </div>
+        </div>
+        <ul class="dc-list">
+          <li><strong>Dedicated Model Weights Registry:</strong> Upstream repository for security-aligned base and fine-tuned checkpoints.</li>
+          <li><strong>Adapter Provenance:</strong> Configured for PEFT LoRA adapter anchoring with base model hash validation.</li>
+          <li><strong>Standardized Lineage:</strong> Integrated git-lfs tracking with SHA-256 weight verification for supply chain security.</li>
+        </ul>
+        <div class="dc-pills">
+          <span class="m-pill">sofienehmz/b13</span>
+          <span class="m-pill">Security LLM</span>
+          <span class="m-pill">Adapter Lineage</span>
+        </div>
+        <div style="margin-top:1.2rem;">
+          <a href="https://huggingface.co/sofienehmz/b13" target="_blank" class="btn-ghost" style="font-size:0.75rem; padding:0.5rem 1rem;">
+            View Repository ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SECTION 03: FEATURED AI RESEARCH & ENGINEERING PROJECTS
+     ========================================================================== -->
+<section id="projects" class="panel">
+  <div class="panel-inner">
+    <div class="section-label">// 03 — PRODUCTION DEPLOYMENTS &amp; RESEARCH PIPELINES</div>
+    <h2 class="section-title">Verified <span class="accent">Projects &amp; Architectures</span></h2>
+    <p class="section-sub">
+      Audited runtime deployments, research implementations, and production systems created under profile
+      <a href="https://github.com/sniper4u2" target="_blank" style="color:var(--cyan);text-decoration:underline;">@sniper4u2</a>.
+    </p>
+
+    <div class="proj-filters" id="proj-filters">
+      <button class="pf active" data-f="all">All Systems</button>
+      <button class="pf" data-f="ai">AI / LLM &amp; Neuro-Symbolic</button>
+      <button class="pf" data-f="backend">Backend &amp; Infrastructure</button>
+      <button class="pf" data-f="crypto">Crypto &amp; Protocols</button>
+      <button class="pf" data-f="platform">Platform &amp; Tooling</button>
+    </div>
+
+    <div class="proj-grid" id="proj-grid"></div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SECTION 04: ARCHITECT PROFILE & MULTIDISCIPLINARY BACKGROUND
+     ========================================================================== -->
 <section id="about" class="panel">
   <div class="panel-inner">
-    <div class="section-label">// 01 — ABOUT</div>
-    <h2 class="section-title">Who Is <span class="accent">Sofiene</span></h2>
+    <div class="section-label">// 04 — MULTIDISCIPLINARY ARCHITECT</div>
+    <h2 class="section-title">Systems <span class="accent">Investigator &amp; Engineer</span></h2>
+    
     <div class="about-grid">
       <div class="about-text">
-        <p>I'm a <strong>Multidisciplinary AI/LLM Engineer, Cybersecurity Specialist, and Technical Investigator</strong> based in Tunisia, working remotely with global teams. My background spans AI engineering, software forensics, cybersecurity, cloud infrastructure, civil aviation, and heavy-vehicle operations.</p>
+        <p>
+          I am a <strong>Multidisciplinary AI/LLM Systems Engineer, Senior Systems Architect, and Technical Investigator</strong>.
+          My professional identity does not fit into a conventional narrow silo: my work repeatedly involves going beneath the surface
+          of a system to examine its true architecture, dependencies, APIs, runtime behavior, and failure points.
+        </p>
         <br>
-        <p>My strongest identity is at the intersection of <strong>AI + Security + Systems Investigation</strong> — I don't just build systems, I can understand them, break them down, audit them, and determine what is actually happening inside them. This makes me particularly suited for technical due diligence, architecture recovery, and AI agent engineering.</p>
+        <p>
+          My strongest domain lies at the intersection of:
+          <br>
+          <span style="color:var(--cyan); font-family:var(--font-mono); font-weight:700;">
+            AI Engineering ➔ Software Forensics ➔ Infrastructure ➔ Security Protocols ➔ Systems Architecture
+          </span>
+        </p>
         <br>
-        <p>I maintain a <strong>full local LLM inference cluster</strong> with 7 quantized models (up to 35B parameters), built the <strong>B13 Cybersecurity SFT Dataset</strong> (22M tokens, published on Hugging Face), and deploy AI agents using smolagents/CodeAgent on Hugging Face Spaces.</p>
+        <p>
+          My multidisciplinary background is rooted in high-stakes operational environments: from completing pharmaceutical education in Russia
+          and serving as a certified Civil Aviation Flight Dispatcher &amp; Cabin Crew, to heavy-vehicle articulated transport operations (Class C+E).
+          This unique convergence gives me uncommon discipline: high-stress composure, strict checklist compliance, and deep physical-to-digital systems awareness.
+        </p>
+
         <div class="about-langs">
           <span class="lang-badge">🇹🇳 Arabic (Native)</span>
           <span class="lang-badge">🇫🇷 Français (Fluent)</span>
@@ -155,389 +532,69 @@
           <span class="lang-badge">🇮🇹 Italiano (Basic)</span>
         </div>
       </div>
+
       <div class="about-card">
         <div class="acard-row"><span class="acard-k">name</span><span class="acard-eq">=</span><span class="acard-v">"Sofiene Hamzaoui"</span></div>
-        <div class="acard-row"><span class="acard-k">alias</span><span class="acard-eq">=</span><span class="acard-v">"sniper4u2"</span></div>
-        <div class="acard-row"><span class="acard-k">role</span><span class="acard-eq">=</span><span class="acard-v">"Senior AI/LLM Engineer"</span></div>
-        <div class="acard-row"><span class="acard-k">location</span><span class="acard-eq">=</span><span class="acard-v">"Tunisia · Remote"</span></div>
-        <div class="acard-row"><span class="acard-k">email</span><span class="acard-eq">=</span><span class="acard-v">"admin@vaultguard.eu.org"</span></div>
-        <div class="acard-row"><span class="acard-k">phone</span><span class="acard-eq">=</span><span class="acard-v">"+216 22 090 800"</span></div>
-        <div class="acard-row"><span class="acard-k">clearance</span><span class="acard-eq">=</span><span class="acard-status">AVAILABLE</span></div>
+        <div class="acard-row"><span class="acard-k">github</span><span class="acard-eq">=</span><span class="acard-v">"sniper4u2"</span></div>
+        <div class="acard-row"><span class="acard-k">huggingface</span><span class="acard-eq">=</span><span class="acard-v">"sofienehmz"</span></div>
+        <div class="acard-row"><span class="acard-k">specialization</span><span class="acard-eq">=</span><span class="acard-v">"Frontier AI &amp; Systems Architecture"</span></div>
+        <div class="acard-row"><span class="acard-k">clearance</span><span class="acard-eq">=</span><span class="acard-status">LEVEL 55 (AUTHORIZED)</span></div>
         <div class="acard-row"><span class="acard-k">upwork</span><span class="acard-eq">=</span><span class="acard-gold">"Top Rated Plus ⭐"</span></div>
+        <div class="acard-row"><span class="acard-k">location</span><span class="acard-eq">=</span><span class="acard-v">"Tunisia · Remote Global"</span></div>
+        <div class="acard-row"><span class="acard-k">email</span><span class="acard-eq">=</span><span class="acard-v">"admin@vaultguard.eu.org"</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AI/LLM EXPERTISE -->
-<section id="ai-expertise" class="panel">
-  <div class="panel-inner">
-    <div class="section-label">// 02 — AI & LLM EXPERTISE</div>
-    <h2 class="section-title">AI <span class="accent">Engineering</span></h2>
-    <p class="section-sub">Deep technical AI/LLM skills proven through real deployments — not just API calls</p>
-
-    <div class="ai-domains">
-
-      <div class="ai-domain-card" id="card-local">
-        <div class="adc-icon">⚡</div>
-        <div class="adc-title">Local LLM Inference</div>
-        <div class="adc-sub">GGUF · llama.cpp · LM Studio · Ollama</div>
-        <ul class="adc-list">
-          <li>7 quantized models deployed (12B–35B params)</li>
-          <li>Compiled llama.cpp binary with CUDA/ROCm/Vulkan probes</li>
-          <li>GPU layer offloading strategy: CUDA, ROCm, and Vulkan backend selection</li>
-          <li>Quantization formats: IQ4_XS, Q4_K_M, Q8_K_P, Q2_K_P</li>
-          <li>MoE architecture models (Qwen3.6 35B — 256 experts)</li>
-          <li>Multimodal vision projectors (mmproj files)</li>
-        </ul>
-        <div class="adc-models">
-          <span class="model-tag">Mistral-Nemo 12B</span>
-          <span class="model-tag">Qwen3-30B A3B</span>
-          <span class="model-tag">Gemma-4 E4B</span>
-          <span class="model-tag">Qwen3.6 27B</span>
-          <span class="model-tag">Qwen3.6 35B MoE</span>
-        </div>
-      </div>
-
-      <div class="ai-domain-card" id="card-rag">
-        <div class="adc-icon">🔗</div>
-        <div class="adc-title">RAG Pipelines & Vector DB</div>
-        <div class="adc-sub">ChromaDB · Sentence-Transformers · OpenSearch</div>
-        <ul class="adc-list">
-          <li>Production RAG pipelines: ingest → embed → retrieve → generate</li>
-          <li>ChromaDB 1.5.2 self-hosted (Rust bindings)</li>
-          <li>Sentence-Transformers 5.4.0 — all-MiniLM-L6-v2 + nomic-embed</li>
-          <li>LangChain text splitters for document chunking</li>
-          <li>OpenSearch + BM25 hybrid sparse/dense retrieval</li>
-          <li>Multi-format ingestion: PDF, DOCX, PPTX, XLSX, OCR</li>
-        </ul>
-        <div class="adc-models">
-          <span class="model-tag">all-MiniLM-L6-v2</span>
-          <span class="model-tag">nomic-embed-text</span>
-          <span class="model-tag">ChromaDB</span>
-          <span class="model-tag">OpenSearch</span>
-        </div>
-      </div>
-
-      <div class="ai-domain-card" id="card-cloud">
-        <div class="adc-icon">☁️</div>
-        <div class="adc-title">Cloud AI & APIs</div>
-        <div class="adc-sub">AWS Bedrock · OpenAI · Anthropic · Azure AI</div>
-        <ul class="adc-list">
-          <li>AWS Bedrock configured (us-east-1, credentials, model ID)</li>
-          <li>OpenAI Python client v2.29.0 + CLI</li>
-          <li>Anthropic Claude native CLI with project history</li>
-          <li>Azure AI Document Intelligence 1.0.2</li>
-          <li>inference.sh — 150+ models (FLUX, Veo, Gemini, Kimi)</li>
-          <li>Multi-provider routing and fallback strategies</li>
-        </ul>
-        <div class="adc-models">
-          <span class="model-tag">AWS Bedrock</span>
-          <span class="model-tag">Claude API</span>
-          <span class="model-tag">OpenAI v2</span>
-          <span class="model-tag">Azure AI</span>
-        </div>
-      </div>
-
-      <div class="ai-domain-card" id="card-agents">
-        <div class="adc-icon">🤖</div>
-        <div class="adc-title">AI Agents & Orchestration</div>
-        <div class="adc-sub">Custom Agents · MCP · Multi-model workflows</div>
-        <ul class="adc-list">
-          <li>Built "Mythos Learner" — self-enhancing AI agent from scratch</li>
-          <li>102-skill knowledge system (auto-indexed from SKILL.md files)</li>
-          <li>MCP (Model Context Protocol) server integration</li>
-          <li>Open Interpreter as code-execution agent</li>
-          <li>Multi-agent C2 framework with AI decision layer</li>
-          <li>Tool-use, function-calling, structured output pipelines</li>
-        </ul>
-        <div class="adc-models">
-          <span class="model-tag">Mythos Agent</span>
-          <span class="model-tag">MCP Protocol</span>
-          <span class="model-tag">OpenInterpreter</span>
-          <span class="model-tag">LM Studio</span>
-        </div>
-      </div>
-
-      <div class="ai-domain-card" id="card-platform">
-        <div class="adc-icon">🖥️</div>
-        <div class="adc-title">AI Platform Engineering</div>
-        <div class="adc-sub">Open WebUI · FastAPI · Self-hosted LLM stacks</div>
-        <ul class="adc-list">
-          <li>Open WebUI 0.9.6 — self-hosted ChatGPT alternative</li>
-          <li>Full stack: FastAPI + Redis + ChromaDB + Ollama backend</li>
-          <li>CTranslate2 INT8/FP16 optimized inference</li>
-          <li>ONNX Runtime 1.24.3 cross-platform model serving</li>
-          <li>PyTorch 2.12 (CUDA) + Triton GPU kernel compiler</li>
-          <li>Custom OpenAI-compatible REST API server (GGUF models)</li>
-        </ul>
-        <div class="adc-models">
-          <span class="model-tag">Open WebUI</span>
-          <span class="model-tag">PyTorch 2.12</span>
-          <span class="model-tag">CTranslate2</span>
-          <span class="model-tag">ONNX Runtime</span>
-        </div>
-      </div>
-
-      <div class="ai-domain-card" id="card-dev">
-        <div class="adc-icon">💻</div>
-        <div class="adc-title">AI Development Toolchain</div>
-        <div class="adc-sub">25+ AI IDEs · Aider · Continue · Claude CLI</div>
-        <ul class="adc-list">
-          <li>25+ AI coding assistants configured (Cursor, Copilot, Codeium, TabNine…)</li>
-          <li>Continue IDE with local Ollama backend (chat + autocomplete + embeddings)</li>
-          <li>Aider — AI-powered git commit and code editing</li>
-          <li>Claude CLI (Anthropic native, 3 startups, project history)</li>
-          <li>IDE-agnostic skill system symlinked across all editors</li>
-          <li>Custom ai_llm_discovery.py scanner for AI artifact indexing</li>
-        </ul>
-        <div class="adc-models">
-          <span class="model-tag">Cursor</span>
-          <span class="model-tag">Continue</span>
-          <span class="model-tag">Aider</span>
-          <span class="model-tag">Claude CLI</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Python Stack -->
-    <div class="stack-section">
-      <div class="stack-title">🐍 Python AI/ML Stack Installed</div>
-      <div class="stack-pills">
-        <span class="pill pill-1">transformers 5.5.4</span>
-        <span class="pill pill-1">torch 2.12.0 (CUDA)</span>
-        <span class="pill pill-1">sentence-transformers 5.4.0</span>
-        <span class="pill pill-1">openai 2.29.0</span>
-        <span class="pill pill-1">safetensors 0.7.0</span>
-        <span class="pill pill-1">tokenizers 0.22.2</span>
-        <span class="pill pill-1">tiktoken 0.12.0</span>
-        <span class="pill pill-1">gguf 0.19.0</span>
-        <span class="pill pill-2">chromadb 1.5.2</span>
-        <span class="pill pill-2">open-webui 0.9.6</span>
-        <span class="pill pill-2">langchain-text-splitters</span>
-        <span class="pill pill-2">onnxruntime 1.24.3</span>
-        <span class="pill pill-2">rank-bm25</span>
-        <span class="pill pill-2">mcp 1.26.0</span>
-        <span class="pill pill-3">numpy 2.4.6</span>
-        <span class="pill pill-3">scikit-learn 1.9.0</span>
-        <span class="pill pill-3">scipy 1.17.1</span>
-        <span class="pill pill-3">triton 3.7.0</span>
-        <span class="pill pill-3">sentencepiece 0.2.1</span>
-        <span class="pill pill-3">rapidocr-onnxruntime</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HUGGINGFACE PROFILE -->
-<section id="huggingface" class="panel">
-  <div class="panel-inner">
-    <div class="section-label">// 03 — HUGGING FACE & DATASETS</div>
-    <h2 class="section-title">Hugging Face <span class="accent">Ecosystem</span></h2>
-    <p class="section-sub">Public datasets, AI models, and agent spaces published under <a href="https://huggingface.co/sofienehmz" target="_blank" style="color:var(--cyan);text-decoration:underline;">sofienehmz</a> & <a href="https://huggingface.co/vaultguard" target="_blank" style="color:var(--amber);text-decoration:underline;">vaultguard</a></p>
-
-    <div class="ai-domains">
-      <div class="ai-domain-card">
-        <div class="adc-icon">🤗</div>
-        <div class="adc-title">B13 Cybersecurity SFT Dataset Master Collection</div>
-        <div class="adc-sub">HF Dataset: sofienehmz/b13-cybersecurity-sft-datasets · 22M Tokens · ChatML</div>
-        <ul class="adc-list">
-          <li><strong>16,874 Unified SFT Samples:</strong> Master ChatML dataset combining vulnerability research, SAST code auditing, and penetration testing trajectories.</li>
-          <li><strong>10,000 Technical CVE Records:</strong> 15 structured feature attributes with Chain-of-Thought (CoT) reasoning steps.</li>
-          <li><strong>5,591 Static Code Analysis Samples:</strong> CWE mapping, secure coding remediation, and automated vulnerability analysis.</li>
-          <li><strong>1,003 Red-Team Pentesting Workflows:</strong> Multi-turn operational trajectories covering reconnaissance, exploitation, and post-exploitation.</li>
-          <li><strong>130,173 Security Evaluation Records:</strong> Automated security grading across agent skills and MCP tools (evals_repo_grades).</li>
-        </ul>
-        <div class="adc-models">
-          <span class="model-tag">16.8k ChatML SFT</span>
-          <span class="model-tag">10k CVEs + CoT</span>
-          <span class="model-tag">130k Eval Records</span>
-          <span class="model-tag">Supervised Fine-Tuning</span>
-          <span class="model-tag">MIT License</span>
-        </div>
-      </div>
-
-      <div class="ai-domain-card">
-        <div class="adc-icon">🧩</div>
-        <div class="adc-title">HSPN-MAI: ARC-AGI-2 &amp; ARC-AGI-3 Solver &amp; Paper</div>
-        <div class="adc-sub">Formal Research Framework · Kaggle ARC Prize 2026 · Neuro-Symbolic DSL</div>
-        <ul class="adc-list">
-          <li><strong>Formal Research Treatise:</strong> Authored <em>"Hybrid Symbiotic Program-Neural Synthesis with Metacognitive Active Inference"</em> for out-of-distribution reasoning.</li>
-          <li><strong>System 1 Intuitive Priors:</strong> Neural networks acting as topological and object-centric priors to bound the search space.</li>
-          <li><strong>System 2 Deterministic Proof:</strong> Compact domain-specific language (DSL) program synthesizer and verification engine.</li>
-          <li><strong>Kaggle Gateway Pipeline:</strong> Fully reproducible offline execution environment emitting validated <code>submission.parquet</code>.</li>
-        </ul>
-        <div class="adc-models">
-          <span class="model-tag">ARC-AGI-2 / ARC-AGI-3</span>
-          <span class="model-tag">Neuro-Symbolic</span>
-          <span class="model-tag">Program Synthesis</span>
-          <span class="model-tag">Metacognitive Inference</span>
-        </div>
-      </div>
-
-      <div class="ai-domain-card">
-        <div class="adc-icon">📜</div>
-        <div class="adc-title">Barbados Transductive Ensemble HTR &amp; OCR Engine</div>
-        <div class="adc-sub">PyTorch Lightning · Kraken HTR · RapidFuzz Consensus · 50 Epochs</div>
-        <ul class="adc-list">
-          <li><strong>Deep HTR Architecture:</strong> CNN + LiGRU + CTC loss trained on historical manuscript transcriptions with checkpoint resume discipline.</li>
-          <li><strong>Sauvola Local Binarization:</strong> Adaptive contrast filtering and Sauvola binarization tuned for heavily degraded parchment.</li>
-          <li><strong>6-Model Transductive Fusion:</strong> RapidFuzz token edit-distance consensus with suspicion gating minimizing CER/WER.</li>
-          <li><strong>Competition Proven:</strong> High-scoring ensemble submissions on the Zindi Barbados historical transcription challenge.</li>
-        </ul>
-        <div class="adc-models">
-          <span class="model-tag">PyTorch Lightning</span>
-          <span class="model-tag">Kraken HTR</span>
-          <span class="model-tag">RapidFuzz Fusion</span>
-          <span class="model-tag">CER/WER Optimization</span>
-        </div>
-      </div>
-
-      <div class="ai-domain-card">
-        <div class="adc-icon">🤖</div>
-        <div class="adc-title">GAIA Agent Unit 5 — Hugging Face Space</div>
-        <div class="adc-sub">HF Space: sofienehmz/gaia-agent-unit5 · Gradio · smolagents / CodeAgent</div>
-        <ul class="adc-list">
-          <li>Autonomous AI agent console powered by <code>smolagents</code> & <code>CodeAgent</code> frameworks.</li>
-          <li>Integrated tools: DuckDuckGoSearchTool, VisitWebpageTool, and Python execution sandbox.</li>
-          <li>Integrated with Qwen2.5-Coder-32B-Instruct backend via Hugging Face InferenceClientModel.</li>
-        </ul>
-        <div class="adc-models">
-          <span class="model-tag">Gradio</span>
-          <span class="model-tag">smolagents</span>
-          <span class="model-tag">CodeAgent</span>
-          <span class="model-tag">Qwen2.5-Coder-32B</span>
-        </div>
-      </div>
-
-      <div class="ai-domain-card">
-        <div class="adc-icon">🧠</div>
-        <div class="adc-title">VaultGuard B13 Model</div>
-        <div class="adc-sub">HF Model: vaultguard/b13 · AFL-3.0 License</div>
-        <ul class="adc-list">
-          <li>Fine-tuned security model architecture hosted under the <code>vaultguard</code> organization.</li>
-        </ul>
-        <div class="adc-models">
-          <span class="model-tag">vaultguard/b13</span>
-          <span class="model-tag">Cybersecurity LLM</span>
-          <span class="model-tag">AFL-3.0 License</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="panel">
-  <div class="panel-inner">
-    <div class="section-label">// 04 — PROJECTS</div>
-    <h2 class="section-title">Featured <span class="accent">Work</span></h2>
-    <div class="proj-filters" id="proj-filters">
-      <button class="pf active" data-f="all">All</button>
-      <button class="pf" data-f="ai">AI/LLM</button>
-      <button class="pf" data-f="backend">Backend</button>
-      <button class="pf" data-f="crypto">Crypto</button>
-      <button class="pf" data-f="platform">Platform</button>
-    </div>
-    <div class="proj-grid" id="proj-grid"></div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="panel">
-  <div class="panel-inner">
-    <div class="section-label">// 05 — EXPERIENCE & BACKGROUND</div>
-    <h2 class="section-title">Multidisciplinary <span class="accent">Journey</span></h2>
-    <p class="section-sub">Proven real-world experience across technology, civil aviation, pharmaceutical education, logistics, and international environments</p>
-
-    <div class="ai-domains">
-      <div class="ai-domain-card">
-        <div class="adc-icon">🧠</div>
-        <div class="adc-title">AI Engineering, Software Forensics & Systems Architecture</div>
-        <div class="adc-sub">Independent Technical Consultant & Developer · Remote</div>
-        <ul class="adc-list">
-          <li><strong>AI & LLM Infrastructure:</strong> Building local quantized GGUF inference clusters, self-hosted RAG systems (ChromaDB), and multi-agent systems.</li>
-          <li><strong>Dataset Engineering:</strong> Created & published the 22M+ token B13 Cybersecurity SFT dataset collection on Hugging Face.</li>
-          <li><strong>Software Forensics & Technical Auditing:</strong> Auditing inherited & AI-generated codebases to verify functional reality vs claims, detecting mock endpoints and broken dependencies.</li>
-          <li><strong>Upwork Top Rated Plus:</strong> 100% Job Success score delivering high-complexity AI, backend, and security projects for global clients.</li>
-        </ul>
-      </div>
-
-      <div class="ai-domain-card">
-        <div class="adc-icon">✈️</div>
-        <div class="adc-title">Civil Aviation — Flight Dispatcher & Cabin Crew</div>
-        <div class="adc-sub">Ministry of Transport, Tunisia · Diploma N°228/2008 & CMFC Licensed</div>
-        <ul class="adc-list">
-          <li>Flight Dispatcher Diploma certified by the General Directorate of Civil Aviation (Ministry of Transport, Tunisia).</li>
-          <li>Personnel Navigant Commercial (CMFC) certified cabin crew for civil aviation operations.</li>
-          <li>Trained in flight safety, emergency procedures, crew resource management (CRM), and aviation regulations.</li>
-        </ul>
-      </div>
-
-      <div class="ai-domain-card">
-        <div class="adc-icon">💊</div>
-        <div class="adc-title">Pharmaceutical Sciences & Medical Education (Russia)</div>
-        <div class="adc-sub">Ryazan State Medical University & Perm State Pharmacy Academy · Russia</div>
-        <ul class="adc-list">
-          <li>2nd year studies completed at Ryazan State Medical University named after Academician I.P. Pavlov (Faculty of Pharmacy).</li>
-          <li>3rd year studies completed at Perm State Pharmacy Academy, Perm, Russia.</li>
-          <li>Fluent communication in Russian (🇷🇺) developed during multi-year university study in Russia.</li>
-        </ul>
-      </div>
-
-      <div class="ai-domain-card">
-        <div class="adc-icon">🚛</div>
-        <div class="adc-title">Heavy Transport & Logistics Operations</div>
-        <div class="adc-sub">Vocational Diploma · Heavy Vehicle C+E License & Trailers</div>
-        <ul class="adc-list">
-          <li>Licensed for heavy articulated vehicles with trailers (Class C+E).</li>
-          <li>Experience in transport logistics, vehicle safety, and operational dispatch.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATES -->
+<!-- ==========================================================================
+     SECTION 05: CREDENTIALS & CERTIFICATIONS
+     ========================================================================== -->
 <section id="certificates" class="panel">
   <div class="panel-inner">
-    <div class="section-label">// 06 — CERTIFICATIONS & DIPLOMAS</div>
-    <h2 class="section-title">Credentials & <span class="accent">Achievements</span></h2>
+    <div class="section-label">// 05 — FORMAL CREDENTIALS</div>
+    <h2 class="section-title">Verified <span class="accent">Certifications &amp; Diplomas</span></h2>
+    <p class="section-sub">Formal credentials verified across Hugging Face, IBM, Microsoft, freeCodeCamp, and Aviation Authorities.</p>
+
     <div class="cert-filter-row" id="cert-filters">
-      <button class="cf active" data-cf="all">All</button>
-      <button class="cf" data-cf="ai">AI/LLM</button>
-      <button class="cf" data-cf="security">Security</button>
-      <button class="cf" data-cf="engineering">Engineering</button>
-      <button class="cf" data-cf="education">Education & Diplomas</button>
+      <button class="cf active" data-cf="all">All Credentials</button>
+      <button class="cf" data-cf="ai">AI / LLM Engineering</button>
+      <button class="cf" data-cf="security">Cybersecurity &amp; Forensics</button>
+      <button class="cf" data-cf="engineering">Software &amp; Systems</button>
+      <button class="cf" data-cf="education">Aviation, Medicine &amp; Diplomas</button>
     </div>
+
     <div class="cert-galaxy" id="cert-gallery"></div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ==========================================================================
+     SECTION 06: SECURE CONTACT & PROFILE
+     ========================================================================== -->
 <section id="contact" class="panel">
   <div class="panel-inner">
-    <div class="section-label">// 07 — CONTACT</div>
-    <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
-    <p class="contact-desc">Open for AI/LLM engineering contracts, senior architecture roles, consulting, and full-stack development. Upwork Top Rated Plus — 100% mission success rate.</p>
+    <div class="section-label">// 06 — ENCRYPTED TRANSMISSION</div>
+    <h2 class="section-title">Initiate <span class="accent">Contact</span></h2>
+    <p class="section-sub">Available for frontier AI engineering, neuro-symbolic research, senior systems architecture, and technical systems auditing.</p>
+
     <div class="contact-layout">
       <div class="contact-links" id="contact-links"></div>
+      
       <div class="contact-card">
-        <div class="cc-title">// PROFILE</div>
-        <div class="cc-row"><span class="cc-k">name</span> = <span class="cc-v">"Sofiene Hamzaoui"</span></div>
-        <div class="cc-row"><span class="cc-k">specialization</span> = <span class="cc-v">"AI/LLM Engineering"</span></div>
-        <div class="cc-row"><span class="cc-k">email</span> = <span class="cc-v">"admin@vaultguard.eu.org"</span></div>
-        <div class="cc-row"><span class="cc-k">phone</span> = <span class="cc-v">"+216 22 090 800"</span></div>
-        <div class="cc-row"><span class="cc-k">location</span> = <span class="cc-v">"Tunisia · Remote"</span></div>
-        <div class="cc-row"><span class="cc-k">status</span> = <span class="cc-status">AVAILABLE</span></div>
-        <div class="cc-row"><span class="cc-k">rate</span> = <span class="cc-gold">"Negotiable / Contract"</span></div>
+        <div class="cc-title">// OPERATIONAL DOSSIER</div>
+        <div class="cc-row"><span class="cc-k">principal</span> = <span class="cc-v">"Sofiene Hamzaoui"</span></div>
+        <div class="cc-row"><span class="cc-k">handle</span> = <span class="cc-v">"sniper4u2"</span></div>
+        <div class="cc-row"><span class="cc-k">organization</span> = <span class="cc-v">"VaultGuard / Autonomous Systems"</span></div>
+        <div class="cc-row"><span class="cc-k">primary_comms</span> = <span class="cc-v">"admin@vaultguard.eu.org"</span></div>
+        <div class="cc-row"><span class="cc-k">voice_hotline</span> = <span class="cc-v">"+216 22 090 800"</span></div>
+        <div class="cc-row"><span class="cc-k">security_status</span> = <span class="cc-status">ACTIVE &amp; AVAILABLE</span></div>
+        <div class="cc-row"><span class="cc-k">contract_basis</span> = <span class="cc-gold">"Consulting / Senior Architecture"</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MODAL -->
+<!-- MODAL TELEMETRY DIALOG -->
 <div id="modal-bg" class="modal-hidden">
   <div class="modal-wrap">
     <button class="modal-close" id="modal-close">✕</button>
@@ -546,11 +603,22 @@
   </div>
 </div>
 
+<!-- CINEMATIC FOOTER -->
 <footer>
-  <span>Sofiene Hamzaoui · sniper4u2 · AI & LLM Engineer · 2026</span>
-  <span>Built with Three.js + vanilla JS · No frameworks needed</span>
+  <span>Sofiene Hamzaoui · sniper4u2 · Frontier AI Systems Architect · 2026</span>
+  <span>Null-Geodesic Ray-Marcher · WebGL2 · Vendored three.js (Zero CDN) · NASA SVS GRMHD Fallback</span>
 </footer>
 
-<script src="app.js"></script>
+<!-- TIER GATE — arms the photographic fallback ONLY if the 3D engine dies.
+     Classic deferred scripts and module scripts share a single execution queue
+     and run in document order, so this gate is armed before blackhole.js can
+     announce either ready or dead. -->
+<script defer src="cinematic.js?v=2.0"></script>
+<!-- TIER 1 — real-time ray-marcher. Self-booting module; 'three' and
+     'three/addons/' resolve through the import map in <head> to local files. -->
+<script type="module" src="blackhole.js?v=1.0"></script>
+<!-- UI CONTROLLER (nav, telemetry, modals, scroll-driven cinematography).
+     Directs whichever tier won: uniform grading on tier 1, shot/grade on tier 2. -->
+<script defer src="app.js?v=6.0"></script>
 </body>
 </html>
