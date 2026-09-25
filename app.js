@@ -3,11 +3,11 @@
 /* ========= DATA DEFINITIONS ========= */
 
 const ROLES = [
-  "AI & LLM Engineer",
-  "LLM Dataset Engineer",
-  "Technical Forensics Analyst",
-  "Cybersecurity Engineer",
-  "Systems Architect"
+  "AI & LLM Research Engineer",
+  "LLM Fine-Tuning & SFT Specialist",
+  "Neuro-Symbolic & Generalization Researcher",
+  "Cybersecurity Engineer & Systems Architect",
+  "Technical Forensics Investigator"
 ];
 
 const PROJECTS = [
@@ -17,18 +17,75 @@ const PROJECTS = [
     icon: '🤗',
     status: 'live',
     cat: 'ai',
-    desc: 'Master ChatML cybersecurity dataset containing 16,594 SFT samples, 10,000 technical CVE records, 5,591 code security samples, and 130,173 evaluation records published on Hugging Face.',
+    desc: 'Master ChatML cybersecurity dataset containing 16,874 SFT samples, 10,000 technical CVE records with Chain-of-Thought reasoning, 5,591 code security samples, and 130,173 evaluation records published on Hugging Face.',
     features: [
-      '16,594 unified ChatML SFT training samples',
-      '10,000 technical CVEs with Chain-of-Thought reasoning',
-      '5,591 static code analysis samples with CWE mapping',
-      '1,003 multi-turn red-team pentesting workflows',
-      '130,173 security evaluation records across agent skills'
+      '16,874 unified ChatML SFT training samples across 3 core tracks',
+      '10,000 technical CVEs with Chain-of-Thought reasoning & 15 schema features',
+      '5,591 static code analysis samples with CWE mapping and patch synthesis',
+      '1,003 multi-turn red-team pentesting workflows and execution logs',
+      '130,173 security evaluation records benchmarked across agent skills and MCP tools'
     ],
     tech: ['HuggingFace', 'Python', 'Parquet', 'ChatML', 'SFT', 'Datasets'],
     url: 'https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets',
     liveUrl: 'https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets',
     lang: 'Python / JSON'
+  },
+  {
+    id: 'hspn-mai-arc',
+    name: 'HSPN-MAI: ARC-AGI Neuro-Symbolic Synthesis',
+    icon: '🧩',
+    status: 'active',
+    cat: 'ai',
+    desc: 'Hybrid Symbiotic Program-Neural Synthesis with Metacognitive Active Inference. Research framework and competitive solver for Kaggle ARC Prize 2026 (ARC-AGI-2 & ARC-AGI-3) combining System 1 neural priors with System 2 verified DSL search.',
+    features: [
+      'Authored 10-page formal research treatise (HSPN-MAI Architecture)',
+      'Dual-system design: Neural intuition (System 1) + Program execution & proof (System 2)',
+      'Object-centric grid decomposition & active topological symmetry reasoning',
+      'Metacognitive confidence gating preventing exponential combinatorial DSL explosions',
+      'Production Kaggle submission pipeline emitting verified submission.parquet'
+    ],
+    tech: ['Python', 'Neuro-Symbolic', 'DSL Synthesis', 'PyTorch', 'Kaggle API'],
+    url: 'https://github.com/sniper4u2/prizes',
+    liveUrl: 'https://github.com/sniper4u2',
+    lang: 'Python'
+  },
+  {
+    id: 'barbados-ocr',
+    name: 'Barbados Transductive Ensemble HTR & OCR',
+    icon: '📜',
+    status: 'active',
+    cat: 'ai',
+    desc: 'Deep multi-architecture handwritten text recognition (HTR) and historical document transcription system. Multi-stage PyTorch & Kraken training with Sauvola adaptive binarization and 6-model edit-distance consensus fusion.',
+    features: [
+      'Full 50-epoch GPU training pipeline leveraging Kraken & PyTorch Lightning',
+      'Sauvola adaptive local binarization & contrast normalization for historical manuscripts',
+      '6-model transductive consensus engine with RapidFuzz token-set edit distance',
+      'Automated suspicion gating and confidence thresholding targeting CER/WER minimization',
+      'Strict zero-leakage cross-validation producing top-ranked competition submission'
+    ],
+    tech: ['PyTorch', 'Kraken HTR', 'OpenCV', 'RapidFuzz', 'PyTorch Lightning'],
+    url: 'https://github.com/sniper4u2',
+    liveUrl: 'https://github.com/sniper4u2',
+    lang: 'Python'
+  },
+  {
+    id: 'bias-bounty',
+    name: 'Bias Bounty Equity Feature Engine',
+    icon: '⚖️',
+    status: 'active',
+    cat: 'ai',
+    desc: 'Algorithmic fairness and socio-spatial vulnerability pipeline. Integrates Overture Maps vector features, Census TIGER road networks, and CDC Social Vulnerability Indices to detect and quantify geographic disparities.',
+    features: [
+      'Automated geospatial feature pipeline (GeoPandas, Shapely, PyProj)',
+      'High-throughput vector parquet processing via DuckDB HTTPFS',
+      'Fixed-seed deterministic validation framework (SEED=4217)',
+      'Non-parametric calibration ensuring fair predictive boundaries across demographics',
+      'Designed for Zindi algorithmic equity benchmark evaluation'
+    ],
+    tech: ['Python', 'DuckDB', 'GeoPandas', 'LightGBM', 'Scikit-Learn'],
+    url: 'https://github.com/sniper4u2',
+    liveUrl: 'https://github.com/sniper4u2',
+    lang: 'Python'
   },
   {
     id: 'gaia-agent',
@@ -64,7 +121,7 @@ const PROJECTS = [
       'Redis & PostgreSQL telemetry persistence'
     ],
     tech: ['Python', 'FastAPI', 'WebSockets', 'Ollama', 'Redis', 'Docker'],
-    url: 'https://github.com/spaypeur/c2server',
+    url: 'https://github.com/sniper4u2/c2server',
     lang: 'Python'
   },
   {
@@ -83,7 +140,7 @@ const PROJECTS = [
       'Zero external dependencies wrapper'
     ],
     tech: ['Python', 'llama.cpp', 'CUDA', 'GGUF', 'REST API'],
-    url: 'https://github.com/spaypeur',
+    url: 'https://github.com/sniper4u2',
     lang: 'Python'
   },
   {
@@ -102,7 +159,7 @@ const PROJECTS = [
       'FIDO2/WebAuthn passwordless biometric logic'
     ],
     tech: ['TypeScript', 'Cloudflare Workers', 'ZKP', 'React', 'Supabase'],
-    url: 'https://github.com/spaypeur',
+    url: 'https://github.com/sniper4u2',
     liveUrl: 'https://vaultguard.eu.org',
     lang: 'TypeScript'
   },
@@ -115,14 +172,14 @@ const PROJECTS = [
     desc: 'Enterprise risk tracking application monitoring credit drops and structural company events. Aggregates data pipelines and generates multi-sheet Excel reports with automated scheduling.',
     features: [
       'Ingests daily UK public filings',
-      'Identifies credit score adjustments ≥5%',
+      'Identifies credit score adjustments >=5%',
       'Celery & Redis async scheduling pipeline',
       'Automated daily/weekly multi-sheet Excel dispatch',
       'Multi-tenant dashboard with client filters',
       'PostgreSQL data persistence layer'
     ],
     tech: ['Python', 'FastAPI', 'Celery', 'Redis', 'React', 'PostgreSQL'],
-    url: 'https://github.com/spaypeur',
+    url: 'https://github.com/sniper4u2',
     lang: 'Python'
   },
   {
@@ -141,7 +198,7 @@ const PROJECTS = [
       'Context windows optimized for large codebases'
     ],
     tech: ['Python', 'Ollama', 'ChromaDB', 'Sentence-Transformers'],
-    url: 'https://github.com/spaypeur',
+    url: 'https://github.com/sniper4u2',
     lang: 'Python'
   },
   {
@@ -160,7 +217,7 @@ const PROJECTS = [
       'Pattern matching on 50+ deep learning keywords'
     ],
     tech: ['Python', 'JSON', 'Systems API'],
-    url: 'https://github.com/spaypeur',
+    url: 'https://github.com/sniper4u2',
     lang: 'Python'
   }
 ];
@@ -193,50 +250,41 @@ const CERTS = [
 
 const CONTACTS = [
   { icon: '🤗', label: 'Hugging Face', val: 'huggingface.co/sofienehmz', href: 'https://huggingface.co/sofienehmz', highlight: true },
-  { icon: '💻', label: 'GitHub', val: 'github.com/spaypeur', href: 'https://github.com/spaypeur' },
+  { icon: '💻', label: 'GitHub', val: 'github.com/sniper4u2', href: 'https://github.com/sniper4u2', highlight: true },
   { icon: '🛡️', label: 'VaultGuard Org', val: 'vaultguard.eu.org', href: 'https://vaultguard.eu.org', highlight: true },
   { icon: '🛠️', label: 'Tools Case', val: 'hamzaoui-sofiene-tools-case', href: 'https://start.me/p/KMJvbw/hamzaoui-sofiene-tools-case' },
   { icon: '📧', label: 'Email', val: 'admin@vaultguard.eu.org', href: 'mailto:admin@vaultguard.eu.org' },
   { icon: '📄', label: 'CV / Resume', val: 'CV (Complete PDF)', href: 'CERTS/Hamzaoui_Sofiene_CV_Complete.pdf' }
 ];
 
-/* ========= 3D UNIVERSE SCENE (THREE.JS) ========= */
+/* ========= 3D CINEMATIC AI NEURAL UNIVERSE (THREE.JS) ========= */
 
 let scene, camera, renderer;
-let stars, starGeometry, starMaterial;
-let planets = [];
+let neuralPoints, neuralLines;
+let dataPackets = [];
+let aiCores = [];
 const sectionOrder = ['hero', 'about', 'ai-expertise', 'huggingface', 'projects', 'experience', 'certificates', 'contact'];
 let activeSectionIdx = 0;
 let currentLookAt = new THREE.Vector3(0, 0, 0);
 
-// Distribute planets across a wider 3D constellation
-const PLANET_POSITIONS = {
-  hero: new THREE.Vector3(30, 0, 0),
-  about: new THREE.Vector3(90, 40, -40),
-  'ai-expertise': new THREE.Vector3(-10, -50, -90),
-  huggingface: new THREE.Vector3(50, -30, -70),
-  projects: new THREE.Vector3(-80, 20, 20),
-  experience: new THREE.Vector3(40, 70, 30),
-  certificates: new THREE.Vector3(100, -10, 80),
-  contact: new THREE.Vector3(-40, -80, 40)
+// Cinematic AI Cluster Anchor Positions across 3D space
+const CLUSTER_POSITIONS = {
+  hero: new THREE.Vector3(0, 0, 0),
+  about: new THREE.Vector3(35, 15, -40),
+  'ai-expertise': new THREE.Vector3(-40, -20, -70),
+  huggingface: new THREE.Vector3(30, -25, -60),
+  projects: new THREE.Vector3(-35, 20, -30),
+  experience: new THREE.Vector3(25, 35, -20),
+  certificates: new THREE.Vector3(40, -10, -50),
+  contact: new THREE.Vector3(-20, -35, -10)
 };
 
 function getCameraTargets(section) {
-  const planetPos = PLANET_POSITIONS[section];
-  
-  if (window.innerWidth > 968) {
-    // Desktop: Camera positioned to look slightly left, placing planet on the right
-    return {
-      pos: new THREE.Vector3(planetPos.x - 18, planetPos.y + 4, planetPos.z + 55),
-      look: new THREE.Vector3(planetPos.x - 18, planetPos.y + 2, planetPos.z)
-    };
-  } else {
-    // Mobile: Camera centered, planet placed below or deep behind
-    return {
-      pos: new THREE.Vector3(planetPos.x, planetPos.y - 12, planetPos.z + 65),
-      look: new THREE.Vector3(planetPos.x, planetPos.y, planetPos.z)
-    };
-  }
+  const targetPos = CLUSTER_POSITIONS[section] || CLUSTER_POSITIONS.hero;
+  return {
+    pos: new THREE.Vector3(targetPos.x * 0.35, targetPos.y * 0.35 + 2, 68),
+    look: new THREE.Vector3(targetPos.x * 0.15, targetPos.y * 0.15, 0)
+  };
 }
 
 function init3D() {
@@ -245,157 +293,180 @@ function init3D() {
 
   // Scene
   scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x040814, 0.004);
+  scene.fog = new THREE.FogExp2(0x030712, 0.0035);
 
   // Camera
-  camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
   const startTargets = getCameraTargets('hero');
   camera.position.copy(startTargets.pos);
   currentLookAt.copy(startTargets.look);
 
-  // Renderer
+  // Renderer with smooth filmic tone mapping
   renderer = new THREE.WebGLRenderer({ canvas: container, antialias: true, alpha: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // Lights (Teal & Amber palette matching visual guidelines)
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.15);
+  // Lighting - Key cyan light + Amber accent + Subtle purple backfill
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.25);
   scene.add(ambientLight);
 
-  const tealLight = new THREE.DirectionalLight(0x06b6d4, 1.8);
-  tealLight.position.set(50, 50, 50);
-  scene.add(tealLight);
+  const cyanLight = new THREE.DirectionalLight(0x06b6d4, 2.4);
+  cyanLight.position.set(60, 50, 60);
+  scene.add(cyanLight);
 
-  const amberLight = new THREE.DirectionalLight(0xf97316, 1.5);
-  amberLight.position.set(-50, -50, 50);
+  const amberLight = new THREE.DirectionalLight(0xf97316, 1.8);
+  amberLight.position.set(-60, -40, 50);
   scene.add(amberLight);
 
-  // Dynamic particle stars
-  const starCount = 2000;
-  starGeometry = new THREE.BufferGeometry();
-  const starPositions = new Float32Array(starCount * 3);
-  const starColors = new Float32Array(starCount * 3);
+  const purpleLight = new THREE.PointLight(0xa855f7, 2.0, 150);
+  purpleLight.position.set(0, 40, -30);
+  scene.add(purpleLight);
 
-  const colors = [
-    new THREE.Color(0x06b6d4), // Cyan
-    new THREE.Color(0xf97316), // Amber
-    new THREE.Color(0xfbbf24), // Gold
-    new THREE.Color(0xffffff)  // White
-  ];
+  // 1. NEURAL NETWORK TOPOLOGY (Points + Synaptic Connections)
+  const nodeCount = 140;
+  const nodeCoords = [];
+  const pGeometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(nodeCount * 3);
+  const colors = new Float32Array(nodeCount * 3);
 
-  for (let i = 0; i < starCount; i++) {
-    starPositions[i * 3] = (Math.random() - 0.5) * 800;
-    starPositions[i * 3 + 1] = (Math.random() - 0.5) * 800;
-    starPositions[i * 3 + 2] = (Math.random() - 0.5) * 800;
+  const cyanCol = new THREE.Color(0x06b6d4);
+  const amberCol = new THREE.Color(0xf97316);
+  const purpleCol = new THREE.Color(0xa855f7);
+  const palette = [cyanCol, cyanCol, amberCol, purpleCol];
 
-    const chosenColor = colors[Math.floor(Math.random() * colors.length)];
-    starColors[i * 3] = chosenColor.r;
-    starColors[i * 3 + 1] = chosenColor.g;
-    starColors[i * 3 + 2] = chosenColor.b;
+  for (let i = 0; i < nodeCount; i++) {
+    const x = (Math.random() - 0.5) * 180;
+    const y = (Math.random() - 0.5) * 140;
+    const z = (Math.random() - 0.5) * 120 - 20;
+
+    positions[i * 3] = x;
+    positions[i * 3 + 1] = y;
+    positions[i * 3 + 2] = z;
+    nodeCoords.push(new THREE.Vector3(x, y, z));
+
+    const c = palette[i % palette.length];
+    colors[i * 3] = c.r;
+    colors[i * 3 + 1] = c.g;
+    colors[i * 3 + 2] = c.b;
   }
 
-  starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-  starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+  pGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  pGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-  starMaterial = new THREE.PointsMaterial({
-    size: 1.2,
+  const pMaterial = new THREE.PointsMaterial({
+    size: 2.2,
     vertexColors: true,
     transparent: true,
-    opacity: 0.6,
+    opacity: 0.85,
     sizeAttenuation: true
   });
+  neuralPoints = new THREE.Points(pGeometry, pMaterial);
+  scene.add(neuralPoints);
 
-  stars = new THREE.Points(starGeometry, starMaterial);
-  scene.add(stars);
+  // Synaptic Network Lines between near neighbors
+  const linePositions = [];
+  const maxConnDist = 36;
+  const edgePairs = [];
 
-  // Generate glowing celestial nodes / planets
-  sectionOrder.forEach((section, idx) => {
-    const planetPos = PLANET_POSITIONS[section];
+  for (let i = 0; i < nodeCount; i++) {
+    for (let j = i + 1; j < nodeCount; j++) {
+      const dist = nodeCoords[i].distanceTo(nodeCoords[j]);
+      if (dist < maxConnDist) {
+        linePositions.push(nodeCoords[i].x, nodeCoords[i].y, nodeCoords[i].z);
+        linePositions.push(nodeCoords[j].x, nodeCoords[j].y, nodeCoords[j].z);
+        edgePairs.push({ p1: nodeCoords[i], p2: nodeCoords[j] });
+      }
+    }
+  }
 
+  const lineGeo = new THREE.BufferGeometry();
+  lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+  const lineMat = new THREE.LineBasicMaterial({
+    color: 0x06b6d4,
+    transparent: true,
+    opacity: 0.16,
+    blending: THREE.AdditiveBlending
+  });
+  neuralLines = new THREE.LineSegments(lineGeo, lineMat);
+  scene.add(neuralLines);
+
+  // 2. ACTIVE TOKEN FLOW / DATA PACKETS traveling through the neural mesh
+  const packetCount = 28;
+  const packetGeo = new THREE.SphereGeometry(0.5, 6, 6);
+  for (let k = 0; k < packetCount; k++) {
+    const pair = edgePairs[Math.floor(Math.random() * edgePairs.length)];
+    if (!pair) continue;
+    const col = (k % 2 === 0) ? 0x06b6d4 : 0xf97316;
+    const packetMat = new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: 0.9 });
+    const packetMesh = new THREE.Mesh(packetGeo, packetMat);
+    scene.add(packetMesh);
+    dataPackets.push({
+      mesh: packetMesh,
+      pair: pair,
+      progress: Math.random(),
+      speed: 0.006 + Math.random() * 0.012
+    });
+  }
+
+  // 3. CINEMATIC TRANSFORMER ATTENTION CORES (Rotating Torus Knots + Energy Cages)
+  const coreConfigs = [
+    { pos: new THREE.Vector3(-45, 12, -35), col: 0x06b6d4, scale: 4.5, speed: 0.008 },
+    { pos: new THREE.Vector3(50, -18, -45), col: 0xf97316, scale: 5.0, speed: -0.006 },
+    { pos: new THREE.Vector3(-25, -35, -55), col: 0xa855f7, scale: 4.0, speed: 0.010 },
+    { pos: new THREE.Vector3(40, 32, -30), col: 0x06b6d4, scale: 3.8, speed: -0.007 }
+  ];
+
+  coreConfigs.forEach(cfg => {
     const group = new THREE.Group();
-    group.position.copy(planetPos);
+    group.position.copy(cfg.pos);
 
-    // Inner wireframe sphere
-    const sphereGeom = new THREE.SphereGeometry(5, 16, 16);
-    const color = idx % 2 === 0 ? 0x06b6d4 : 0xf97316;
-    const emissive = idx % 2 === 0 ? 0x012c3a : 0x3d1702;
-
-    const sphereMat = new THREE.MeshPhongMaterial({
-      color: color,
-      emissive: emissive,
-      shininess: 30,
+    // Inner Torus Knot representing attention tensor manifolds
+    const tkGeom = new THREE.TorusKnotGeometry(cfg.scale, cfg.scale * 0.28, 48, 8);
+    const tkMat = new THREE.MeshStandardMaterial({
+      color: cfg.col,
+      emissive: cfg.col,
+      emissiveIntensity: 0.35,
       wireframe: true,
       transparent: true,
-      opacity: 0.8
+      opacity: 0.28
     });
-    const core = new THREE.Mesh(sphereGeom, sphereMat);
-    group.add(core);
+    const knot = new THREE.Mesh(tkGeom, tkMat);
+    group.add(knot);
 
-    // Outer orbital ring
-    const ringGeom = new THREE.RingGeometry(7, 7.5, 32);
-    const ringMat = new THREE.MeshBasicMaterial({
-      color: idx % 2 === 0 ? 0xf97316 : 0x06b6d4,
-      side: THREE.DoubleSide,
+    // Outer spherical pulse shell
+    const shellGeom = new THREE.IcosahedronGeometry(cfg.scale * 1.5, 1);
+    const shellMat = new THREE.MeshBasicMaterial({
+      color: cfg.col,
+      wireframe: true,
       transparent: true,
-      opacity: 0.5
+      opacity: 0.12
     });
-    const ring = new THREE.Mesh(ringGeom, ringMat);
-    ring.rotation.x = Math.PI / 2.5;
-    group.add(ring);
-
-    // Add tiny orbiting moon/node
-    const moonGeom = new THREE.SphereGeometry(0.8, 8, 8);
-    const moonMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-    const moon = new THREE.Mesh(moonGeom, moonMat);
-    moon.position.set(7.2, 0, 0);
-    group.add(moon);
+    const shell = new THREE.Mesh(shellGeom, shellMat);
+    group.add(shell);
 
     scene.add(group);
-    planets.push({ group, core, ring, moon, section, basePos: planetPos.clone() });
-
-    // Overlay 2D labels in HTML
-    createPlanetLabel(planetPos, section);
+    aiCores.push({ group, knot, shell, speed: cfg.speed });
   });
+
+  // Background deep ambient stars
+  const bgStarCount = 800;
+  const bgStarGeo = new THREE.BufferGeometry();
+  const bgStarPos = new Float32Array(bgStarCount * 3);
+  for (let s = 0; s < bgStarCount; s++) {
+    bgStarPos[s * 3] = (Math.random() - 0.5) * 500;
+    bgStarPos[s * 3 + 1] = (Math.random() - 0.5) * 500;
+    bgStarPos[s * 3 + 2] = (Math.random() - 0.5) * 400 - 100;
+  }
+  bgStarGeo.setAttribute('position', new THREE.BufferAttribute(bgStarPos, 3));
+  const bgStarMat = new THREE.PointsMaterial({ size: 1.0, color: 0x94a3b8, transparent: true, opacity: 0.4 });
+  const bgStars = new THREE.Points(bgStarGeo, bgStarMat);
+  scene.add(bgStars);
 
   window.addEventListener('resize', onWindowResize);
   document.addEventListener('mousemove', onMouseMove);
 
   simulateLoading();
   animate();
-}
-
-function createPlanetLabel(pos, text) {
-  const container = document.getElementById('planet-labels');
-  if (!container) return;
-  const label = document.createElement('div');
-  label.className = 'planet-lbl';
-  label.id = `lbl-${text}`;
-  label.innerText = text.replace('-', ' ');
-  container.appendChild(label);
-}
-
-function updatePlanetLabels() {
-  planets.forEach(p => {
-    const label = document.getElementById(`lbl-${p.section}`);
-    if (!label) return;
-
-    const tempV = p.group.position.clone();
-    tempV.project(camera);
-
-    const x = (tempV.x * 0.5 + 0.5) * window.innerWidth;
-    const y = (tempV.y * -0.5 + 0.5) * window.innerHeight;
-
-    label.style.left = `${x}px`;
-    label.style.top = `${y}px`;
-
-    // Only show label if it's within range and camera is facing it
-    const dist = camera.position.distanceTo(p.group.position);
-    if (tempV.z < 1 && dist < 220) {
-      label.style.opacity = (1 - (dist / 220)).toFixed(2);
-    } else {
-      label.style.opacity = 0;
-    }
-  });
 }
 
 function simulateLoading() {
@@ -405,27 +476,30 @@ function simulateLoading() {
   let progress = 0;
 
   const interval = setInterval(() => {
-    progress += Math.floor(Math.random() * 15) + 5;
+    progress += Math.floor(Math.random() * 15) + 8;
     if (progress >= 100) {
       progress = 100;
       clearInterval(interval);
       setTimeout(() => {
-        loader.style.opacity = 0;
-        setTimeout(() => loader.style.display = 'none', 800);
-      }, 300);
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(() => loader.style.display = 'none', 800);
+        }
+      }, 250);
     }
     if (fill) fill.style.width = `${progress}%`;
     if (pct) pct.innerText = `${progress}%`;
-  }, 40);
+  }, 35);
 }
 
 let mouseX = 0, mouseY = 0;
 function onMouseMove(event) {
-  mouseX = (event.clientX - window.innerWidth / 2) * 0.03;
-  mouseY = (event.clientY - window.innerHeight / 2) * 0.03;
+  mouseX = (event.clientX - window.innerWidth / 2) * 0.02;
+  mouseY = (event.clientY - window.innerHeight / 2) * 0.02;
 }
 
 function onWindowResize() {
+  if (!camera || !renderer) return;
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -436,59 +510,50 @@ function animate() {
 
   const time = Date.now() * 0.001;
 
-  if (stars) {
-    stars.rotation.y += 0.00015;
-    stars.rotation.x += 0.00005;
+  // Slowly drift and rotate neural constellation
+  if (neuralPoints) {
+    neuralPoints.rotation.y = time * 0.02;
+    neuralPoints.rotation.x = Math.sin(time * 0.015) * 0.04;
+  }
+  if (neuralLines) {
+    neuralLines.rotation.y = time * 0.02;
+    neuralLines.rotation.x = Math.sin(time * 0.015) * 0.04;
   }
 
-  // Rotate planets, rings, animate moons, and fade non-active planets
-  planets.forEach((p, idx) => {
-    p.core.rotation.y += 0.006;
-    p.ring.rotation.z -= 0.004;
-
-    // Orbiter moon trajectory
-    if (p.moon) {
-      const angle = time * 1.5 + idx;
-      p.moon.position.x = Math.cos(angle) * 7.2;
-      p.moon.position.z = Math.sin(angle) * 7.2;
-    }
-
-    // Slow floating behavior
-    if (p.basePos) {
-      p.group.position.y = p.basePos.y + Math.sin(time + idx * 1.5) * 1.0;
-    }
-
-    // Fade non-active planets to prevent overlap with content panels
-    const isActive = (sectionOrder[activeSectionIdx] === p.section);
-    const targetCoreOpacity = isActive ? 0.8 : 0.04;
-    const targetRingOpacity = isActive ? 0.5 : 0.02;
-    const targetMoonOpacity = isActive ? 1.0 : 0.0;
-    p.core.material.opacity  = THREE.MathUtils.lerp(p.core.material.opacity,  targetCoreOpacity, 0.06);
-    p.ring.material.opacity  = THREE.MathUtils.lerp(p.ring.material.opacity,  targetRingOpacity, 0.06);
-    if (p.moon) {
-      p.moon.material.transparent = true;
-      p.moon.material.opacity = THREE.MathUtils.lerp(p.moon.material.opacity, targetMoonOpacity, 0.06);
-    }
+  // Animate Attention Cores
+  aiCores.forEach((core, idx) => {
+    core.knot.rotation.x += core.speed;
+    core.knot.rotation.y += core.speed * 1.5;
+    core.shell.rotation.z -= core.speed * 0.8;
+    core.group.position.y += Math.sin(time * 1.5 + idx) * 0.03;
   });
 
-  // Camera flight interpolation
+  // Animate synaptic data packets / token streaming
+  dataPackets.forEach(dp => {
+    dp.progress += dp.speed;
+    if (dp.progress >= 1.0) {
+      dp.progress = 0.0;
+    }
+    dp.mesh.position.lerpVectors(dp.pair.p1, dp.pair.p2, dp.progress);
+  });
+
+  // Smooth camera flight interpolation across cinematic targets
   const targetView = getCameraTargets(sectionOrder[activeSectionIdx]);
-  camera.position.lerp(targetView.pos, 0.035);
-  currentLookAt.lerp(targetView.look, 0.035);
+  if (camera && currentLookAt) {
+    camera.position.lerp(targetView.pos, 0.035);
+    currentLookAt.lerp(targetView.look, 0.035);
 
-  // Parallax offset
-  camera.position.x += (mouseX - camera.position.x) * 0.015;
-  camera.position.y += (-mouseY - camera.position.y) * 0.015;
+    // Parallax subtle camera tilt
+    camera.position.x += (mouseX - camera.position.x) * 0.015;
+    camera.position.y += (-mouseY - camera.position.y) * 0.015;
 
-  camera.lookAt(currentLookAt);
+    camera.lookAt(currentLookAt);
+  }
 
-  updatePlanetLabels();
-
-  renderer.render(scene, camera);
+  if (renderer && scene && camera) {
+    renderer.render(scene, camera);
+  }
 }
-
-/* ========= SCROLL & NAVIGATION MANAGEMENT ========= */
-
 
 /* ========= SCROLL & NAVIGATION MANAGEMENT ========= */
 
@@ -498,7 +563,6 @@ function goSection(sectionId) {
 
   activeSectionIdx = newIdx;
 
-  // Update active nav state only — sections are always visible in vertical scroll
   document.querySelectorAll('.hud-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.section === sectionId);
   });
@@ -508,7 +572,6 @@ function goSection(sectionId) {
   }
 }
 
-
 function animateSkillBadges() {
   document.querySelectorAll('.adc-list li').forEach((li, idx) => {
     li.style.opacity = 0;
@@ -517,7 +580,7 @@ function animateSkillBadges() {
       li.style.transition = 'all 0.4s ease';
       li.style.opacity = 1;
       li.style.transform = 'translateX(0)';
-    }, idx * 60);
+    }, idx * 40);
   });
 }
 
@@ -537,7 +600,7 @@ function typeEffect() {
     charIdx++;
     if (charIdx === currentRole.length) {
       isDeleting = true;
-      setTimeout(typeEffect, 2000);
+      setTimeout(typeEffect, 2200);
       return;
     }
   } else {
@@ -548,7 +611,7 @@ function typeEffect() {
       wordIdx++;
     }
   }
-  setTimeout(typeEffect, isDeleting ? 30 : 80);
+  setTimeout(typeEffect, isDeleting ? 25 : 75);
 }
 
 /* ========= PROJECTS RENDERING ========= */
@@ -563,9 +626,9 @@ function renderProjects(filter = 'all') {
   filtered.forEach(p => {
     const card = document.createElement('div');
     card.className = 'pcard';
-    
+
     const hasLiveUrl = !!(p.liveUrl);
-    
+
     card.innerHTML = `
       <div class="pc-top">
         <div class="pc-title-group">
@@ -582,7 +645,7 @@ function renderProjects(filter = 'all') {
           </div>
         </div>
         <div class="pc-body-right">
-          <div class="pc-features-title">// Key Capabilities:</div>
+          <div class="pc-features-title">// Key Capabilities & Research Findings:</div>
           <ul class="pc-features">
             ${p.features.map(f => `<li>${f}</li>`).join('')}
           </ul>
@@ -598,10 +661,10 @@ function renderProjects(filter = 'all') {
           ${hasLiveUrl ? `
           <a href="${p.liveUrl}" target="_blank" class="pc-action-btn live-btn" onclick="event.stopPropagation();">
             <span class="btn-live-dot"></span>
-            Launch App
+            Live Deployment
           </a>` : ''}
           <button class="pc-action-btn console-btn">
-            Telemetry Console →
+            Telemetry Console ->
           </button>
         </div>
       </div>
@@ -632,8 +695,6 @@ function renderCertificates(filter = 'all') {
   });
 }
 
-
-
 /* ========= CONTACT DETAILS RENDERING ========= */
 
 function renderContact() {
@@ -658,17 +719,18 @@ function renderContact() {
 /* ========= MODAL SYSTEM ========= */
 
 const PREVIEWS = {
-  'b13-sft-dataset': '$ huggingface-cli dataset info sofienehmz/b13-cybersecurity-sft-datasets\n[*] Dataset: sofienehmz/b13-cybersecurity-sft-datasets\n[+] Config master_unified: 16,594 ChatML samples\n[+] Config vulnerabilities_v3: 10,000 CVE samples\n[+] Config code_security: 5,591 SAST samples\n[+] Config redteam_pentest: 1,003 conversations\n[+] Evals: 130,173 security records',
-  'gaia-agent': '$ python gaia_agent.py\n[*] Initializing smolagents CodeAgent engine...\n[+] Backend model: Qwen2.5-Coder-32B-Instruct (HF Inference)\n[+] Registered tools: DuckDuckGoSearch, VisitWebpage\n[+] Gradio UI active on Hugging Face Space',
+  'b13-sft-dataset': '$ huggingface-cli dataset info sofienehmz/b13-cybersecurity-sft-datasets\n[*] Dataset: sofienehmz/b13-cybersecurity-sft-datasets\n[+] Config master_unified: 16,874 ChatML samples\n[+] Config vulnerabilities_v3: 10,000 CVE samples with CoT reasoning\n[+] Config code_security: 5,591 SAST samples with CWE mapping\n[+] Config redteam_pentest: 1,003 multi-turn conversations\n[+] Evals: 130,173 security records across agent tools & skills',
+  'hspn-mai-arc': '$ python evaluate_arc_submission.py --framework hspn-mai\n[*] Initializing HSPN-MAI Neuro-Symbolic generalizer...\n[+] Author: Vaultguard / sniper4u2\n[+] System 1: Neural topological prior search & grid objectness active\n[+] System 2: Metacognitive DSL verification & program execution engine\n[*] Emitting verified submission.parquet to Kaggle evaluation gateway\n[+] Target benchmark: ARC-AGI-2 & ARC-AGI-3 (Prize 2026)',
+  'barbados-ocr': '$ python barbados_train_v17.py --epochs 50 --gpu 0\n[*] Initializing Kraken HTR + PyTorch Lightning engine...\n[+] Sauvola adaptive binarization applied to historical transcripts\n[+] Model architecture: CNN + LiGRU + CTC loss\n[*] Resuming epoch checkpoint 17/50 (Warmup lr: 1e-4)\n[+] Transductive consensus fusion: RapidFuzz token edit-distance (6 models)\n[+] Validated CER/WER threshold: OPTIMAL',
+  'bias-bounty': '$ python src/baseline.py --dataset overture-maps-2026\n[*] Ingesting Census TIGER/Line & Overture building footprints via DuckDB...\n[+] Enforcing deterministic seed contract: SEED=4217\n[+] Joining CDC Social Vulnerability Indices (SVI)\n[*] Non-parametric probability calibration active\n[+] Evaluated algorithmic equity metric on Zindi benchmark',
+  'gaia-agent': '$ python gaia_agent.py\n[*] Initializing smolagents CodeAgent engine...\n[+] Backend model: Qwen2.5-Coder-32B-Instruct (HF Inference)\n[+] Registered tools: DuckDuckGoSearch, VisitWebpage, PythonREPL\n[+] Gradio interactive console active on Hugging Face Space',
   c2server: '$ ./c2server --start\n[*] Loading configurations...\n[+] SS7 exploitation module: initialized\n[+] Auto-agent scanning active\n[*] C2 daemon listening on websocket :8000\n[+] Mythos Learner status: CONNECTED\n[+] Active sessions: 3 remote agents configured',
   phalanx: '$ python phalanx.py --model qwen3.6-35b-moe.gguf\n[*] Initializing model loader...\n[+] Loaded Qwen3.6-35B-A3B (MoE 256 experts)\n[*] System VRAM: 80.00 GB (NVIDIA A100)\n[*] Offloaded 80 layers to GPU (CUDA)\n[+] REST Endpoint active at http://localhost:8080/v1',
   vaultguard: '$ vaultguard status\n[+] Protocol status: ACTIVE\n[+] 137 Edge functions running on Cloudflare Workers\n[*] Biometric WebAuthn check: PASSED\n[+] Cold wallet multi-sig nodes: 3/5 verified\n[+] ZKP Identity check: VALIDATED',
   insolvency: '$ monitor run\n[*] Scraping UK public insolvency directories...\n[+] Indexed 1,247 firms\n[-] Detected credit drops on 4 firms\n[*] Formatted Celery dispatch pipeline\n[+] Daily Excel report sent to admins',
   'mythos-learner': '$ mythos-learner scan --dir /home/b13/\n[*] Scanning codebase directories...\n[+] Indexed 102 operational skills\n[+] Saved local state to learner_state.json\n[*] Local Ollama check: qwen2.5-coder active\n[+] Agent planning sequence complete',
   'ai-discovery': '$ python ai_llm_discovery.py\n[*] Deep AI Asset Inventory Scanning...\n[+] Found 8 quantized local models (.gguf)\n[+] Found sentence-transformers (all-MiniLM-L6-v2)\n[+] Found active Continue & LMStudio config files\n[*] Report outputted to ~/ai_llm_deep_analysis.txt'
-};
-
-function openModal(id) {
+};\n\nfunction openModal(id) {
   const p = PROJECTS.find(x => x.id === id);
   if (!p) return;
 
@@ -692,11 +754,11 @@ function openModal(id) {
           <div class="modal-sec-title">Tech Stack</div>
           <div class="modal-tags">${p.tech.map(t => `<span class="modal-tag">${t}</span>`).join('')}</div>
         </div>
-        <a href="${p.url}" target="_blank" class="modal-btn">GitHub Repository →</a>
+        <a href="${p.url}" target="_blank" class="modal-btn">GitHub Repository -></a>
       </div>
       <div class="modal-col">
         <div>
-          <div class="modal-sec-title">Key Features</div>
+          <div class="modal-sec-title">Key Features & Invariants</div>
           <ul class="modal-feats">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
         </div>
         <div>
@@ -753,7 +815,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // IntersectionObserver: detect which section is in viewport, update 3D camera target
   const observerOptions = {
     root: null,
-    rootMargin: '-35% 0px -35% 0px',
+    rootMargin: '-30% 0px -30% 0px',
     threshold: 0
   };
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -803,7 +865,6 @@ document.addEventListener('DOMContentLoaded', () => {
   animateHeroStats();
 });
 
-
 /* ========= HERO STAT COUNTER ANIMATION ========= */
 
 function animateHeroStats() {
@@ -823,14 +884,12 @@ function animateHeroStats() {
     function tick(now) {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(eased * end);
       el.textContent = current + suffix;
       if (progress < 1) requestAnimationFrame(tick);
     }
 
-    // Small delay to let the loader finish
-    setTimeout(() => requestAnimationFrame(tick), 600);
+    setTimeout(() => requestAnimationFrame(tick), 500);
   });
 }

@@ -1,15 +1,18 @@
 :root {
-  --bg: #040814;
-  --bg-panel: rgba(6, 11, 28, 0.65);
-  --bg-card: rgba(8, 16, 40, 0.45);
-  --border: rgba(34, 211, 238, 0.12);
-  --border-hover: rgba(249, 115, 22, 0.4);
+  --bg: #030712;
+  --bg-panel: rgba(8, 15, 36, 0.75);
+  --bg-card: rgba(11, 22, 48, 0.6);
+  --border: rgba(34, 211, 238, 0.16);
+  --border-hover: rgba(249, 115, 22, 0.55);
   
-  /* Cyber Quantum Colors */
+  /* Cinematic AI Quantum Palette */
   --cyan: #06b6d4;
-  --cyan-glow: rgba(6, 182, 212, 0.35);
+  --cyan-glow: rgba(6, 182, 212, 0.45);
+  --cyan-subtle: rgba(6, 182, 212, 0.08);
   --amber: #f97316;
-  --amber-glow: rgba(249, 115, 22, 0.35);
+  --amber-glow: rgba(249, 115, 22, 0.45);
+  --purple: #a855f7;
+  --purple-glow: rgba(168, 85, 247, 0.35);
   --gold: #fbbf24;
   --green: #10b981;
   --red: #f43f5e;
@@ -19,7 +22,7 @@
   --text-bright: #ffffff;
   --font-mono: 'JetBrains Mono', monospace;
   --font-sans: 'Outfit', sans-serif;
-  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -38,15 +41,18 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Background grid overlay */
+/* Cinematic Neural Background Overlay & Vignette */
 body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+    radial-gradient(circle at 50% 15%, rgba(6, 182, 212, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 65%, rgba(168, 85, 247, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 20% 85%, rgba(249, 115, 22, 0.05) 0%, transparent 50%),
+    linear-gradient(rgba(6, 182, 212, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
   z-index: 0;
   pointer-events: none;
 }
@@ -212,7 +218,7 @@ body::before {
   100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
 }
 
-/* Vertical-scroll layout — sections stack naturally */
+/* Balanced Cinematic Layout — Centered with High-Density Viewports */
 section.panel {
   position: relative;
   min-height: 100vh;
@@ -220,8 +226,8 @@ section.panel {
   z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 120px 5% 80px 5%;
+  justify-content: center;
+  padding: 120px 2rem 90px 2rem;
   box-sizing: border-box;
   pointer-events: all;
   opacity: 1;
@@ -231,14 +237,15 @@ section.panel {
 
 .panel-inner {
   width: 100%;
-  max-width: 860px;
-  padding: 2.5rem 2.5rem;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 2.8rem 3rem;
   background: var(--bg-panel);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04);
+  border-radius: 16px;
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 30px rgba(6, 182, 212, 0.04);
   position: relative;
 }
 
