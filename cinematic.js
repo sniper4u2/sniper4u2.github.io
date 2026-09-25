@@ -78,6 +78,7 @@
   let paused = false;
   let rafId = 0;
   let started = false;
+  let stallGuard = 0;                  /* watchdog on the remote 4K transfer  */
 
   root.querySelectorAll('.cine-layer').forEach(function (layer) {
     const key = layer.getAttribute('data-shot');
@@ -133,6 +134,7 @@
       const src = video.getAttribute('src') || '';
       if (src.indexOf('upload.wikimedia.org') !== -1) {
         video.removeEventListener('error', onErr);
+        video.dataset.downgraded = '1';
         video.setAttribute('src', SHOTS[id].video);
         video.load();
         if (id === activeShot) safePlay(video);
@@ -145,8 +147,17 @@
 
     /* dissolve in only once real frames exist, so the poster never pops */
     video.addEventListener('playing', function () {
+      clearTimeout(stallGuard);
       layer.classList.add('is-playing');
       settle();
+    });
+
+    /* Also handle timeupdate to ensure is-playing is added once video actually renders */
+    video.addEventListener('timeupdate', function () {
+      if (video.currentTime > 0.05 && !layer.classList.contains('is-playing')) {
+        layer.classList.add('is-playing');
+        settle();
+      }
     });
 
     /* Seam wrap. Both clips are 15s orbits whose first and last frames differ
@@ -161,6 +172,29 @@
 
     video.setAttribute('src', sourceFor(id));
     video.load();
+
+    /* Stall guard. A codec/proxy/captive-portal stall NEVER fires `error`, so
+       the handler above cannot rescue it: the 41 MB 4K master is streamed from
+       Wikimedia, and if it hangs the layer sits on a static poster - which on
+       the dark orbit shot reads to the visitor as a black background. No frames
+       after 3 s => abandon the remote master for the self-hosted 1080p copy.
+       Re-armed on every attach (go3D() can abort and re-arm the transfer). */
+    clearTimeout(stallGuard);
+    stallGuard = setTimeout(function () {
+      if (layer.classList.contains('is-playing')) return;             /* frames exist */
+      const src = video.getAttribute('src') || '';
+      if (src.indexOf('upload.wikimedia.org') !== -1) {
+        video.dataset.downgraded = '1';
+        video.setAttribute('src', SHOTS[id].video);
+        try { video.load(); } catch (e) { /* noop */ }
+        if (id === activeShot) safePlay(video);
+        return;                                                        /* re-check on playing */
+      }
+      /* Not even the local master decoded: the poster (frame 0) keeps the shot.
+         settle() releases the shutter so the tier is never a blank frame. */
+      settle();
+    }, 3000);
+
     return video;
   }
 
@@ -170,7 +204,6 @@
     if (layers[id]) requestedShot = id;
     if (tier === 'pending') return;       /* replayed by armPhoto() on resolve */
     if (!layers[id]) return;
-    const changed = id !== activeShot;
     activeShot = id;
     shotIds.forEach(function (key) {
       const layer = layers[key];
@@ -178,9 +211,15 @@
       layer.classList.toggle('is-active', on);
       const video = layer.querySelector('.cine-video');
       if (!video) return;
-      if (on && !changed && video.dataset.attached === '1') return;
       if (on) {
+        /* Re-attach whenever a previous tier aborted the transfer: go3D()
+           strips the src and resets data-attached to '0' when it reclaims the
+           frame, so a later handoff back to this tier must re-arm it. */
         if (video.dataset.attached !== '1') attach(key);   /* lazy: 6MB deferred */
+        /* Playback is asserted on every pass, never skipped. Bailing out here
+           when the shot was unchanged and already attached left the <video>
+           paused with opacity:0 (is-playing is only set from the media
+           events), so the frame stranded on a static near-black poster. */
         safePlay(video);
       } else if (video.dataset.attached === '1') {
         try { video.pause(); } catch (e) { /* noop */ }
@@ -324,6 +363,7 @@
      footage - and the loader shutter is released on the real frame. */
   function go3D() {
     if (tier === '3d') return;
+    if (window.__GARGANTUA_DEAD__) return;
 
     if (tier === 'photo' || tier === 'still') {
       /* The fallback armed first (cold GPU, slow module parse). Steal the frame
@@ -331,7 +371,17 @@
          bytes already in flight costs less than committing to the footage. */
       const layer = layers[requestedShot] || layers.orbit;
       const video = layer && layer.querySelector('.cine-video');
-      if (!video || layer.classList.contains('is-playing')) return;
+      if (!video) return;
+      if (layer.classList.contains('is-playing')) {
+        /* Real footage already owns the frame. blackhole.js adds `bh-live`
+           BEFORE dispatching this event, so simply returning here would leave
+           the canvas at opacity 1 / z-index 1 covering the video that just won
+           the race. Honour the one-way contract: take the canvas out of the
+           paint path and leave the footage playing. */
+        if (root3D) root3D.classList.remove('bh-live');
+        document.body.classList.add('no-3d');
+        return;
+      }
       try { video.pause(); } catch (e) { /* noop */ }
       video.removeAttribute('src');                    /* abort the transfer  */
       video.dataset.attached = '0';
@@ -348,11 +398,13 @@
 
   function armPhoto(reason) {
     if (tier === 'photo' || tier === 'still') return;
+    if (root) root.classList.remove('is-superseded');
     tier = allowMotion ? 'photo' : 'still';
     window.__CINEMATIC_TIER__ = tier;
     window.__CINEMATIC_REASON__ = reason;
     if (root3D) root3D.classList.remove('bh-live');
     root.classList.remove('is-superseded');
+    root.classList.add('is-live');
     if (!allowMotion) root.classList.add('is-still');
 
     wire();
@@ -378,7 +430,7 @@
     if (window.__GARGANTUA_READY__) return go3D();
     if (window.__GARGANTUA_DEAD__) return armPhoto(window.__GARGANTUA_DEAD__);
 
-    document.addEventListener('gargantua:ready', go3D, { once: true });
+    document.addEventListener('gargantua:ready', go3D);
     document.addEventListener('gargantua:dead', function (event) {
       armPhoto((event.detail && event.detail.reason) || 'unknown');
     });
