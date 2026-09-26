@@ -1,30 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-tier="balanced" data-motion="live">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sofiene Hamzaoui · Frontier AI/LLM Research Engineer · Systems Architect</title>
   <meta name="description" content="Sofiene Hamzaoui (sniper4u2) — Frontier AI & LLM Research Engineer, Neuro-Symbolic Systems Architect, and Technical Investigator. Creator of HSPN-MAI ARC-AGI solver, 22M+ token SFT datasets, and local MoE inference architectures.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>🧠</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <!-- Background engine: real-time WebGL2 ray-marcher. This import map is the
-       only module-resolution mechanism on the page and every target is a local
-       file under vendor/ - there is no CDN anywhere in the load path.
-       The photographic fallback is NASA SVS footage, self-hosted at 1080p; its
-       41 MB 4K original is streamed only on >=2560px displays and only if the
-       fallback tier is actually armed. Nothing is preloaded for either tier:
-       the 167 KB (gzip) module is the critical resource on the 3D path, and the
-       poster is only the fallback's base layer. -->
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "./vendor/three/three.module.min.js",
-      "three/addons/": "./vendor/three/addons/"
-    }
-  }
-  </script>
-  <link rel="stylesheet" href="style.css?v=6.0">
+  <!-- Type is self-hosted (Outfit + JetBrains Mono, woff2 subsets under
+       assets/fonts/), so the page makes ZERO external requests: no font CDN, no
+       analytics, no third-party script, nothing to block first paint. -->
+  <link rel="preload" as="font" type="font/woff2" href="./assets/fonts/outfit-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=7.0">
+  <meta name="theme-color" content="#02040a">
+  <meta name="color-scheme" content="dark">
   <meta name="keywords" content="AI Engineer, LLM Fine-Tuning, SFT Datasets, Neuro-Symbolic, ARC-AGI, HSPN-MAI, Kraken HTR, llama.cpp, GGUF, MoE, Qwen, Transformers, PyTorch, CUDA, Systems Architecture, Cybersecurity, Sofiene Hamzaoui, sniper4u2">
   <meta name="author" content="Sofiene Hamzaoui">
   <meta name="robots" content="index, follow">
@@ -53,79 +41,118 @@
 </head>
 <body>
 
-<!-- ATMOSPHERIC CINEMATIC OVERLAYS -->
-<div class="cinematic-vignette"></div>
+<!-- ATMOSPHERIC VIGNETTE — now part of the frame (#scene .sc-vig) -->
 
 <!-- ==========================================================================
-     BACKGROUND — TWO TIERS, ONE FRAME SLOT
+     THE FRAME — #scene
      --------------------------------------------------------------------------
-     TIER 1 (live): #universe — real-time WebGL2 null-geodesic ray-marcher
-       (blackhole.js + vendored three.js r160). True 3D, and resolution is
-       whatever the panel is: the drawing buffer is min(devicePixelRatio, 2)
-       x tier-scale, so a 4K display gets a true 3840x2160 render. No CDN.
-     TIER 2 (photographic): #cinema — NASA SVS "Black Hole with Accretion Disk
-       Visualization" (SVS14619, Caltech-IPAC / Robert Hurt, public domain).
-       Armed ONLY when tier 1 cannot paint: no WebGL2, shader/draw failure,
-       context loss, reduced-motion, save-data, 2G. In that case the video is
-       not fetched until the tier decision is made, so a healthy desktop never
-       downloads a single byte of footage.
+     One stage, six depth planes, no GPU program. Star fields are SVG tiles
+     (sharp at any device pixel ratio), the black hole is a masked ellipse pair
+     around a black sphere, and every moving part is driven by a transform or an
+     opacity on the compositor.
+
+     Why not a shader: the previous engine ray-marched null geodesics and had to
+     keep a drawing buffer alive. On a software rasterizer it laddered down to
+     0.3 fps and then shut itself off. This frame cannot do that - there is no
+     drawing buffer to lose and no fragment program to time out. It renders at
+     the panel's native resolution on a discrete GPU, on Intel integrated, on
+     SwiftShader, over RDP and on a phone, and the measured tier decides how much
+     of it is *animated*, never whether it is correct.
+
+     Files: scene.js drives it, style.css section 1 defines it.
      ========================================================================== -->
-<canvas id="universe" aria-hidden="true"></canvas>
-
-<div id="cinema" aria-hidden="true">
-  <div class="cine-layer is-active" data-shot="orbit">
-    <video class="cine-video" preload="auto" muted loop playsinline webkit-playsinline
-           disablepictureinpicture poster="assets/gargantua-orbit-poster.jpg"></video>
-    <img class="cine-poster" src="assets/gargantua-orbit-poster.jpg" alt=""
-         width="1920" height="1080" decoding="async" fetchpriority="high">
+<div id="scene"
+     role="img"
+     aria-label="Vector visualisation of a black hole: a lensed accretion disk with a bright photon ring over a drifting star field."
+     data-shot="orbit">
+  <div class="sc-field">
+    <div class="sc-sf sc-sf--far"><div class="sc-sf__b"></div></div>
+    <div class="sc-sf sc-sf--mid"><div class="sc-sf__b"></div></div>
+    <div class="sc-sf sc-sf--near"><div class="sc-sf__b"></div></div>
   </div>
-  <div class="cine-layer" data-shot="closeup">
-    <video class="cine-video" preload="none" muted loop playsinline webkit-playsinline
-           disablepictureinpicture poster="assets/gargantua-closeup-poster.jpg"></video>
-    <img class="cine-poster" src="assets/gargantua-closeup-poster.jpg" alt=""
-         width="1920" height="1080" decoding="async" loading="lazy">
-  </div>
-</div>
-
-<!-- CINEMATIC REACTOR LOADER -->
-<div id="loader">
-  <div class="loader-inner">
-    <div class="loader-reactor">
-      <div class="reactor-ring"></div>
-      <div class="reactor-ring-inner"></div>
-      <div class="reactor-core"></div>
+  <div class="sc-neb"></div>
+  <div class="sc-lens">
+    <div class="sc-plate">
+      <div class="sc-halo"></div>
+      <div class="sc-jets"></div>
+      <div class="sc-ring sc-ring--back"><span class="sc-ring__b"></span></div>
+      <div class="sc-horizon"></div>
+      <div class="sc-photon"></div>
+      <div class="sc-arc"></div>
+      <div class="sc-ring sc-ring--front"><span class="sc-ring__b"></span></div>
+      <div class="sc-filament"></div>
+      <div class="sc-flare"></div>
     </div>
-    <div class="loader-text">SPOOLING ACCRETION DISK</div>
-    <div class="loader-sub">// RAY-MARCHING SCHWARZSCHILD GEODESICS</div>
-    <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
-    <div class="loader-pct" id="loader-pct">0%</div>
+  </div>
+  <div class="sc-warp"></div>
+  <div class="sc-grain"></div>
+  <div class="sc-vig"></div>
+  <div class="sc-ink"></div>
+</div>
+
+<!-- ==========================================================================
+     BOOT CONSOLE — four real gates, one shutter
+     --------------------------------------------------------------------------
+     There is no artificial progress bar here. Four signals release the shutter:
+     the document is parsed, the frame has composited its first pass, the
+     self-hosted faces are active, and the capability probe has returned. Each
+     line below is written when its gate actually passes (see scene.js boot()).
+     A 3.5 s fail-safe can never trap the reader, and if it fires the console says
+     so instead of pretending the boot completed.
+     ========================================================================== -->
+<div id="boot" class="boot">
+  <div class="boot__inner">
+    <div class="boot__reactor">
+      <div class="boot__ring"></div>
+      <div class="boot__ring boot__ring--2"></div>
+      <div class="boot__ring boot__ring--3"></div>
+      <div class="boot__core"></div>
+    </div>
+    <div class="boot__title">COMPOSITING THE FRAME</div>
+    <div class="boot__sub">// VECTOR SCENE · COMPOSITOR PATH · NO GPU PROGRAM REQUIRED</div>
+    <div class="boot__log" id="boot-log" aria-live="polite"></div>
+    <div class="boot__bar"><div class="boot__fill" id="boot-fill"></div></div>
+    <div class="boot__pct" id="boot-pct">0%</div>
   </div>
 </div>
 
-<!-- HUD NAVIGATION -->
-<nav id="hud-nav">
-  <a href="#hero" class="hud-logo">
-    <span class="hud-pulse"></span>
-    <span>SOFIENE<span class="accent">.</span>AI</span>
-    <span class="hud-tag">CLEARANCE 55</span>
+<!-- ==========================================================================
+     COMMAND BAR
+     The status pill used to read "RUNTIME: ONLINE (CUDA ACTIVE)" on every
+     machine, including ones with no NVIDIA hardware at all. It now reports the
+     measured frame rate and render tier, and says "stationary" when the governor
+     has settled on the still tier.
+     ========================================================================== -->
+<header class="gbar" id="gbar">
+  <a class="gbar__brand" href="#hero">
+    <span class="gbar__pulse"></span>
+    <span class="gbar__word">SOFIENE<span class="accent">.</span>AI</span>
+    <span class="gbar__clear">CLEARANCE 55</span>
   </a>
-  <div class="hud-links">
-    <button class="hud-btn active" data-section="hero">CORE</button>
+  <nav class="gbar__nav" id="gbar-nav" aria-label="Section navigation">
+    <button class="hud-btn is-active" data-section="hero">CORE</button>
     <button class="hud-btn" data-section="ai-expertise">NEURAL STACK</button>
     <button class="hud-btn" data-section="huggingface">HUGGING FACE</button>
     <button class="hud-btn" data-section="projects">AI RESEARCH &amp; PROJECTS</button>
     <button class="hud-btn" data-section="about">ARCHITECT PROFILE</button>
     <button class="hud-btn" data-section="certificates">CREDENTIALS</button>
     <button class="hud-btn" data-section="contact">SECURE COMMS</button>
-    <a href="CERTS/Hamzaoui_Sofiene_CV_Complete.pdf" class="hud-cv" target="_blank">
-      <span>↓</span> DOSSIER CV
-    </a>
+  </nav>
+  <div class="gbar__right">
+    <span class="gbar__live" id="gbar-live" data-state="idle" title="Measured on this machine, not estimated">
+      <span class="gbar__dot"></span>
+      <span id="gbar-live-txt">measuring this machine…</span>
+    </span>
+    <a class="gbar__cv" href="CERTS/Hamzaoui_Sofiene_CV_Complete.pdf" target="_blank" rel="noopener noreferrer">↓ DOSSIER CV</a>
+    <button class="gbar__menu" id="gbar-menu" aria-expanded="false" aria-controls="gbar-nav">MENU</button>
   </div>
-  <div class="hud-status-box">
-    <span class="ht-dot"></span>
-    <span>RUNTIME: ONLINE (CUDA ACTIVE)</span>
-  </div>
-</nav>
+</header>
+
+<!-- section index rail (wide viewports). Items are generated from the same
+     section table the director uses, so the rail can never drift out of sync. -->
+<nav class="rail" id="rail" aria-label="Section index"></nav>
+
+<main id="main">
 
 <!-- ==========================================================================
      SECTION 00: COMMAND DECK / HERO
@@ -167,49 +194,60 @@
       </div>
 
       <div class="hero-cta">
-        <button class="btn-primary" onclick="goSection('projects')">Inspect AI Deployments ➔</button>
-        <button class="btn-secondary" onclick="goSection('huggingface')">Hugging Face Hub 🤗</button>
-        <a href="https://github.com/sniper4u2" target="_blank" class="btn-ghost">GitHub @sniper4u2 ↗</a>
+        <button class="btn-primary" data-go="projects">Inspect AI Deployments ➔</button>
+        <button class="btn-secondary" data-go="huggingface">Hugging Face Hub 🤗</button>
+        <a href="https://github.com/sniper4u2" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub @sniper4u2 ↗</a>
       </div>
     </div>
 
-    <!-- Live Telemetry Monitor Card -->
-    <div class="hero-telemetry-card">
-      <div class="ht-head">
-        <div class="ht-title">
-          <span>// RUNTIME ARCHITECTURE TELEMETRY</span>
-        </div>
-        <div class="ht-status">
-          <span class="ht-dot"></span>
-          <span>SYSTEM CALIBRATED</span>
-        </div>
+    <!-- ====================================================================
+         HERO EVIDENCE BLOCK — REAL MEASUREMENTS + VERIFIED OUTPUTS
+         It was titled "RUNTIME ARCHITECTURE TELEMETRY" and showed four
+         hard-coded portfolio numbers (22M+, 130K+, 35B, 102) animated by a CSS
+         count-up, under a badge claiming "SYSTEM CALIBRATED". Nothing on it was
+         runtime and nothing was telemetry.
+
+         It is now two honest things:
+           1. .tele  - a live console. Every value is measured in scene.js:
+              the GPU string from a throwaway WebGL context, frame rate from
+              real animation frames, LCP/CLS/long-task blocking from
+              PerformanceObserver, navigation timings from the browser, plus the
+              governor's tier and the reason it chose it. Unmeasurable values
+              print "n/a" instead of a number.
+           2. .ledger - the four achievements, kept because they are true, and
+              labelled as portfolio output rather than machine telemetry.
+         ==================================================================== -->
+    <aside class="tele" id="tele" aria-label="Live runtime telemetry measured on this machine">
+      <span class="tele__corner"></span>
+      <div class="tele__head">
+        <span class="tele__title">// RUNTIME TELEMETRY</span>
+        <span class="tele__badge" id="tele-tier" data-tier="balanced">probing…</span>
       </div>
-      <div class="ht-grid">
-        <div class="ht-stat">
-          <div class="ht-stat-val cyan" data-target="22" data-suffix="M+">22M+</div>
-          <div class="ht-stat-label">SFT Tokens Curated</div>
-        </div>
-        <div class="ht-stat">
-          <div class="ht-stat-val amber" data-target="130" data-suffix="K+">130K+</div>
-          <div class="ht-stat-label">Security Eval Records</div>
-        </div>
-        <div class="ht-stat">
-          <div class="ht-stat-val cyan" data-target="35" data-suffix="B">35B</div>
-          <div class="ht-stat-label">MoE Quantized Weights</div>
-        </div>
-        <div class="ht-stat">
-          <div class="ht-stat-val amber" data-target="102" data-suffix="">102</div>
-          <div class="ht-stat-label">Agent Skills Auto-Indexed</div>
-        </div>
+      <div class="tele__rows" id="tele-rows"></div>
+      <div class="tele__foot">
+        <b>reason</b>
+        <span id="tele-note">waiting for the first measured window…</span>
       </div>
-      <div class="ht-terminal">
-<span class="t-prompt">b13@quantum-rig:~$</span> run-diagnostics --system-level
-<span class="t-hilite">[+] Core:</span> Neuro-Symbolic HSPN-MAI Active (ARC-AGI-3)
-<span class="t-hilite">[+] Dataset Hub:</span> sofienehmz/b13-cybersecurity-sft (Verified)
-<span class="t-hilite">[+] HTR Trainer:</span> Kraken CNN+LiGRU+CTC (50 Epochs Checkpoint)
-<span class="t-hilite">[+] Local LLM:</span> Qwen2.5-MOE-19B Q4_K_M Offloaded to CUDA
-<span class="t-hilite">[+] Security Clearance:</span> Level 55 Systems Architect Authorized
+    </aside>
+
+    <div class="ledger" id="ledger" aria-label="Verified portfolio outputs">
+      <div class="ledger__item">
+        <span class="ledger__v">22M+</span>
+        <span class="ledger__k">SFT TOKENS CURATED</span><a class="ledger__src" href="https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets" target="_blank" rel="noopener noreferrer">verify on HF ↗</a>
       </div>
+      <div class="ledger__item">
+        <span class="ledger__v">130K+</span>
+        <span class="ledger__k">SECURITY EVAL RECORDS</span><a class="ledger__src" href="https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets" target="_blank" rel="noopener noreferrer">verify on HF ↗</a>
+      </div>
+      <div class="ledger__item">
+        <span class="ledger__v">35B</span>
+        <span class="ledger__k">MoE WEIGHTS SERVED LOCALLY</span><span class="ledger__src">19B–35B GGUF · llama.cpp</span>
+      </div>
+      <div class="ledger__item">
+        <span class="ledger__v">102</span>
+        <span class="ledger__k">AGENT SKILLS AUTO-INDEXED</span><a class="ledger__src" href="https://github.com/sniper4u2" target="_blank" rel="noopener noreferrer">verify on GitHub ↗</a>
+      </div>
+      <div class="ledger__note">// verified outputs (linked) · live machine readout is the console above · no count-up theatre.</div>
     </div>
   </div>
 </section>
@@ -377,8 +415,8 @@
     <h2 class="section-title">Hugging Face <span class="accent">Ecosystem</span></h2>
     <p class="section-sub">
       Open-source contributions, datasets, and autonomous agents published under
-      <a href="https://huggingface.co/sofienehmz" target="_blank" style="color:var(--cyan);text-decoration:underline;">sofienehmz</a>
-      and <a href="https://huggingface.co/vaultguard" target="_blank" style="color:var(--amber);text-decoration:underline;">vaultguard</a>.
+      <a href="https://huggingface.co/sofienehmz" target="_blank" rel="noopener noreferrer">sofienehmz</a>
+      and <a href="https://huggingface.co/vaultguard" target="_blank" rel="noopener noreferrer" class="lnk-amber">vaultguard</a>.
     </p>
 
     <div class="ai-domains-grid">
@@ -405,8 +443,8 @@
           <span class="m-pill">130k Evals</span>
           <span class="m-pill">Parquet</span>
         </div>
-        <div style="margin-top:1.2rem;">
-          <a href="https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets" target="_blank" class="btn-primary" style="font-size:0.75rem; padding:0.5rem 1rem;">
+        <div class="card-act">
+          <a href="https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets" target="_blank" rel="noopener noreferrer" class="btn-primary btn-sm">
             Inspect on Hugging Face 🤗
           </a>
         </div>
@@ -433,8 +471,8 @@
           <span class="m-pill">Qwen2.5-Coder-32B</span>
           <span class="m-pill">Gradio Space</span>
         </div>
-        <div style="margin-top:1.2rem;">
-          <a href="https://huggingface.co/spaces/sofienehmz/gaia-agent-unit5" target="_blank" class="btn-primary" style="font-size:0.75rem; padding:0.5rem 1rem;">
+        <div class="card-act">
+          <a href="https://huggingface.co/spaces/sofienehmz/gaia-agent-unit5" target="_blank" rel="noopener noreferrer" class="btn-primary btn-sm">
             Launch Agent Console 🤖
           </a>
         </div>
@@ -459,8 +497,8 @@
           <span class="m-pill">Security LLM</span>
           <span class="m-pill">Adapter Lineage</span>
         </div>
-        <div style="margin-top:1.2rem;">
-          <a href="https://huggingface.co/sofienehmz/b13" target="_blank" class="btn-ghost" style="font-size:0.75rem; padding:0.5rem 1rem;">
+        <div class="card-act">
+          <a href="https://huggingface.co/sofienehmz/b13" target="_blank" rel="noopener noreferrer" class="btn-ghost btn-sm">
             View Repository ↗
           </a>
         </div>
@@ -478,7 +516,7 @@
     <h2 class="section-title">Verified <span class="accent">Projects &amp; Architectures</span></h2>
     <p class="section-sub">
       Audited runtime deployments, research implementations, and production systems created under profile
-      <a href="https://github.com/sniper4u2" target="_blank" style="color:var(--cyan);text-decoration:underline;">@sniper4u2</a>.
+      <a href="https://github.com/sniper4u2" target="_blank" rel="noopener noreferrer">@sniper4u2</a>.
     </p>
 
     <div class="proj-filters" id="proj-filters">
@@ -512,7 +550,7 @@
         <p>
           My strongest domain lies at the intersection of:
           <br>
-          <span style="color:var(--cyan); font-family:var(--font-mono); font-weight:700;">
+          <span class="mono-cyan">
             AI Engineering ➔ Software Forensics ➔ Infrastructure ➔ Security Protocols ➔ Systems Architecture
           </span>
         </p>
@@ -594,31 +632,48 @@
   </div>
 </section>
 
-<!-- MODAL TELEMETRY DIALOG -->
+</main>
+
+<!-- ==========================================================================
+     LIVE SESSION TICKER
+     Same measured source as the telemetry console, in one line, always visible
+     after the boot shutter opens.
+     ========================================================================== -->
+<div class="sess" id="sess" role="status" aria-live="off">
+  <span class="sess__k">TIER</span><span class="sess__v" id="sess-tier">—</span>
+  <span class="sess__sep"></span>
+  <span class="sess__k">FPS</span><span class="sess__v" id="sess-fps">—</span>
+  <span class="sess__sep sess__hide"></span>
+  <span class="sess__k sess__hide">SCROLL</span><span class="sess__v sess__hide" id="sess-scroll">0%</span>
+  <span class="sess__sep sess__hide"></span>
+  <span class="sess__k sess__hide">GPU</span><span class="sess__v sess__hide" id="sess-gpu">—</span>
+  <span class="sess__note" id="sess-note">// measured, not estimated</span>
+</div>
+
+<!-- MODAL DIALOG -->
 <div id="modal-bg" class="modal-hidden">
   <div class="modal-wrap">
-    <button class="modal-close" id="modal-close">✕</button>
+    <button class="modal-close" id="modal-close" aria-label="Close dialog">✕</button>
     <div class="modal-head" id="modal-head"></div>
     <div class="modal-body" id="modal-body"></div>
   </div>
 </div>
 
-<!-- CINEMATIC FOOTER -->
-<footer>
-  <span>Sofiene Hamzaoui · sniper4u2 · Frontier AI Systems Architect · 2026</span>
-  <span>Null-Geodesic Ray-Marcher · WebGL2 · Vendored three.js (Zero CDN) · NASA SVS GRMHD Fallback</span>
+<!-- ==========================================================================
+     FOOTER
+     Every claim below is checkable from the network panel.
+     ========================================================================== -->
+<footer class="foot">
+  <span><b>Sofiene Hamzaoui</b> · sniper4u2 · Frontier AI Systems Architect · 2026</span>
+  <span>Frame: <b>vector scene</b> · CSS compositor · native resolution at any DPR (1080p → 4K → 8K)</span>
+  <span><b>Zero external requests</b> · self-hosted type · no WebGL required</span>
 </footer>
 
-<!-- TIER GATE — arms the photographic fallback ONLY if the 3D engine dies.
-     Classic deferred scripts and module scripts share a single execution queue
-     and run in document order, so this gate is armed before blackhole.js can
-     announce either ready or dead. -->
-<script defer src="cinematic.js?v=3.0"></script>
-<!-- TIER 1 — real-time ray-marcher. Self-booting module; 'three' and
-     'three/addons/' resolve through the import map in <head> to local files. -->
-<script type="module" src="blackhole.js?v=1.0"></script>
-<!-- UI CONTROLLER (nav, telemetry, modals, scroll-driven cinematography).
-     Directs whichever tier won: uniform grading on tier 1, shot/grade on tier 2. -->
-<script defer src="app.js?v=6.0"></script>
+<!-- SCENE ENGINE — capability probe, adaptive governor, motion driver and the
+     telemetry source. No modules, no import map, no third-party bundle. -->
+<script src="scene.js?v=1.0"></script>
+<!-- UI CONTROLLER — navigation, live telemetry console, modals, section
+     cinematography. Directs the frame through Scenic.setGrade()/setShot(). -->
+<script defer src="app.js?v=7.0"></script>
 </body>
 </html>

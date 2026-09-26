@@ -263,491 +263,317 @@ const CONTACTS = [
 ];
 
 /* ==========================================================================
-   BACKGROUND ENGINE COUPLING — ONE DIRECTOR, TWO TIERS
+   SOFIENE.AI — UI CONTROLLER  (app.js v7.0)
    --------------------------------------------------------------------------
-   Tier 1 (blackhole.js + vendored three.js): a real-time null-geodesic
-   ray-marcher. It ships raw uniforms and owns its own camera choreography, so
-   this controller supplies only the per-section GRADE.
-   Tier 2 (cinematic.js): NASA SVS footage — shot-based, easing internal.
+   Split of responsibilities with scene.js:
 
-   The tier is resolved per call from Cinematic.getTier(), never from the mere
-   presence of window.Gargantua, so a context loss mid-session re-routes grading
-   to the footage on the very next section change instead of writing uniforms to
-   a dead renderer.
+     scene.js  owns the frame: capability probe, adaptive governor, motion
+               driver, and the telemetry source. It knows nothing about the DOM
+               beyond #scene.
+     app.js    owns the interface: navigation, the telemetry console, the boot
+               console, modals and the per-section cinematography. It writes only
+               Scenic.setGrade() / Scenic.setShot() and reads only
+               Scenic.telemetry() / Scenic.gates.
+
+   There is no fake progress anywhere in this file: the boot console advances on
+   four real signals, and every number on the HUD is a measurement.
    ========================================================================== */
 
-const sectionOrder = ['hero', 'ai-expertise', 'huggingface', 'projects', 'about', 'certificates', 'contact'];
+/* ========= SECTION TABLE — ONE SOURCE OF TRUTH =========
+   Nav label, shot and grade live together, so the command bar, the rail, the
+   observer and the cinematography cannot disagree about what a section is. The
+   grade values preserve the original director's intent: sections with long copy
+   dim the frame so the text keeps its contrast. */
+const SECTIONS = [
+  { id: 'hero',         nav: 'CORE',                   label: 'CORE',        shot: 'orbit',   brightness: 0.74, saturate: 1.07, contrast: 1.08, x:   6, y:  0, zoom: 1.00, disk: 1.00 },
+  { id: 'ai-expertise', nav: 'NEURAL STACK',           label: 'NEURAL STACK', shot: 'orbit',   brightness: 0.66, saturate: 1.05, contrast: 1.08, x:  -8, y: -4, zoom: 1.02, disk: 0.92 },
+  { id: 'huggingface',  nav: 'HUGGING FACE',           label: 'HUGGING FACE', shot: 'closeup', brightness: 0.60, saturate: 1.04, contrast: 1.07, x:  10, y:  4, zoom: 1.04, disk: 0.80 },
+  { id: 'projects',     nav: 'AI RESEARCH & PROJECTS', label: 'RESEARCH',     shot: 'closeup', brightness: 0.55, saturate: 1.03, contrast: 1.07, x: -10, y:  6, zoom: 1.05, disk: 0.72 },
+  { id: 'about',        nav: 'ARCHITECT PROFILE',      label: 'PROFILE',      shot: 'closeup', brightness: 0.51, saturate: 1.02, contrast: 1.06, x:   8, y:  8, zoom: 1.06, disk: 0.64 },
+  { id: 'certificates', nav: 'CREDENTIALS',            label: 'CREDENTIALS',  shot: 'orbit',   brightness: 0.55, saturate: 1.04, contrast: 1.06, x:  -6, y:  6, zoom: 1.04, disk: 0.72 },
+  { id: 'contact',      nav: 'SECURE COMMS',           label: 'COMMS',        shot: 'orbit',   brightness: 0.50, saturate: 1.05, contrast: 1.06, x:   4, y:  2, zoom: 1.02, disk: 0.66 }
+];
+
+const sectionOrder = SECTIONS.map(s => s.id);
+const SECTION_GRADE = SECTIONS.reduce((acc, s) => { acc[s.id] = s; return acc; }, {});
 let activeSectionIdx = 0;
 
-/* Per-section cinematography — both tiers in one table:
-     disk / exposure -> tier 1 (uDiskGain, uExposure). Framing is deliberately
-                        NOT set here: the engine's own resize() owns the
-                        responsive composition offset, and two writers for one
-                        uniform is how you get a fight on a phone viewport.
-     shot / grade    -> tier 2 (which clip is on screen, how it is re-framed).
-   Both columns encode one intent: the disk dims as the copy gets longer, so
-   long-form text stays legible over the brightest part of the frame. */
-const SECTION_GRADE = {
-  hero:           { shot: 'orbit',   brightness: 0.74, saturate: 1.07, contrast: 1.08, x:   6, y: 0, zoom: 1.00, disk: 1.00, exposure: 0.72 },
-  'ai-expertise': { shot: 'orbit',   brightness: 0.66, saturate: 1.05, contrast: 1.08, x:  -8, y: -4, zoom: 1.02, disk: 0.92, exposure: 0.66 },
-  huggingface:    { shot: 'closeup', brightness: 0.60, saturate: 1.04, contrast: 1.07, x:  10, y:  4, zoom: 1.04, disk: 0.80, exposure: 0.60 },
-  projects:       { shot: 'closeup', brightness: 0.55, saturate: 1.03, contrast: 1.07, x: -10, y:  6, zoom: 1.05, disk: 0.72, exposure: 0.55 },
-  about:          { shot: 'closeup', brightness: 0.51, saturate: 1.02, contrast: 1.06, x:   8, y:  8, zoom: 1.06, disk: 0.64, exposure: 0.51 },
-  certificates:   { shot: 'orbit',   brightness: 0.55, saturate: 1.04, contrast: 1.06, x:  -6, y:  6, zoom: 1.04, disk: 0.72, exposure: 0.55 },
-  contact:        { shot: 'orbit',   brightness: 0.50, saturate: 1.05, contrast: 1.06, x:   4, y:  2, zoom: 1.02, disk: 0.66, exposure: 0.50 }
-};
-
-/* ---- tier 1 grade easing -------------------------------------------------
-   The renderer deliberately ships no easing of its own — it is a renderer, not
-   a director. Damping the grade here means a fast scroll glides between
-   sections instead of stepping, and the rAF chain self-terminates the moment
-   the value converges, so an idle page costs nothing. */
-const GRADE_3D = { disk: 1.00, exposure: 0.72 };
-const GRADE_3D_TARGET = { disk: 1.00, exposure: 0.72 };
-let grade3DRaf = 0;
-
-function step3D() {
-  const engine = window.Gargantua;
-  const u = engine && engine.uniforms;
-  if (!u) { grade3DRaf = 0; return; }
-
-  let moving = false;
-  const keys = ['disk', 'exposure'];
-  for (let i = 0; i < keys.length; i++) {
-    const k = keys[i];
-    const delta = GRADE_3D_TARGET[k] - GRADE_3D[k];
-    if (Math.abs(delta) > 0.0005) { GRADE_3D[k] += delta * 0.055; moving = true; }
-    else { GRADE_3D[k] = GRADE_3D_TARGET[k]; }
-  }
-
-  u.uDiskGain.value = GRADE_3D.disk;
-  u.uExposure.value = GRADE_3D.exposure;
-
-  grade3DRaf = moving ? requestAnimationFrame(step3D) : 0;
-}
-
-/* Which engine owns the frame right now. 'pending' means arbitration has not
-   resolved; the raymarcher wins by contract and announces itself next frame. */
-function ownsFrame() {
-  const cine = window.Cinematic;
-  const tier = cine && typeof cine.getTier === 'function' ? cine.getTier() : 'pending';
-  if (tier === '3d') return '3d';
-  if (tier === 'photo' || tier === 'still') return 'photo';
-  return window.Gargantua ? '3d' : 'photo';
-}
-
+/* The director: one write per section change; CSS tweens the grade. */
 function applySectionGrade(sectionId) {
   const next = SECTION_GRADE[sectionId] || SECTION_GRADE.hero;
-
-  if (ownsFrame() === '3d' && window.Gargantua) {
-    GRADE_3D_TARGET.disk = next.disk;
-    GRADE_3D_TARGET.exposure = next.exposure;
-    if (!grade3DRaf) grade3DRaf = requestAnimationFrame(step3D);
-    return;
+  if (window.Scenic) {
+    window.Scenic.setShot(next.shot);
+    window.Scenic.setGrade(next);
   }
-
-  const cine = window.Cinematic;
-  if (!cine) return;                 /* engine not up yet — replayed on ready */
-  cine.setShot(next.shot);
-  cine.setGrade(next);
 }
 
-/* Replay on whichever engine claims the frame, and re-resolve after a handoff so
-   the footage inherits the grade of the section the reader is actually on. */
-function regradeActive() { applySectionGrade(sectionOrder[activeSectionIdx]); }
-document.addEventListener('gargantua:ready', regradeActive);
-document.addEventListener('cinematic:ready', regradeActive);
-document.addEventListener('gargantua:dead', regradeActive);
-
-/* Loader handshake: hold the shutter until the first cinematic frame has been
-   painted, with a hard fail-safe so nothing can ever trap the reader. */
-function simulateLoading() {
-  const fill = document.getElementById('loader-fill');
-  const pct = document.getElementById('loader-pct');
-  const loader = document.getElementById('loader');
-  if (!loader) return;
-
-  let progress = 0;
-  let dismissed = false;
-
-  function paint() {
-    if (fill) fill.style.width = progress + '%';
-    if (pct) pct.innerText = Math.round(progress) + '%';
-  }
-
-  function dismiss() {
-    if (dismissed) return;
-    dismissed = true;
-    progress = 100;
-    paint();
-    loader.style.opacity = '0';
-    setTimeout(() => { loader.style.display = 'none'; }, 700);
-  }
-
-  function ready() {
-    progress = Math.max(progress, 96);
-    paint();
-    setTimeout(dismiss, 170);
-  }
-
-  /* Whichever engine claims the frame releases the shutter: tier 1 fires
-     gargantua:ready on its first painted frame, tier 2 fires cinematic:ready
-     once a poster or decoded frame is up. First one wins — and the fail-safes
-     below still guarantee the loader cannot trap the reader. */
-  if (window.__GARGANTUA_READY__ || window.__CINEMATIC_READY__) {
-    ready();
-  } else {
-    document.addEventListener('gargantua:ready', ready, { once: true });
-    document.addEventListener('cinematic:ready', ready, { once: true });
-  }
-
-  // climbs asymptotically toward 92% and holds until the frame lands
-  const interval = setInterval(() => {
-    if (dismissed) { clearInterval(interval); return; }
-    if (progress < 92) {
-      progress += (92 - progress) * 0.08 + 0.32;
-      paint();
-    }
-  }, 40);
-
-  setTimeout(dismiss, 4500);
+function setActiveSection(sectionId) {
+  const idx = sectionOrder.indexOf(sectionId);
+  if (idx === -1) { return; }
+  activeSectionIdx = idx;
+  applySectionGrade(sectionId);
+  document.querySelectorAll('.hud-btn').forEach(btn => {
+    btn.classList.toggle('is-active', btn.dataset.section === sectionId);
+  });
+  document.querySelectorAll('.rail__item').forEach(item => {
+    item.classList.toggle('is-active', item.dataset.section === sectionId);
+  });
 }
-
-/* Defensive no-op shims: the cinematic engine owns the viewport (its own
-   pointer parallax + scroll drift), so any legacy listener bound to window
-   resolves harmlessly instead of throwing. */
-function onWindowResize() {}
-function onMouseMove() {}
-
-/* ========= NAVIGATION MANAGEMENT ========= */
 
 function goSection(sectionId) {
-  const newIdx = sectionOrder.indexOf(sectionId);
-  if (newIdx !== -1) {
-    activeSectionIdx = newIdx;
-  }
-  applySectionGrade(sectionId);
+  const el = document.getElementById(sectionId);
+  if (!el) { return; }
+  setActiveSection(sectionId);
+  const still = window.Scenic && window.Scenic.tier === 'still';
+  el.scrollIntoView({ behavior: still ? 'auto' : 'smooth' });
+  const nav = document.getElementById('gbar-nav');
+  if (nav) { nav.classList.remove('is-open'); }
+  const menu = document.getElementById('gbar-menu');
+  if (menu) { menu.setAttribute('aria-expanded', 'false'); }
+}
+window.goSection = goSection;
 
-  document.querySelectorAll('.hud-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.section === sectionId);
+/* ========= TELEMETRY CONSOLE =========
+   Rows are declared once with a formatter each. The DOM nodes are created once
+   and afterwards only their text changes, so a once-a-second refresh is free. */
+function tNum(v, unit, digits) {
+  if (v === null || v === undefined) { return 'n/a'; }
+  const d = typeof digits === 'number' ? digits : 0;
+  return (d ? Number(v).toFixed(d) : String(Math.round(v))) + (unit || '');
+}
+
+const TELE_ROWS = [
+  { key: 'path',   label: 'RENDER PATH', fmt: t => 'compositor · vector' + (t.software ? ' · software raster' : '') },
+  { key: 'gpu',    label: 'ACCELERATOR', fmt: t => (t.gpu && t.gpu !== 'unknown' && t.gpu !== 'blocked') ? t.gpu : 'n/a (masked)' },
+  { key: 'tier',   label: 'QUALITY TIER', fmt: t => t.tier.toUpperCase() + (t.tier === 'still' ? ' · stationary' : t.tier === 'balanced' ? ' · reduced cost' : ' · full') },
+  { key: 'fps',    label: 'FRAME RATE',  fmt: t => t.fps === null ? 'n/a (first window)' : t.fps.toFixed(1) + ' fps  min ' + tNum(t.fpsMin, '', 1) + '  worst ' + tNum(t.worstFrame, ' ms', 1) },
+  { key: 'res',    label: 'VIEWPORT',    fmt: t => t.css + ' CSS  DPR ' + t.dpr + '  →  ' + t.px + ' device' },
+  { key: 'host',   label: 'HOST',        fmt: t => tNum(t.cores, ' cores') + ' · ' + (t.mem ? t.mem + ' GB RAM' : 'RAM n/a') + ' · net ' + t.net },
+  { key: 'vitals', label: 'VITALS',      fmt: t => 'LCP ' + tNum(t.lcp, ' ms') + ' · CLS ' + t.cls + ' · blocked ' + tNum(t.blocked, ' ms') + ' · ' + t.longTasks + ' long tasks' },
+  { key: 'times',  label: 'TIMELINE',    fmt: t => 'TTFB ' + tNum(t.ttfb, ' ms') + ' · DCL ' + tNum(t.dcl, ' ms') + ' · load ' + tNum(t.load, ' ms') + ' · type ' + tNum(t.fonts, ' ms') },
+  { key: 'scene',  label: 'SCENE',       fmt: t => t.layers + ' layers · ' + t.domNodes + ' DOM nodes · driver ' + (t.idle ? 'idle' : 'live') + ' · up ' + (t.uptime / 1000).toFixed(0) + ' s' }
+];
+
+let teleNodes = null;
+
+function buildTelemetry() {
+  const host = document.getElementById('tele-rows');
+  if (!host || teleNodes) { return; }
+  teleNodes = {};
+  TELE_ROWS.forEach(row => {
+    const line = document.createElement('div');
+    line.className = 'tele__row';
+    const k = document.createElement('span');
+    k.className = 'tele__k';
+    k.textContent = row.label;
+    const v = document.createElement('span');
+    v.className = 'tele__v';
+    v.id = 'tele-' + row.key;
+    line.appendChild(k);
+    line.appendChild(v);
+    host.appendChild(line);
+    teleNodes[row.key] = v;
+    if (row.key === 'fps') {
+      const meter = document.createElement('div');
+      meter.className = 'tele__meter';
+      meter.id = 'tele-meter';
+      meter.appendChild(document.createElement('i'));
+      host.appendChild(meter);
+    }
   });
-
-  const targetEl = document.getElementById(sectionId);
-  if (targetEl) {
-    targetEl.scrollIntoView({ behavior: 'smooth' });
-  }
 }
 
-/* ========= TYPING EFFECT IN HERO ========= */
-
-let wordIdx = 0;
-let charIdx = 0;
-let isDeleting = false;
-function typeEffect() {
-  const el = document.getElementById('typed-role');
-  if (!el) return;
-
-  const currentRole = ROLES[wordIdx % ROLES.length];
-
-  if (!isDeleting) {
-    el.innerText = currentRole.substring(0, charIdx + 1);
-    charIdx++;
-    if (charIdx === currentRole.length) {
-      isDeleting = true;
-      setTimeout(typeEffect, 2400);
-      return;
-    }
-  } else {
-    el.innerText = currentRole.substring(0, charIdx - 1);
-    charIdx--;
-    if (charIdx === 0) {
-      isDeleting = false;
-      wordIdx++;
-    }
+/* Every branch below describes something the engine actually did. */
+function humanReason(t) {
+  const r = String(t.reason || '');
+  if (r.indexOf('measured-fps:') === 0) {
+    return 'measured frame rate fell below 42 fps (' + r.split(':')[1] + ' fps) — visual cost removed, content untouched';
   }
-  setTimeout(typeEffect, isDeleting ? 25 : 70);
+  if (r.indexOf('promoted:') === 0) {
+    return 'frame rate recovered (' + r.split(':')[1] + ' fps) — full tier restored';
+  }
+  if (r.indexOf('cpu-class:') === 0) {
+    return 'CPU reported ' + r.split(':')[1] + ' logical cores — animation budget reduced';
+  }
+  if (r === 'nominal') { return 'no constraint detected — full tier active'; }
+  if (r === 'software-raster') { return 'software rasterizer detected (no GPU acceleration) — blur and extra planes dropped'; }
+  if (r === 'prefers-reduced-motion') { return 'the operating system requested reduced motion — frame held still'; }
+  if (r === 'save-data') { return 'the browser requested data saving — frame held still'; }
+  if (r.indexOf('network:') === 0) { return 'connection reported ' + r.split(':')[1] + ' — frame held still'; }
+  return r || 'measuring';
 }
 
-/* ========= PROJECTS RENDERING ========= */
+function renderTelemetry(t) {
+  if (!t) { return; }
+  buildTelemetry();
+  if (teleNodes) {
+    TELE_ROWS.forEach(row => {
+      const el = teleNodes[row.key];
+      if (!el) { return; }
+      el.textContent = row.fmt(t);
+      el.classList.toggle('is-warn', row.key === 'tier' && t.tier !== 'cinema');
+      el.classList.toggle('is-soft', row.key === 'gpu');
+    });
+    const meter = document.getElementById('tele-meter');
+    if (meter && meter.firstChild) {
+      const pct = t.fps === null ? 2 : Math.max(2, Math.min(100, (t.fps / 60) * 100));
+      meter.firstChild.style.width = pct.toFixed(0) + '%';
+      meter.setAttribute('data-state', (t.fps !== null && t.fps < 45) ? 'warn' : 'ok');
+    }
+  }
+  const badge = document.getElementById('tele-tier');
+  if (badge) { badge.textContent = t.tier.toUpperCase(); badge.setAttribute('data-tier', t.tier); }
+  const note = document.getElementById('tele-note');
+  if (note) { note.textContent = humanReason(t); }
+  updateSession(t);
+}
+
+function updateSession(t) {
+  const set = (id, v) => { const el = document.getElementById(id); if (el) { el.textContent = v; } };
+  set('sess-tier', t.tier.toUpperCase());
+  set('sess-fps', t.fps === null ? 'n/a' : t.fps.toFixed(0) + ' fps');
+  set('sess-gpu', (t.gpu && t.gpu.length > 26) ? t.gpu.slice(0, 24) + '…' : (t.gpu || 'n/a'));
+  updateLivePill(t);
+}
+
+function updateLivePill(t) {
+  const pill = document.getElementById('gbar-live');
+  const txt = document.getElementById('gbar-live-txt');
+  if (!pill || !txt) { return; }
+  if (t.tier === 'still') {
+    pill.setAttribute('data-state', 'idle');
+    txt.textContent = 'stationary frame · ' + t.css;
+    return;
+  }
+  if (t.fps === null) {
+    pill.setAttribute('data-state', 'idle');
+    txt.textContent = 'measuring this machine…';
+    return;
+  }
+  pill.setAttribute('data-state', t.fps < 45 ? 'warn' : 'ok');
+  txt.textContent = t.fps.toFixed(0) + ' fps' + (t.software ? ' · software raster' : '') + ' · ' + t.tier;
+}
+
+/* ========= RENDERING ========= */
 
 function renderProjects(filter = 'all') {
   const grid = document.getElementById('proj-grid');
-  if (!grid) return;
+  if (!grid) { return; }
   grid.innerHTML = '';
 
-  const filtered = filter === 'all' ? PROJECTS : PROJECTS.filter(p => p.cat === filter);
+  const list = filter === 'all' ? PROJECTS : PROJECTS.filter(p => p.cat === filter);
 
-  filtered.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'pcard';
-
-    const hasLiveUrl = !!(p.liveUrl);
+  list.forEach(p => {
+    const card = document.createElement('article');
+    card.className = 'pcard rev';
+    const hasLiveUrl = !!p.liveUrl;
 
     card.innerHTML = `
       <div class="pc-top">
         <div class="pc-title-group">
           <span class="pc-icon">${p.icon}</span>
-          <span class="pc-name">${p.name}</span>
+          <h3 class="pc-name">${p.name}</h3>
         </div>
         <span class="pstatus ${p.status}">${p.status.toUpperCase()}</span>
       </div>
       <div class="pc-body">
         <div class="pc-body-left">
-          <div class="pc-desc">${p.desc}</div>
+          <p class="pc-desc">${p.desc}</p>
           <div class="pc-tags">
             ${p.tech.map(t => `<span class="ptag">${t}</span>`).join('')}
           </div>
         </div>
         <div class="pc-body-right">
-          <div class="pc-features-title">// Architectural Findings & Invariants:</div>
+          <div class="pc-features-title">// ARCHITECTURAL INVARIANTS</div>
           <ul class="pc-features">
             ${p.features.map(f => `<li>${f}</li>`).join('')}
           </ul>
         </div>
       </div>
       <div class="pc-foot">
-        <span class="pc-lang">PRIMARY ARCHITECTURE: ${p.lang}</span>
+        <span class="pc-lang">PRIMARY STACK · ${p.lang}</span>
         <div class="pc-actions">
-          <a href="${p.url}" target="_blank" class="pc-action-btn github-btn" onclick="event.stopPropagation();">
-            <svg style="width:12px;height:12px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            GitHub Repo
+          <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="pc-action-btn github-btn" data-stop>
+            <svg style="width:12px;height:12px;" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            Repository
           </a>
           ${hasLiveUrl ? `
-          <a href="${p.liveUrl}" target="_blank" class="pc-action-btn live-btn" onclick="event.stopPropagation();">
+          <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="pc-action-btn live-btn" data-stop>
             <span class="btn-live-dot"></span>
-            Launch System
+            Live System
           </a>` : ''}
-          <button class="pc-action-btn console-btn">
-            Telemetry Trace ➔
+          <button class="pc-action-btn console-btn" type="button">
+            Trace ➔
           </button>
         </div>
       </div>
     `;
-    card.onclick = () => openModal(p.id);
+
+    card.querySelectorAll('[data-stop]').forEach(a => {
+      a.addEventListener('click', ev => ev.stopPropagation());
+    });
+    card.addEventListener('click', () => openModal(p.id));
     grid.appendChild(card);
   });
-}
 
-/* ========= CERTIFICATES RENDERING ========= */
+  observeReveals(grid);
+}
 
 function renderCertificates(filter = 'all') {
   const grid = document.getElementById('cert-gallery');
-  if (!grid) return;
+  if (!grid) { return; }
   grid.innerHTML = '';
 
-  const filtered = filter === 'all' ? CERTS : CERTS.filter(c => c.cat === filter);
+  const list = filter === 'all' ? CERTS : CERTS.filter(c => c.cat === filter);
+  const CAT_LABEL = {
+    ai: 'AI / LLM ENGINEERING',
+    security: 'CYBERSECURITY & FORENSICS',
+    engineering: 'SOFTWARE & SYSTEMS',
+    education: 'AVIATION · MEDICINE · DIPLOMAS'
+  };
 
-  filtered.forEach(c => {
-    const card = document.createElement('div');
-    card.className = 'cert-card';
+  list.forEach((c, i) => {
+    const card = document.createElement('article');
+    card.className = 'cert-card rev';
     card.innerHTML = `
-      <span class="cert-name">${c.name}</span>
-      <span class="cert-icon">📜</span>
+      <span class="cert-card__idx">${String(i + 1).padStart(2, '0')}</span>
+      <span class="cert-card__body">
+        <span class="cert-name">${c.name}</span>
+        <span class="cert-card__cat">${CAT_LABEL[c.cat] || c.cat.toUpperCase()}</span>
+      </span>
+      <span class="cert-icon" aria-hidden="true">📜</span>
     `;
-    card.onclick = () => openCertModal(c);
+    card.addEventListener('click', () => openCertModal(c));
     grid.appendChild(card);
   });
-}
 
-/* ========= CONTACT DETAILS RENDERING ========= */
+  observeReveals(grid);
+}
 
 function renderContact() {
   const links = document.getElementById('contact-links');
-  if (!links) return;
+  if (!links) { return; }
   links.innerHTML = '';
 
   CONTACTS.forEach(c => {
     const a = document.createElement('a');
-    a.className = c.highlight ? 'clink highlight' : 'clink';
+    a.className = c.highlight ? 'clink highlight rev' : 'clink rev';
     a.href = c.href;
-    if (c.href.startsWith('http')) a.target = '_blank';
+    if (/^https?:/.test(c.href)) {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';   /* every external link, no exceptions */
+    }
     a.innerHTML = `
-      <span class="clink-icon">${c.icon}</span>
+      <span class="clink-icon" aria-hidden="true">${c.icon}</span>
       <span class="clink-label">${c.label}</span>
       <span class="clink-val">${c.val}</span>
     `;
     links.appendChild(a);
   });
+
+  observeReveals(links);
 }
+//@APPEND@
 
-/* ========= MODAL SYSTEM ========= */
 
-const PREVIEWS = {
-  'hspn-mai-arc': '$ python evaluate_arc_submission.py --framework hspn-mai\n[*] Initializing HSPN-MAI Neuro-Symbolic generalizer...\n[+] Author: Vaultguard / sniper4u2\n[+] System 1: Neural topological prior search & grid objectness active\n[+] System 2: Metacognitive DSL verification & program execution engine\n[*] Emitting verified submission.parquet to Kaggle evaluation gateway\n[+] Target benchmark: ARC-AGI-2 & ARC-AGI-3 (Prize 2026)',
-  'b13-sft-dataset': '$ huggingface-cli dataset info sofienehmz/b13-cybersecurity-sft-datasets\n[*] Dataset: sofienehmz/b13-cybersecurity-sft-datasets\n[+] Config master_unified: 16,874 ChatML samples\n[+] Config vulnerabilities_v3: 10,000 CVE samples with CoT reasoning\n[+] Config code_security: 5,591 SAST samples with CWE mapping\n[+] Config redteam_pentest: 1,003 multi-turn conversations\n[+] Evals: 130,173 security records across agent tools & skills',
-  'barbados-ocr': '$ python barbados_train_v17.py --epochs 50 --gpu 0\n[*] Initializing Kraken HTR + PyTorch Lightning engine...\n[+] Sauvola adaptive binarization applied to historical transcripts\n[+] Model architecture: CNN + LiGRU + CTC loss\n[*] Resuming epoch checkpoint 17/50 (Warmup lr: 1e-4)\n[+] Transductive consensus fusion: RapidFuzz token edit-distance (6 models)\n[+] Validated CER/WER threshold: OPTIMAL',
-  'bias-bounty': '$ python src/baseline.py --dataset overture-maps-2026\n[*] Ingesting Census TIGER/Line & Overture building footprints via DuckDB...\n[+] Enforcing deterministic seed contract: SEED=4217\n[+] Joining CDC Social Vulnerability Indices (SVI)\n[*] Non-parametric probability calibration active\n[+] Evaluated algorithmic equity metric on Zindi benchmark',
-  'gaia-agent': '$ python gaia_agent.py\n[*] Initializing smolagents CodeAgent engine...\n[+] Backend model: Qwen2.5-Coder-32B-Instruct (HF Inference)\n[+] Registered tools: DuckDuckGoSearch, VisitWebpage, PythonREPL\n[+] Gradio interactive console active on Hugging Face Space',
-  c2server: '$ ./c2server --start\n[*] Loading configurations...\n[+] SS7 exploitation module: initialized\n[+] Auto-agent scanning active\n[*] C2 daemon listening on websocket :8000\n[+] Mythos Learner status: CONNECTED\n[+] Active sessions: 3 remote agents configured',
-  phalanx: '$ python phalanx.py --model qwen3.6-35b-moe.gguf\n[*] Initializing model loader...\n[+] Loaded Qwen3.6-35B-A3B (MoE 256 experts)\n[*] System VRAM: 80.00 GB (NVIDIA A100)\n[*] Offloaded 80 layers to GPU (CUDA)\n[+] REST Endpoint active at http://localhost:8080/v1',
-  vaultguard: '$ vaultguard status\n[+] Protocol status: ACTIVE\n[+] 137 Edge functions running on Cloudflare Workers\n[*] Biometric WebAuthn check: PASSED\n[+] Cold wallet multi-sig nodes: 3/5 verified\n[+] ZKP Identity check: VALIDATED',
-  insolvency: '$ monitor run\n[*] Scraping UK public insolvency directories...\n[+] Indexed 1,247 firms\n[-] Detected credit drops on 4 firms\n[*] Formatted Celery dispatch pipeline\n[+] Daily Excel report sent to admins',
-  'mythos-learner': '$ mythos-learner scan --dir /home/b13/\n[*] Scanning codebase directories...\n[+] Indexed 102 operational skills\n[+] Saved local state to learner_state.json\n[*] Local Ollama check: qwen2.5-coder active\n[+] Agent planning sequence complete',
-  'ai-discovery': '$ python ai_llm_discovery.py\n[*] Deep AI Asset Inventory Scanning...\n[+] Found 8 quantized local models (.gguf)\n[+] Found sentence-transformers (all-MiniLM-L6-v2)\n[+] Found active Continue & LMStudio config files\n[*] Report outputted to ~/ai_llm_deep_analysis.txt'
-};
 
-function openModal(id) {
-  const p = PROJECTS.find(x => x.id === id);
-  if (!p) return;
-
-  const head = document.getElementById('modal-head');
-  const body = document.getElementById('modal-body');
-  const modal = document.getElementById('modal-bg');
-
-  head.innerHTML = `<div class="modal-head-title">${p.icon} ${p.name}</div>`;
-  body.innerHTML = `
-    <div class="modal-grid-2">
-      <div class="modal-col">
-        <div>
-          <div class="modal-sec-title">Architectural Overview</div>
-          <p class="modal-desc">${p.desc}</p>
-        </div>
-        <div>
-          <div class="modal-sec-title">Deployment State</div>
-          <span class="pstatus ${p.status}">${p.status.toUpperCase()}</span>
-        </div>
-        <div>
-          <div class="modal-sec-title">Engineered Stack</div>
-          <div class="modal-tags">${p.tech.map(t => `<span class="modal-tag">${t}</span>`).join('')}</div>
-        </div>
-        <a href="${p.url}" target="_blank" class="modal-btn">Inspect Repository ➔</a>
-      </div>
-      <div class="modal-col">
-        <div>
-          <div class="modal-sec-title">Core Invariants &amp; Capabilities</div>
-          <ul class="modal-feats">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
-        </div>
-        <div>
-          <div class="modal-sec-title">Runtime Diagnostic Trace</div>
-          <div class="modal-terminal-hdr">b13@quantum-rig:~/${p.id}$</div>
-          <div class="modal-terminal-box">${PREVIEWS[p.id] || '[*] Initializing telemetry output...'}</div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  modal.classList.remove('modal-hidden');
-}
-
-function openCertModal(c) {
-  const head = document.getElementById('modal-head');
-  const body = document.getElementById('modal-body');
-  const modal = document.getElementById('modal-bg');
-
-  head.innerHTML = `<div class="modal-head-title">📜 ${c.name}</div>`;
-  body.innerHTML = `
-    <div style="display:flex; flex-direction:column; align-items:center; gap: 20px;">
-      <img src="${c.path}" alt="${c.name}" style="max-width:100%; max-height: 60vh; border-radius:6px; border: 1px solid var(--border-subtle); box-shadow: 0 0 30px rgba(0,240,255,0.2);">
-      <div style="font-family:var(--font-mono); font-size: 0.82rem; color:var(--text-muted)">
-        Credential Verification Track: <span style="color:var(--cyan); font-weight:700;">${c.cat.toUpperCase()}</span>
-      </div>
-    </div>
-  `;
-
-  modal.classList.remove('modal-hidden');
-}
-
-function closeModal() {
-  document.getElementById('modal-bg').classList.add('modal-hidden');
-}
-
-/* ========= INITIALIZATION ========= */
-
-document.addEventListener('DOMContentLoaded', () => {
-  simulateLoading();
-
-  // Navigation button binding
-  document.querySelectorAll('.hud-btn').forEach(btn => {
-    btn.onclick = (e) => {
-      e.preventDefault();
-      const sectionId = btn.dataset.section;
-      goSection(sectionId);
-    };
-  });
-
-  // Section Observer -> drives the cinematic grade of the background
-  const observerOptions = {
-    root: null,
-    rootMargin: '-30% 0px -30% 0px',
-    threshold: 0
-  };
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        const idx = sectionOrder.indexOf(id);
-        if (idx !== -1) {
-          activeSectionIdx = idx;
-          applySectionGrade(id);
-          document.querySelectorAll('.hud-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.section === id);
-          });
-        }
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('section.panel').forEach(section => {
-    sectionObserver.observe(section);
-  });
-
-  // Project filters
-  document.querySelectorAll('.pf').forEach(btn => {
-    btn.onclick = () => {
-      document.querySelectorAll('.pf').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderProjects(btn.dataset.f);
-    };
-  });
-
-  // Cert filters
-  document.querySelectorAll('.cf').forEach(btn => {
-    btn.onclick = () => {
-      document.querySelectorAll('.cf').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderCertificates(btn.dataset.cf);
-    };
-  });
-
-  // Modal interactions
-  document.getElementById('modal-close').onclick = closeModal;
-  document.getElementById('modal-bg').onclick = (e) => {
-    if (e.target.id === 'modal-bg') closeModal();
-  };
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-
-  // Render initial datasets
-  renderProjects();
-  renderCertificates();
-  renderContact();
-
-  typeEffect();
-  animateHeroCounters();
-});
-
-/* ========= LIVE TELEMETRY COUNTER ANIMATION ========= */
-
-function animateHeroCounters() {
-  const elements = document.querySelectorAll('.ht-stat-val');
-  elements.forEach(el => {
-    const target = parseInt(el.dataset.target, 10);
-    const suffix = el.dataset.suffix || '';
-    if (isNaN(target)) return;
-
-    let start = 0;
-    const duration = 1200;
-    const startTime = performance.now();
-
-    function step(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(eased * target);
-      el.textContent = current + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    setTimeout(() => requestAnimationFrame(step), 400);
-  });
-}
