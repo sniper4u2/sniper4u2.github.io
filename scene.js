@@ -14,8 +14,11 @@
          because nothing is ever rendered into a fixed-size bitmap;
        - it cannot die on a software rasterizer (SwiftShader / llvmpipe / RDP),
          because the work is plane compositing, not fragment shading;
-       - it is free at idle: the JS driver sleeps once motion converges and only
-         the compositor keeps painting the drifting plane layers.
+       - the JS driver sleeps once motion converges, and a hidden document is
+         suspended outright (samplers cancelled, no telemetry emitted), so a
+         backgrounded tab costs nothing; while the tab is VISIBLE the browser
+         compositor does keep painting the drifting plane layers - that is the
+         scene, and the governor steps the cost down if frames drop.
 
    TELEMETRY — every number on the HUD is measured at runtime:
      GPU identity comes from a throwaway WebGL context that is released
@@ -103,6 +106,13 @@
   /* Ordered hard gates: first match wins and the reason is reported verbatim,
      so the HUD never claims "optimised" when what happened was a refusal. */
   function initialTier() {
+    /* An explicit ?tier= override outranks the probe: whoever is demoing on a
+       laptop that cooks itself should not have to argue with telemetry. */
+    var forced = null;
+    try { forced = new URLSearchParams(location.search).get('tier'); } catch (e) {}
+    if (forced === 'cinema' || forced === 'balanced' || forced === 'still') {
+      return { tier: forced, reason: 'url-override' };
+    }
     if (PROBE.reducedMotion) return { tier: 'still', reason: 'prefers-reduced-motion' };
     if (PROBE.saveData) return { tier: 'still', reason: 'save-data' };
     if (/^(slow-2g|2g)$/.test(PROBE.net)) return { tier: 'still', reason: 'network:' + PROBE.net };
@@ -395,6 +405,9 @@
     var first = initialTier();
     STATE.tier = first.tier;
     STATE.reason = first.reason;
+    /* A forced tier is a standing instruction: the governor may still step it
+       down if frames collapse, but it never promotes back out of it. */
+    if (STATE.reason === 'url-override') { STATE.promotionsLeft = 0; }
     root.setAttribute('data-tier', STATE.tier);
     root.setAttribute('data-tier-reason', STATE.reason);
     root.setAttribute('data-motion', STATE.tier === 'still' ? 'still' : 'live');
@@ -433,6 +446,21 @@
     window.addEventListener('pointerdown', onPointer, { passive: true });
     window.addEventListener('pagehide', function () { STATE.destroyed = true; });
 
+    /* A hidden document does no work. Both samplers stop, and the resume path
+       resets the measurement window so the hidden gap can never enter the
+       frame statistics ("worst frame 600000 ms") or the governor's verdict. */
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        if (FRAME.raf) { cancelAnimationFrame(FRAME.raf); FRAME.raf = 0; }
+        if (MOTION.raf) { cancelAnimationFrame(MOTION.raf); MOTION.raf = 0; MOTION.live = false; }
+        return;
+      }
+      if (STATE.destroyed || STATE.tier === 'still') { return; }
+      FRAME.winT0 = 0; FRAME.frames = 0; FRAME.last = 0; FRAME.worst = 0;
+      GOV.slow = 0; GOV.fast = 0;
+      startFrameSampler();
+    }, { passive: true });
+
     /* Late navigation timing - loadEventEnd does not exist until load fires. */
     window.addEventListener('load', function () {
       /* Read it on the next task: during the load event itself loadEventEnd is
@@ -461,6 +489,7 @@
     gates: GATES,
     setGrade: setGrade,
     setShot: setShot,
+    setTier: setTier,
     telemetry: telemetry,
     /**/ _internals: { MOTION: MOTION, FRAME: FRAME, PAINT: PAINT, GOV: GOV, STATE: STATE }
   };
