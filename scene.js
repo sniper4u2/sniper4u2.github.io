@@ -435,8 +435,12 @@
 
     /* Late navigation timing - loadEventEnd does not exist until load fires. */
     window.addEventListener('load', function () {
-      navigationTimings();
-      emit('scenic:telemetry', telemetry());
+      /* Read it on the next task: during the load event itself loadEventEnd is
+         still 0 in Chromium, so an immediate read would report "load 0 ms". */
+      window.setTimeout(function () {
+        navigationTimings();
+        emit('scenic:telemetry', telemetry());
+      }, 150);
     }, { once: true });
 
     /* A tier change re-arms the sampler (the still tier stops its loop). */

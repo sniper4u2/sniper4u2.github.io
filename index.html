@@ -11,6 +11,9 @@
        analytics, no third-party script, nothing to block first paint. -->
   <link rel="preload" as="font" type="font/woff2" href="./assets/fonts/outfit-latin.woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=7.0">
+  <!-- Without scripting there is no shutter handshake, so the overlay must
+       never be shown at all: the page degrades to the static document. -->
+  <noscript><style>.boot { display: none !important; }</style></noscript>
   <meta name="theme-color" content="#02040a">
   <meta name="color-scheme" content="dark">
   <meta name="keywords" content="AI Engineer, LLM Fine-Tuning, SFT Datasets, Neuro-Symbolic, ARC-AGI, HSPN-MAI, Kraken HTR, llama.cpp, GGUF, MoE, Qwen, Transformers, PyTorch, CUDA, Systems Architecture, Cybersecurity, Sofiene Hamzaoui, sniper4u2">
@@ -671,9 +674,9 @@
 
 <!-- SCENE ENGINE — capability probe, adaptive governor, motion driver and the
      telemetry source. No modules, no import map, no third-party bundle. -->
-<script src="scene.js?v=1.0"></script>
+<script src="scene.js?v=1.1"></script>
 <!-- UI CONTROLLER — navigation, live telemetry console, modals, section
      cinematography. Directs the frame through Scenic.setGrade()/setShot(). -->
-<script defer src="app.js?v=7.0"></script>
+<script defer src="app.js?v=7.1"></script>
 </body>
 </html>

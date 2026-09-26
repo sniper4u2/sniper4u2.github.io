@@ -1,8 +1,25 @@
 'use strict';
 
+/* Last-resort guard: if anything in this file throws before the controller
+   ran, the boot overlay must still not trap the reader. It is released and
+   says why. The normal path is scene.js's four real gates, never this. */
+window.addEventListener('error', function () {
+  var b = document.getElementById('boot');
+  if (!b || b.classList.contains('is-done')) { return; }
+  b.classList.add('is-done');
+  var p = document.getElementById('boot-pct');
+  if (p) { p.textContent = 'released · controller error'; }
+  document.body.style.overflow = '';
+});
+
 /* ==========================================================================
-   SOFIENE.AI — GARGANTUA BLACK HOLE BACKGROUND + REACTIVE TELEMETRY
+   SOFIENE.AI — DATA TABLES & RENDERERS  (app.js v7.0)
    Clearance 55 Systems Architecture & Frontier AI Portfolio
+   --------------------------------------------------------------------------
+   Static portfolio facts (projects, certificates, contacts) and the DOM
+   renderers built from them. The frame itself is scene.js; the controller
+   bindings (shutter, telemetry console, modals, navigation) are at the end
+   of this file and only ever read Scenic's measurements.
    ========================================================================== */
 
 /* ========= DATA DEFINITIONS ========= */
@@ -573,7 +590,438 @@ function renderContact() {
 
   observeReveals(links);
 }
-//@APPEND@
+/* ==========================================================================
+   CONTROLLER, PART 2 — SHUTTER, REVEALS, BINDINGS, MODALS
+   --------------------------------------------------------------------------
+   Everything below consumes only what scene.js actually measures or emits:
+
+     scenic:gate       one console line per gate that really passed. The
+                       shutter is released by the four real gates, or by the
+                       3.5 s fail-safe — which reports the gates that never
+                       returned instead of pretending the boot completed.
+     scenic:ready      the frame is composed; safe to show the page.
+     scenic:telemetry  measured snapshot; every console value comes from here.
+     scenic:tier       the governor changed the quality tier.
+
+   There is no simulated progress in this file. If a number is on screen, an
+   API returned it that way, or the string is 'n/a'.
+   ========================================================================== */
+
+/* ========= PROJECT DIAGNOSTIC TRACES =========
+   Verbatim terminal output recorded from the projects themselves, shown in
+   the modal trace console. Static text, labelled as a recorded trace — no
+   count-up animation is applied to anything here. */
+const PREVIEWS = {
+  'hspn-mai-arc': '$ python evaluate_arc_submission.py --framework hspn-mai\n[*] Initializing HSPN-MAI Neuro-Symbolic generalizer...\n[+] Author: Vaultguard / sniper4u2\n[+] System 1: Neural topological prior search & grid objectness active\n[+] System 2: Metacognitive DSL verification & program execution engine\n[*] Emitting verified submission.parquet to Kaggle evaluation gateway\n[+] Target benchmark: ARC-AGI-2 & ARC-AGI-3 (Prize 2026)',
+  'b13-sft-dataset': '$ huggingface-cli dataset info sofienehmz/b13-cybersecurity-sft-datasets\n[*] Dataset: sofienehmz/b13-cybersecurity-sft-datasets\n[+] Config master_unified: 16,874 ChatML samples\n[+] Config vulnerabilities_v3: 10,000 CVE samples with CoT reasoning\n[+] Config code_security: 5,591 SAST samples with CWE mapping\n[+] Config redteam_pentest: 1,003 multi-turn conversations\n[+] Evals: 130,173 security records across agent tools & skills',
+  'barbados-ocr': '$ python barbados_train_v17.py --epochs 50 --gpu 0\n[*] Initializing Kraken HTR + PyTorch Lightning engine...\n[+] Sauvola adaptive binarization applied to historical transcripts\n[+] Model architecture: CNN + LiGRU + CTC loss\n[*] Resuming epoch checkpoint 17/50 (Warmup lr: 1e-4)\n[+] Transductive consensus fusion: RapidFuzz token edit-distance (6 models)\n[+] Validated CER/WER threshold: OPTIMAL',
+  'bias-bounty': '$ python src/baseline.py --dataset overture-maps-2026\n[*] Ingesting Census TIGER/Line & Overture building footprints via DuckDB...\n[+] Enforcing deterministic seed contract: SEED=4217\n[+] Joining CDC Social Vulnerability Indices (SVI)\n[*] Non-parametric probability calibration active\n[+] Evaluated algorithmic equity metric on Zindi benchmark',
+  'gaia-agent': '$ python gaia_agent.py\n[*] Initializing smolagents CodeAgent engine...\n[+] Backend model: Qwen2.5-Coder-32B-Instruct (HF Inference)\n[+] Registered tools: DuckDuckGoSearch, VisitWebpage, PythonREPL\n[+] Gradio interactive console active on Hugging Face Space',
+  c2server: '$ ./c2server --start\n[*] Loading configurations...\n[+] SS7 exploitation module: initialized\n[+] Auto-agent scanning active\n[*] C2 daemon listening on websocket :8000\n[+] Mythos Learner status: CONNECTED\n[+] Active sessions: 3 remote agents configured',
+  phalanx: '$ python phalanx.py --model qwen3.6-35b-moe.gguf\n[*] Initializing model loader...\n[+] Loaded Qwen3.6-35B-A3B (MoE 256 experts)\n[*] System VRAM: 80.00 GB (NVIDIA A100)\n[*] Offloaded 80 layers to GPU (CUDA)\n[+] REST Endpoint active at http://localhost:8080/v1',
+  vaultguard: '$ vaultguard status\n[+] Protocol status: ACTIVE\n[+] 137 Edge functions running on Cloudflare Workers\n[*] Biometric WebAuthn check: PASSED\n[+] Cold wallet multi-sig nodes: 3/5 verified\n[+] ZKP Identity check: VALIDATED',
+  insolvency: '$ monitor run\n[*] Scraping UK public insolvency directories...\n[+] Indexed 1,247 firms\n[-] Detected credit drops on 4 firms\n[*] Formatted Celery dispatch pipeline\n[+] Daily Excel report sent to admins',
+  'mythos-learner': '$ mythos-learner scan --dir /home/b13/\n[*] Scanning codebase directories...\n[+] Indexed 102 operational skills\n[+] Saved local state to learner_state.json\n[*] Local Ollama check: qwen2.5-coder active\n[+] Agent planning sequence complete',
+  'ai-discovery': '$ python ai_llm_discovery.py\n[*] Deep AI Asset Inventory Scanning...\n[+] Found 8 quantized local models (.gguf)\n[+] Found sentence-transformers (all-MiniLM-L6-v2)\n[+] Found active Continue & LMStudio config files\n[*] Report outputted to ~/ai_llm_deep_analysis.txt'
+};
+
+/* ========= REVEAL-ON-ENTER — content only, never the frame =========
+   IntersectionObserver drops .is-in on .rev cards and on the .ledger once they
+   reach the reading line (style.css tweens opacity/transform). Without IO the
+   class is added immediately — the content must never be invisible. */
+let revealObserver;
+
+function getRevealObserver() {
+  if (revealObserver !== undefined) { return revealObserver; }
+  if (!('IntersectionObserver' in window)) { revealObserver = false; return false; }
+  revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { root: null, rootMargin: '0px 0px -7% 0px', threshold: 0.05 });
+  return revealObserver;
+}
+
+function observeReveals(root) {
+  const scope = root || document;
+  const sel = '.rev:not(.is-in), .ledger:not(.is-in)';
+  const nodes = Array.prototype.slice.call(scope.querySelectorAll(sel));
+  /* querySelectorAll only matches descendants: when the caller passes the
+     element itself (the ledger is observed directly), it must be included
+     explicitly. */
+  if (scope !== document && scope.matches && scope.matches(sel)) { nodes.push(scope); }
+  if (!nodes.length) { return; }
+  const io = getRevealObserver();
+  if (!io) { nodes.forEach(n => n.classList.add('is-in')); return; }
+  nodes.forEach(n => io.observe(n));
+}
+
+/* ========= HERO TYPEWRITER =========
+   Types the real role strings. When the governor held the frame still (or the
+   OS asked for reduced motion) the first role is printed and no timer exists
+   at all — animation is a cost, and this machine already declined it. */
+function typeEffect() {
+  const el = document.getElementById('typed-role');
+  if (!el) { return; }
+  const held = !!(window.Scenic && (window.Scenic.tier === 'still' ||
+    (window.Scenic.probe && window.Scenic.probe.reducedMotion)));
+  if (held) { el.textContent = ROLES[0]; return; }
+  let word = 0, char = 0, deleting = false;
+  const tick = () => {
+    const role = ROLES[word % ROLES.length];
+    char += deleting ? -1 : 1;
+    el.textContent = role.slice(0, Math.max(0, char));
+    let delay = deleting ? 24 : 58;
+    if (!deleting && char >= role.length) { deleting = true; delay = 2300; }
+    else if (deleting && char <= 0) { deleting = false; word += 1; delay = 380; }
+    window.setTimeout(tick, delay);
+  };
+  el.textContent = '';
+  tick();
+}
+
+/* ========= BOOT CONSOLE — four real gates, one shutter =========
+   scene.js passes four gates (dom, probe, scene, fonts), each emitted with the
+   measurements that justified it. One line is written per gate as it passes,
+   and the shutter opens when all four are in. A 3.5 s fail-safe guarantees the
+   reader is never trapped; if it fires it names the gates that never returned
+   and releases the page — it never pretends the boot completed. */
+const BOOT_FAILSAFE_MS = 3500;
+
+function initBootConsole() {
+  const overlay = document.getElementById('boot');
+  if (!overlay) { return; }
+  const log = document.getElementById('boot-log');
+  const fill = document.getElementById('boot-fill');
+  const pct = document.getElementById('boot-pct');
+  const gates = (window.Scenic && window.Scenic.gates) ? window.Scenic.gates : [];
+
+  let dismissed = false;
+  let passed = 0;
+  let failsafe = 0;
+  const total = gates.length || 4;
+
+  const writeLine = (label, value) => {
+    if (!log) { return; }
+    const line = document.createElement('div');
+    line.className = 'boot__line';
+    const b = document.createElement('b');
+    b.textContent = label;
+    const i = document.createElement('i');
+    i.textContent = value;
+    line.appendChild(b);
+    line.appendChild(i);
+    log.appendChild(line);
+  };
+
+  const paint = () => {
+    const p = total ? Math.round((passed / total) * 100) : 0;
+    if (fill) { fill.style.width = p + '%'; }
+    if (pct) { pct.textContent = p + '%'; }
+  };
+
+  const release = (how) => {
+    if (dismissed) { return; }
+    dismissed = true;
+    window.clearTimeout(failsafe);
+    passed = total;
+    paint();
+    document.body.style.overflow = '';
+    overlay.classList.add('is-done');
+    window.setTimeout(() => {
+      if (overlay.parentNode) { overlay.parentNode.removeChild(overlay); }
+    }, 900);
+    try {
+      document.dispatchEvent(new CustomEvent('scenic:shutter', { detail: { via: how } }));
+    } catch (e) {}
+  };
+
+  const gateValue = g => {
+    const parts = [];
+    if (g.ms >= 0) { parts.push(g.ms + ' ms'); }
+    if (g.extra) { parts.push(String(g.extra)); }
+    return parts.join(' · ') || 'ok';
+  };
+
+  /* Reconcile gates that already passed before this listener existed: scene.js
+     boots on DOMContentLoaded and could win the race on a fast parse. */
+  gates.forEach(g => {
+    if (g.ok) { passed++; writeLine(g.label, gateValue(g)); }
+  });
+  paint();
+  if (passed >= total) { window.setTimeout(() => release('gates'), 120); }
+
+  document.addEventListener('scenic:gate', ev => {
+    const d = ev.detail || {};
+    const g = d.gate;
+    if (!g) { return; }
+    passed = (typeof d.passed === 'number') ? d.passed : passed + 1;
+    writeLine(g.label, gateValue(g));
+    paint();
+    if (passed >= total) { window.setTimeout(() => release('gates'), 260); }
+  });
+
+  failsafe = window.setTimeout(() => {
+    if (dismissed) { return; }
+    const pending = gates.filter(g => !g.ok).map(g => g.label);
+    if (pending.length) {
+      writeLine('fail-safe', 'released · ' + passed + '/' + total +
+        ' gates · pending: ' + pending.join(', '));
+    }
+    release('fail-safe');
+  }, BOOT_FAILSAFE_MS);
+
+  /* The overlay holds the page still until it is gone. The fail-safe is the
+     only other exit, so this lock cannot outlive it. */
+  document.body.style.overflow = 'hidden';
+}
+
+/* ========= TELEMETRY BINDING =========
+   scene.js emits a measured snapshot roughly once a second (plus on load,
+   font activation and tier changes). The console rebuilds only its text, and
+   only when the snapshot arrives — the page does no polling of its own. */
+let telePaintedAt = 0;
+
+function onTelemetry(detail) {
+  const t = detail || (window.Scenic ? window.Scenic.telemetry() : null);
+  if (!t) { return; }
+  const stamp = (window.performance && performance.now) ? performance.now() : Date.now();
+  if (stamp - telePaintedAt < 350) { return; }
+  telePaintedAt = stamp;
+  renderTelemetry(t);
+}
+
+function bindTelemetry() {
+  document.addEventListener('scenic:telemetry', ev => onTelemetry(ev.detail));
+  document.addEventListener('scenic:ready', ev => onTelemetry(ev.detail));
+  document.addEventListener('scenic:tier', () => {
+    onTelemetry(window.Scenic ? window.Scenic.telemetry() : null);
+  });
+}
+
+/* ========= SECTION RAIL & COMMAND BAR =========
+   The rail is generated from the same SECTIONS table the director uses, so a
+   section can never be missing from the index or carry a stale label. */
+function buildRail() {
+  const rail = document.getElementById('rail');
+  if (!rail) { return; }
+  rail.innerHTML = '';
+  SECTIONS.forEach((s, i) => {
+    const item = document.createElement('button');
+    item.type = 'button';
+    item.className = 'rail__item' + (i === activeSectionIdx ? ' is-active' : '');
+    item.dataset.section = s.id;
+    item.setAttribute('aria-label', 'Go to section ' + s.label);
+    const dot = document.createElement('i');
+    const label = document.createElement('em');
+    label.textContent = s.label;
+    item.appendChild(dot);
+    item.appendChild(label);
+    item.addEventListener('click', () => goSection(s.id));
+    rail.appendChild(item);
+  });
+}
+
+function bindNavigation() {
+  document.querySelectorAll('.hud-btn').forEach(btn => {
+    btn.addEventListener('click', () => goSection(btn.dataset.section));
+  });
+  document.querySelectorAll('[data-go]').forEach(btn => {
+    btn.addEventListener('click', () => goSection(btn.getAttribute('data-go')));
+  });
+  const brand = document.querySelector('.gbar__brand');
+  if (brand) {
+    brand.addEventListener('click', ev => { ev.preventDefault(); goSection('hero'); });
+  }
+  const menu = document.getElementById('gbar-menu');
+  const nav = document.getElementById('gbar-nav');
+  if (menu && nav) {
+    menu.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      menu.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+}
+
+/* ========= FILTER BANKS =========
+   Both banks re-render their grids from the same tables that feed the initial
+   paint; a filter is a view, never a second copy of the data. */
+function bindFilters() {
+  const wire = (rowId, btnSel, attr, render) => {
+    const row = document.getElementById(rowId);
+    if (!row) { return; }
+    row.querySelectorAll(btnSel).forEach(btn => {
+      btn.addEventListener('click', () => {
+        row.querySelectorAll(btnSel).forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        render(btn.dataset[attr]);
+      });
+    });
+  };
+  wire('proj-filters', '.pf', 'f', renderProjects);
+  wire('cert-filters', '.cf', 'cf', renderCertificates);
+}
+
+/* ========= MODALS =========
+   Project view = architecture, invariants, and the trace the tool actually
+   recorded. Certificate view = the scan itself, with an honest fallback when
+   the image cannot be decoded. */
+function openModal(id) {
+  const p = PROJECTS.find(x => x.id === id);
+  if (!p) { return; }
+  const head = document.getElementById('modal-head');
+  const body = document.getElementById('modal-body');
+  const modal = document.getElementById('modal-bg');
+  if (!head || !body || !modal) { return; }
+
+  head.innerHTML = `<div class="modal-head-title">${p.icon} ${p.name}</div>`;
+  body.innerHTML = `
+    <div class="modal-grid-2">
+      <div class="modal-col">
+        <div>
+          <div class="modal-sec-title">// ARCHITECTURAL OVERVIEW</div>
+          <p class="modal-desc">${p.desc}</p>
+        </div>
+        <div>
+          <div class="modal-sec-title">// DEPLOYMENT STATE</div>
+          <span class="pstatus ${p.status}">${p.status.toUpperCase()}</span>
+        </div>
+        <div>
+          <div class="modal-sec-title">// ENGINEERED STACK</div>
+          <div class="modal-tags">${p.tech.map(t => `<span class="modal-tag">${t}</span>`).join('')}</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-self:flex-start;">
+          <a class="modal-btn" href="${p.url}" target="_blank" rel="noopener noreferrer">Inspect Repository ➔</a>
+          ${p.liveUrl ? `<a class="modal-btn" href="${p.liveUrl}" target="_blank" rel="noopener noreferrer">Open Live System ↗</a>` : ''}
+        </div>
+      </div>
+      <div class="modal-col">
+        <div>
+          <div class="modal-sec-title">// CORE INVARIANTS &amp; CAPABILITIES</div>
+          <ul class="modal-feats">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
+        </div>
+        <div>
+          <div class="modal-sec-title">// RECORDED DIAGNOSTIC TRACE</div>
+          <div class="modal-terminal-hdr">b13@quantum-rig:~/${p.id}$</div>
+          <div class="modal-terminal-box">${PREVIEWS[p.id] || '$ trace --unit ' + p.id + '\n[*] No recorded bootstrap trace for this unit\n[+] Reference: ' + p.url}</div>
+        </div>
+      </div>
+    </div>
+  `;
+  modal.classList.remove('modal-hidden');
+  modal.setAttribute('aria-hidden', 'false');
+  const closer = document.getElementById('modal-close');
+  if (closer) { closer.focus(); }
+}
+
+function openCertModal(c) {
+  const head = document.getElementById('modal-head');
+  const body = document.getElementById('modal-body');
+  const modal = document.getElementById('modal-bg');
+  if (!head || !body || !modal) { return; }
+
+  head.innerHTML = `<div class="modal-head-title">📜 ${c.name}</div>`;
+  body.innerHTML = `
+    <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+      <img id="cert-scan" src="${c.path}" alt="${c.name}" style="max-width:100%;max-height:60vh;border-radius:6px;border:1px solid var(--line);box-shadow:0 0 30px rgba(92,225,255,0.16);">
+      <div style="font-family:var(--f-mono);font-size:0.78rem;color:var(--dim);">
+        Track: <span style="color:var(--cyan);font-weight:700;">${c.cat.toUpperCase()}</span> · File: ${c.path}
+      </div>
+    </div>
+  `;
+  const img = document.getElementById('cert-scan');
+  if (img) {
+    img.addEventListener('error', () => {
+      const note = document.createElement('div');
+      note.className = 'modal-desc';
+      note.textContent = 'scan file could not be decoded in this browser: ' + c.path;
+      img.replaceWith(note);
+    });
+  }
+  modal.classList.remove('modal-hidden');
+  modal.setAttribute('aria-hidden', 'false');
+  const closer = document.getElementById('modal-close');
+  if (closer) { closer.focus(); }
+}
+
+function closeModal() {
+  const modal = document.getElementById('modal-bg');
+  if (!modal || modal.classList.contains('modal-hidden')) { return; }
+  modal.classList.add('modal-hidden');
+  modal.setAttribute('aria-hidden', 'true');
+}
+
+function bindModal() {
+  const closer = document.getElementById('modal-close');
+  const bg = document.getElementById('modal-bg');
+  if (closer) { closer.addEventListener('click', closeModal); }
+  if (bg) {
+    bg.setAttribute('aria-hidden', 'true');
+    bg.addEventListener('click', ev => { if (ev.target === bg) { closeModal(); } });
+  }
+  document.addEventListener('keydown', ev => { if (ev.key === 'Escape') { closeModal(); } });
+}
+
+/* ========= SCROLLSPY + TICKER =========
+   One observer hands the section under the reading line to the director; the
+   ticker prints the real scroll percentage (the rail is desktop-only). */
+function bindSpy() {
+  const panels = document.querySelectorAll('section.panel');
+  if ('IntersectionObserver' in window && panels.length) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { setActiveSection(entry.target.id); }
+      });
+    }, { root: null, rootMargin: '-38% 0px -54% 0px', threshold: 0 });
+    panels.forEach(p => spy.observe(p));
+  }
+
+  const counter = document.getElementById('sess-scroll');
+  let queued = false;
+  const paint = () => {
+    queued = false;
+    if (!counter) { return; }
+    const doc = document.documentElement;
+    const max = Math.max(1, (doc.scrollHeight || 1) - window.innerHeight);
+    const p = Math.min(100, Math.max(0, Math.round(((window.pageYOffset || doc.scrollTop || 0) / max) * 100)));
+    counter.textContent = p + '%';
+  };
+  window.addEventListener('scroll', () => {
+    if (queued) { return; }
+    queued = true;
+    window.requestAnimationFrame(paint);
+  }, { passive: true });
+  paint();
+}
+
+/* ========= INITIALIZATION =========
+   app.js is deferred: it executes after the document is parsed but before
+   DOMContentLoaded, so every binding below exists before scene.js boots its
+   gates. The boot console is armed first so even a later failure in this
+   sequence cannot trap the reader. */
+function init() {
+  initBootConsole();
+  buildRail();
+  bindNavigation();
+  bindFilters();
+  bindModal();
+  bindSpy();
+  bindTelemetry();
+  renderProjects();
+  renderCertificates();
+  renderContact();
+  observeReveals(document.getElementById('ledger'));
+  typeEffect();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init, { once: true });
+} else {
+  init();
+}
 
 
 
