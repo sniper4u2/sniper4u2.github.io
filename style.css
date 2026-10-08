@@ -1870,7 +1870,7 @@ html[data-tier="still"] .about-card {
   .gbar__menu { display: inline-flex; }
   .gbar__clear, .gbar__live { display: none; }
   .panel { padding-top: 64px; }
-  .ledger { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .domain-card, .proj-card, .cert-card, .contact-card {
 }
 
 @media (max-width: 640px) {
@@ -1878,7 +1878,7 @@ html[data-tier="still"] .about-card {
   .hero-title { font-size: clamp(2.4rem, 13vw, 3.4rem); }
   .proj-grid, .ai-domains-grid { grid-template-columns: minmax(0, 1fr); }
   .cert-galaxy { columns: 1; }
-  .ledger { grid-template-columns: minmax(0, 1fr); }
+  .domain-card, .proj-card, .cert-card, .contact-card {
   .clink, .pc-foot, .foot { align-items: flex-start; }
   .clink-val, .pc-actions { margin-left: 0; width: 100%; text-align: left; }
   .panel::before { background: linear-gradient(180deg, rgba(2, 5, 12, 0.86) 0%, rgba(2, 5, 12, 0.68) 100%); }
@@ -1910,7 +1910,7 @@ html[data-tier="still"] .about-card {
 
 /* ---- cinematic 4K pass: resolution-independent depth (no bitmaps, no GL) -- */
 #scene { image-rendering: auto; }
-.tele, .ledger, .domain-card, .proj-card, .cert-card, .contact-card {
+.tele, .domain-card, .proj-card, .cert-card, .contact-card {
   box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(92,225,255,0.03) inset;
 }
 .hero-title { text-shadow: 0 2px 30px rgba(0,0,0,0.55), 0 0 80px rgba(92,225,255,0.10); }

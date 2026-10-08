@@ -967,7 +967,7 @@ function init() {
   renderProjects();
   renderCertificates();
   renderContact();
-  observeReveals(document.getElementById('ledger'));
+  observeReveals(document.querySelectorAll('.rev'));
   typeEffect();
 }
 
