@@ -50,6 +50,7 @@ const PROJECTS = [
     ],
     tech: ['Python', 'Neuro-Symbolic', 'DSL Synthesis', 'PyTorch', 'Kaggle API'],
     url: 'https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-3',
+    liveUrl: 'https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-3',
     lang: 'Python'
   },
   {
@@ -69,8 +70,8 @@ const PROJECTS = [
       'Published under vaultguard organization for controlled access'
     ],
     tech: ['HuggingFace', 'Python', 'Parquet', 'ChatML', 'SFT'],
-    url: 'https://huggingface.co/datasets/vaultguard/b13-cybersecurity-sft-datasets',
-    liveUrl: 'https://huggingface.co/datasets/vaultguard/b13-cybersecurity-sft-datasets',
+    url: 'https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets',
+    liveUrl: 'https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets',
     lang: 'Python / JSON'
   },
   {
@@ -90,7 +91,7 @@ const PROJECTS = [
       'Local development - competition entry only'
     ],
     tech: ['PyTorch', 'Kraken HTR', 'OpenCV', 'RapidFuzz', 'PyTorch Lightning'],
-    url: null,
+    url: 'https://zindi.world/competitions/road-barbados-historic-handwriting-challenge',
     lang: 'Python'
   },
   {
@@ -110,7 +111,7 @@ const PROJECTS = [
       'Local development - competition entry only'
     ],
     tech: ['Python', 'DuckDB', 'GeoPandas', 'LightGBM', 'Scikit-Learn'],
-    url: null,
+    url: 'https://zindi.world/competitions/bias-bounty-mapping-equity',
     lang: 'Python'
   },
   {
@@ -153,7 +154,7 @@ const PROJECTS = [
       'Comprehensive documentation: Pitch deck (15.9 MB) and Institutional Proposal (3.3 MB)'
     ],
     tech: ['TypeScript', 'Cloudflare Workers', 'React', 'Supabase', 'ZKP', 'WebAuthn'],
-    url: 'https://github.com/spaypeur/vaultguard',
+    url: 'https://vaultguard.eu.org',
     liveUrl: 'https://vaultguard.eu.org',
     lang: 'TypeScript'
   },
