@@ -1,12 +1,14 @@
 SOFIENE HAMZAOUI
-Senior Systems Architect | AI Engineer | Security Engineer
+Machine Learning Engineer | AI Engineer | Full Stack Developer | Security Engineer | Systems Architect
 Email: admin@vaultguard.eu.org
+Phone: +216 22 090 800
 GitHub: github.com/sniper4u2
 Hugging Face: huggingface.co/sofienehmz
 Portfolio: sniper4u2.github.io
+VaultGuard: vaultguard.eu.org
 
 PROFESSIONAL SUMMARY
-Senior Systems Architect and AI Engineer with expertise in machine learning, full-stack development, cybersecurity, and systems architecture. Experienced in LLM fine-tuning, SFT dataset curation, neuro-symbolic AI frameworks, Python/TypeScript development, and building complete technology stacks from infrastructure to AI agent orchestration.
+Machine Learning Engineer, AI Engineer, Full Stack Developer, Security Engineer, and Systems Architect with expertise in LLM fine-tuning, SFT dataset curation, neuro-symbolic AI frameworks, Python/TypeScript development, cybersecurity, and building complete technology stacks from infrastructure to AI agent orchestration.
 
 TECHNICAL SKILLS
 Programming Languages: Python, TypeScript, JavaScript, Objective-C, SQL
@@ -31,7 +33,7 @@ B13 Cybersecurity SFT Dataset Collection
 - 16,874 unified ChatML SFT training samples
 - 10,000 technical CVEs with Chain-of-Thought reasoning
 - 130,173 security evaluation records
-- Published on Hugging Face under vaultguard organization
+- Published on Hugging Face (sofienehmz/b13-cybersecurity-sft-datasets)
 - Gated access for security reasons (contains 100k+ working CVEs)
 
 HSPN-MAI ARC-AGI Neuro-Symbolic Synthesis
@@ -65,7 +67,12 @@ C2 Server Framework
 
 Zindi Competition Projects
 - Barbados OCR: Multi-architecture HTR system with PyTorch and Kraken
+  - Competition: R.O.A.D. Barbados Historic Handwriting Challenge
+  - Team: Tunisian(x B13) - Rank 292 (Public Score: 0.877, Private Score: 0.879)
+  - URL: zindi.world/competitions/road-barbados-historic-handwriting-challenge
 - Bias Bounty Equity: Algorithmic fairness pipeline with geospatial features
+  - Competition: Bias Bounty Mapping Equity
+  - URL: zindi.world/competitions/bias-bounty-mapping-equity
 - Both projects: Local development for competition entries
 
 CERTIFICATIONS & EDUCATION
@@ -78,23 +85,54 @@ CERTIFICATIONS & EDUCATION
 - IBM Cloud Security
 - IBM GRC & Data Privacy
 - IBM Cybersecurity Fluency Pathway
+- IBM Getting Started with Cybersecurity
 - Microsoft / freeCodeCamp Foundational C#
 - freeCodeCamp Scientific Computing with Python
 - freeCodeCamp Frontend Dev Libraries V8
 - freeCodeCamp Web Design Certification V8
+- freeCodeCamp Legacy Frontend Development
 - IELTS General Training Band 5.5 / B2
-- Civil Aviation Flight Dispatcher Diploma
-- CMFC Personnel Navigant Commercial
+- Civil Aviation Flight Dispatcher Diploma N°228/2008 (Ministry of Transport, Tunisia)
+- CMFC Personnel Navigant Commercial (Cabin Crew)
+- Perm State Pharmacy Academy (Russia) - 3rd Year Certificate
+- Ryazan State Medical University (Russia) - 2nd Year Pharmacy Certificate
 - Heavy Vehicle C+E License
+- Heavy Vehicle Driving Vehicles with Trailers License
 - Baccalaureate Diploma (Arts, Tunisia)
 
+EDUCATION
+Pharmaceutical Sciences in Russia (2015-2016)
+- Ryazan State Medical University: 2nd year Pharmacy studies
+- Perm State Pharmacy Academy: 3rd year pharmacy studies
+
+Civil Aviation Training
+- Flight Dispatcher Diploma N°228/2008
+- CMFC Personnel Navigant Commercial (Cabin Crew)
+
+Vocational Training
+- Heavy Vehicle C+E License
+- Driving Vehicles with Trailers License
+
 LANGUAGES
-- Arabic: Professional fluency
-- French: Professional fluency
-- English: Professional fluency
+- Arabic: Native
+- French: Fluent
+- English: Professional (IELTS B2)
+- Russian: Academic (4 years of pharmacy studies in Russia)
+- Dutch: Basic
+- Italian: Basic
+
+EXPERIENCE
+AI Engineer, Full Stack Developer, Security Engineer, Systems Architect
+2020 - Present
+- Published B13 Cybersecurity SFT Dataset on Hugging Face
+- Built VaultGuard institutional crypto security platform
+- Developed iOS automation frameworks and betting platforms
+- Worked on ARC-AGI, Barbados OCR, and Bias Bounty competitions
+- Expertise in LLM fine-tuning, SFT datasets, neuro-symbolic AI, cybersecurity
 
 CONTACT
 Email: admin@vaultguard.eu.org
+Phone: +216 22 090 800
 GitHub: github.com/sniper4u2
 Hugging Face: huggingface.co/sofienehmz
 VaultGuard: vaultguard.eu.org
