@@ -552,21 +552,7 @@
 
 </main>
 
-<!-- ==========================================================================
-     LIVE SESSION TICKER
-     Same measured source as the telemetry console, in one line, always visible
-     after the boot shutter opens.
-     ========================================================================== -->
-<div class="sess" id="sess" role="status" aria-live="off">
-  <span class="sess__k">TIER</span><span class="sess__v" id="sess-tier">—</span>
-  <span class="sess__sep"></span>
-  <span class="sess__k">FPS</span><span class="sess__v" id="sess-fps">—</span>
-  <span class="sess__sep sess__hide"></span>
-  <span class="sess__k sess__hide">SCROLL</span><span class="sess__v sess__hide" id="sess-scroll">0%</span>
-  <span class="sess__sep sess__hide"></span>
-  <span class="sess__k sess__hide">GPU</span><span class="sess__v sess__hide" id="sess-gpu">—</span>
-  <span class="sess__note" id="sess-note">// measured, not estimated</span>
-</div>
+
 
 <!-- MODAL DIALOG -->
 <div id="modal-bg" class="modal-hidden">
@@ -582,16 +568,14 @@
      Every claim below is checkable from the network panel.
      ========================================================================== -->
 <footer class="foot">
-  <span><b>Sofiene Hamzaoui</b> · sniper4u2 · AI Engineer & Systems Architect · 2026</span>
-  <span>Frame: <b>vector scene</b> · CSS compositor · native resolution at any DPR (1080p → 4K → 8K)</span>
-  <span><b>Zero external requests</b> · self-hosted type · no WebGL required</span>
+  <span>Sofiene Hamzaoui · sniper4u2 · AI Engineer & Systems Architect · 2026</span>
+  <span>Portfolio: Professional Portfolio · ATS-Optimized</span>
 </footer>
 
 <!-- SCENE ENGINE — capability probe, adaptive governor, motion driver and the
      telemetry source. No modules, no import map, no third-party bundle. -->
 <script src="scene.js?v=1.2"></script>
-<!-- UI CONTROLLER — navigation, live telemetry console, modals, section
-     cinematography. Directs the frame through Scenic.setGrade()/setShot(). -->
+<!-- UI CONTROLLER — navigation, modals, section rendering. -->
 <script defer src="app.js?v=7.1"></script>
 </body>
 </html>
