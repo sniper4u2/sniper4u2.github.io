@@ -666,6 +666,15 @@ html[data-tier="still"] .gbar {
 .gbar__live[data-state="warn"] .gbar__dot { background: var(--amber); box-shadow: 0 0 8px var(--amber); }
 .gbar__live[data-state="idle"] .gbar__dot { background: var(--dimmer); box-shadow: none; }
 
+.gbar__photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent, #00f2ff);
+  margin-right: 12px;
+  vertical-align: middle;
+}
 .gbar__cv {
   padding: 8px 14px;
   border-radius: 999px;
@@ -1520,18 +1529,6 @@ html[data-tier="still"] .tele {
   grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.9fr);
   gap: 24px;
   align-items: start;
-}
-.about-photo {
-  text-align: center;
-  padding: 20px;
-}
-.profile-img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 3px solid var(--accent, #00f2ff);
-  box-shadow: 0 4px 20px rgba(0, 242, 255, 0.2);
 }
 .about-text p { font-size: 0.94rem; line-height: 1.88; color: var(--dim); }
 .about-text p + p { margin-top: 16px; }
