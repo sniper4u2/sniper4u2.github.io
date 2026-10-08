@@ -232,7 +232,7 @@ const CONTACTS = [
   { icon: '🛡️', label: 'VaultGuard Org', val: 'vaultguard.eu.org', href: 'https://vaultguard.eu.org', highlight: true },
   { icon: '🛠️', label: 'Tools Case', val: 'hamzaoui-sofiene-tools-case', href: 'https://start.me/p/KMJvbw/hamzaoui-sofiene-tools-case' },
   { icon: '📧', label: 'Email', val: 'admin@vaultguard.eu.org', href: 'mailto:admin@vaultguard.eu.org' },
-  { icon: '�', label: 'CV (ATS-Optimized)', val: 'ATS-Optimized Plain Text CV', href: 'CERTS/Hamzaoui_Sofiene_CV_PlainText.txt' }
+  { icon: '�', label: 'CV (PDF)', val: 'CV (Complete PDF)', href: 'CERTS/Hamzaoui_Sofiene_CV_Complete.pdf' }
 ];
 
 /* ==========================================================================
