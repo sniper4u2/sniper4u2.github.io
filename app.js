@@ -29,7 +29,7 @@ const ROLES = [
   "Neuro-Symbolic ARC-AGI Researcher",
   "LLM Fine-Tuning & SFT Dataset Engineer",
   "Senior Systems Architect & Forensics Investigator",
-  "Elite Red-Teamer & Systems Engineer (Clearance 55)"
+  "Security Engineer & Technical Investigator"
 ];
 
 const PROJECTS = [
@@ -39,17 +39,17 @@ const PROJECTS = [
     icon: '🧩',
     status: 'active',
     cat: 'ai',
-    desc: 'Hybrid Symbiotic Program-Neural Synthesis with Metacognitive Active Inference. Frontier theoretical framework and competitive solver for Kaggle ARC Prize 2026 (ARC-AGI-2 & ARC-AGI-3) unifying System 1 neural priors with System 2 verified DSL search.',
+    desc: 'Neuro-Symbolic AI framework for Kaggle ARC Prize 2026 combining neural networks with program synthesis. Currently ranked 176 of 3,885 teams (score 30.45). Code private for ongoing competition.',
     features: [
-      'Authored 10-page formal research treatise: "HSPN-MAI Architecture for Out-of-Distribution Generalization"',
-      'Dual-system design: Neural topological priors constrain and guide deterministic DSL program synthesizer',
-      'Active object-centric decomposition & multi-scale geometric symmetry verification',
-      'Metacognitive confidence gating preventing combinatorial exponential search space explosions',
-      'Production Kaggle submission pipeline emitting verified submission.parquet'
+      'Authored 10-page formal research treatise on out-of-distribution generalization',
+      'Dual-system design: Neural priors + deterministic DSL program synthesizer',
+      'Active object-centric decomposition & geometric symmetry verification',
+      'Metacognitive confidence gating preventing exponential search space explosions',
+      'Production Kaggle submission pipeline with verified outputs',
+      'Current leaderboard: rank 176 of 3,885 teams (score 30.45)'
     ],
     tech: ['Python', 'Neuro-Symbolic', 'DSL Synthesis', 'PyTorch', 'Kaggle API'],
-    url: 'https://github.com/sniper4u2/prizes',
-    liveUrl: 'https://github.com/sniper4u2',
+    url: 'https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-3',
     lang: 'Python'
   },
   {
@@ -58,92 +58,59 @@ const PROJECTS = [
     icon: '🤗',
     status: 'live',
     cat: 'ai',
-    desc: 'Master ChatML cybersecurity dataset containing 16,874 SFT samples, 10,000 technical CVE records with Chain-of-Thought reasoning, 5,591 static code analysis samples with CWE mapping, and 130,173 evaluation records published on Hugging Face.',
+    desc: 'Master ChatML cybersecurity dataset containing 16,874 SFT samples, 10,000 technical CVE records with Chain-of-Thought reasoning, and 130,173 evaluation records. Gated access for security reasons (contains 100k+ working CVEs with automation).',
     features: [
-      '16,874 unified ChatML SFT training samples across 3 core tracks',
-      '10,000 technical CVEs with Chain-of-Thought (CoT) reasoning & 15 schema features',
+      '16,874 unified ChatML SFT training samples across security domains',
+      '10,000 technical CVEs with 15 structured features and CoT reasoning',
       '5,591 static code analysis samples with CWE mapping and patch synthesis',
-      '1,003 multi-turn red-team pentesting workflows and execution logs',
-      '130,173 security evaluation records benchmarked across agent skills and MCP tools'
+      '1,003 multi-turn red-team pentesting workflows',
+      '130,173 security evaluation records across agent skills',
+      'Gated access: contains 100k+ working CVEs with automation (121 MB)',
+      'Published under vaultguard organization for controlled access'
     ],
-    tech: ['HuggingFace', 'Python', 'Parquet', 'ChatML', 'SFT', 'Datasets'],
-    url: 'https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets',
-    liveUrl: 'https://huggingface.co/datasets/sofienehmz/b13-cybersecurity-sft-datasets',
+    tech: ['HuggingFace', 'Python', 'Parquet', 'ChatML', 'SFT'],
+    url: 'https://huggingface.co/datasets/vaultguard/b13-cybersecurity-sft-datasets',
+    liveUrl: 'https://huggingface.co/datasets/vaultguard/b13-cybersecurity-sft-datasets',
     lang: 'Python / JSON'
   },
   {
     id: 'barbados-ocr',
     name: 'Barbados Transductive Ensemble HTR & OCR',
     icon: '📜',
-    status: 'active',
+    status: 'completed',
     cat: 'ai',
-    desc: 'Deep multi-architecture handwritten text recognition (HTR) and historical document transcription system. Multi-stage PyTorch & Kraken training with Sauvola adaptive binarization and 6-model edit-distance consensus fusion.',
+    desc: 'Deep multi-architecture handwritten text recognition (HTR) system for Zindi competition. Multi-stage PyTorch & Kraken training with Sauvola adaptive binarization and 6-model edit-distance consensus fusion. Local development for competition entry.',
     features: [
-      'Full 50-epoch GPU training pipeline leveraging Kraken & PyTorch Lightning',
-      'Sauvola adaptive local binarization & contrast normalization for historical manuscripts',
-      '6-model transductive consensus engine with RapidFuzz token-set edit distance',
-      'Automated suspicion gating and confidence thresholding targeting CER/WER minimization',
-      'Strict zero-leakage cross-validation producing top-ranked competition submission'
+      '50-epoch GPU training pipeline with Kraken & PyTorch Lightning',
+      'Sauvola adaptive local binarization for historical manuscripts',
+      '6-model transductive consensus engine with RapidFuzz token edit distance',
+      'Automated suspicion gating and confidence thresholding',
+      'CER/WER minimization metrics optimization',
+      'Strict zero-leakage cross-validation for competition submission',
+      'Local development - competition entry only'
     ],
     tech: ['PyTorch', 'Kraken HTR', 'OpenCV', 'RapidFuzz', 'PyTorch Lightning'],
-    url: 'https://github.com/sniper4u2',
-    liveUrl: 'https://github.com/sniper4u2',
+    url: null,
     lang: 'Python'
   },
   {
     id: 'bias-bounty',
     name: 'Bias Bounty Equity Feature Engine',
     icon: '⚖️',
-    status: 'active',
+    status: 'completed',
     cat: 'ai',
-    desc: 'Algorithmic fairness and socio-spatial vulnerability pipeline. Integrates Overture Maps vector features, Census TIGER road networks, and CDC Social Vulnerability Indices to detect and quantify geographic disparities.',
+    desc: 'Algorithmic fairness and socio-spatial vulnerability pipeline for Zindi competition. Integrates Overture Maps vector features, Census TIGER road networks, and CDC Social Vulnerability Indices to detect geographic disparities. Local development for competition entry.',
     features: [
       'Automated geospatial feature pipeline (GeoPandas, Shapely, PyProj)',
-      'High-throughput vector parquet processing via DuckDB HTTPFS',
-      'Fixed-seed deterministic validation framework (SEED=4217)',
-      'Non-parametric calibration ensuring fair predictive boundaries across demographics',
-      'Designed for Zindi algorithmic equity benchmark evaluation'
+      'High-throughput DuckDB vector parquet processing via HTTPFS',
+      'Fixed-seed deterministic validation (SEED=4217)',
+      'Non-parametric calibration for fair predictive boundaries',
+      'Overture Maps building footprints and POI integration',
+      'Census TIGER road network and CDC SVI metrics',
+      'Local development - competition entry only'
     ],
     tech: ['Python', 'DuckDB', 'GeoPandas', 'LightGBM', 'Scikit-Learn'],
-    url: 'https://github.com/sniper4u2',
-    liveUrl: 'https://github.com/sniper4u2',
-    lang: 'Python'
-  },
-  {
-    id: 'gaia-agent',
-    name: 'GAIA Agent Unit 5',
-    icon: '🤖',
-    status: 'live',
-    cat: 'ai',
-    desc: 'Autonomous AI agent console deployed on Hugging Face Spaces using smolagents/CodeAgent with web search, webpage visitation, and dynamic tool execution.',
-    features: [
-      'Powered by smolagents & CodeAgent framework',
-      'Qwen2.5-Coder-32B backend via HF InferenceClient',
-      'Integrated DuckDuckGo and webpage visitation tools',
-      'Gradio interactive agent console UI'
-    ],
-    tech: ['Python', 'smolagents', 'CodeAgent', 'Gradio', 'HuggingFace Spaces'],
-    url: 'https://huggingface.co/spaces/sofienehmz/gaia-agent-unit5',
-    liveUrl: 'https://huggingface.co/spaces/sofienehmz/gaia-agent-unit5',
-    lang: 'Python'
-  },
-  {
-    id: 'phalanx',
-    name: 'Phalanx X Local API Server',
-    icon: '⚡',
-    status: 'beta',
-    cat: 'ai',
-    desc: 'High-performance local LLM API server providing full OpenAI-compatible endpoints. Loads GGUF models, handles GPU offloading (CUDA), and supports MoE architectures.',
-    features: [
-      'Full OpenAI-compatible /v1/chat/completions',
-      'GPU layer offloading automation (CUDA/Metal)',
-      'Quantized format support: Q4_K_M, IQ4_XS, Q8_K_P',
-      'Context windows up to 128k tokens',
-      'Stream and batch mode execution',
-      'Zero external dependencies wrapper'
-    ],
-    tech: ['Python', 'llama.cpp', 'CUDA', 'GGUF', 'REST API'],
-    url: 'https://github.com/sniper4u2',
+    url: null,
     lang: 'Python'
   },
   {
@@ -152,17 +119,20 @@ const PROJECTS = [
     icon: '⚙️',
     status: 'active',
     cat: 'ai',
-    desc: 'Command & control framework with FastAPI, WebSockets, and autonomous AI pentesting agent orchestration. Combines security modules with dynamic LLM planning.',
+    desc: 'Advanced Command & Control framework with FastAPI, WebSockets, and autonomous AI pentesting agent orchestration. Combines security modules with dynamic LLM planning. Private repository - access restricted due to sophisticated capabilities.',
     features: [
-      'Multi-agent C2 session orchestration',
-      'FastAPI + WebSockets real-time messaging',
-      'Mythos Learner autonomous scanning & enhancement loop',
+      'Multi-agent C2 session orchestration and management',
+      'FastAPI + WebSockets real-time messaging architecture',
+      'Autonomous AI scanning & enhancement loop',
       'Integration with Ollama/LMStudio local APIs',
       'Dynamic CVE threat intelligence mapping',
-      'Redis & PostgreSQL telemetry persistence'
+      'Redis & PostgreSQL telemetry persistence',
+      'SS7/GSM exploitation capabilities (hardware-dependent)',
+      'Satellite communication simulation module',
+      'Comprehensive CVE exploitation database'
     ],
     tech: ['Python', 'FastAPI', 'WebSockets', 'Ollama', 'Redis', 'Docker'],
-    url: 'https://github.com/sniper4u2/c2server',
+    url: null,
     lang: 'Python'
   },
   {
@@ -171,76 +141,61 @@ const PROJECTS = [
     icon: '🔐',
     status: 'live',
     cat: 'crypto',
-    desc: 'Institutional P2P crypto security & OTC settlement engine. Deployed on Cloudflare Workers edge. Implements ZKP identity vaults and WebAuthn/FIDO2 biometrics.',
+    desc: 'Institutional-grade crypto security & OTC settlement engine with Zero-Knowledge Proof identity vaults, WebAuthn/FIDO2 biometrics, and multi-sig custody protocols. Deployed on Cloudflare Edge with 137 API endpoints.',
     features: [
-      '137 API endpoints running on Cloudflare Edge',
-      'Zero-Knowledge Proof progressive identity disclosure',
-      'Multi-sig institution custody protocol',
-      'Real-time threat monitoring integrations',
-      'Stripe & BTCPay payment integration',
-      'FIDO2/WebAuthn passwordless biometric logic'
+      '137 API endpoints running on Cloudflare Edge infrastructure',
+      'Zero-Knowledge Proof progressive identity disclosure system',
+      'Multi-signature institutional custody protocol',
+      'Real-time threat monitoring and security integrations',
+      'Stripe & BTCPay payment integration with subscription tiers',
+      'FIDO2/WebAuthn passwordless biometric authentication',
+      'Full-stack architecture: React frontend, TypeScript backend, Supabase database',
+      'Comprehensive documentation: Pitch deck (15.9 MB) and Institutional Proposal (3.3 MB)'
     ],
-    tech: ['TypeScript', 'Cloudflare Workers', 'ZKP', 'React', 'Supabase'],
-    url: 'https://github.com/sniper4u2',
+    tech: ['TypeScript', 'Cloudflare Workers', 'React', 'Supabase', 'ZKP', 'WebAuthn'],
+    url: 'https://github.com/spaypeur/vaultguard',
     liveUrl: 'https://vaultguard.eu.org',
     lang: 'TypeScript'
   },
   {
-    id: 'insolvency',
-    name: 'UK Insolvency Monitor',
-    icon: '📊',
+    id: 'webdriveragent',
+    name: 'WebDriverAgent iOS Automation Framework',
+    icon: '�',
     status: 'active',
-    cat: 'backend',
-    desc: 'Enterprise risk tracking application monitoring credit drops and structural company events. Aggregates data pipelines and generates multi-sheet Excel reports with automated scheduling.',
-    features: [
-      'Ingests daily UK public filings',
-      'Identifies credit score adjustments >=5%',
-      'Celery & Redis async scheduling pipeline',
-      'Automated daily/weekly multi-sheet Excel dispatch',
-      'Multi-tenant dashboard with client filters',
-      'PostgreSQL data persistence layer'
-    ],
-    tech: ['Python', 'FastAPI', 'Celery', 'Redis', 'React', 'PostgreSQL'],
-    url: 'https://github.com/sniper4u2',
-    lang: 'Python'
-  },
-  {
-    id: 'mythos-learner',
-    name: 'Mythos Learner Agent',
-    icon: '🧠',
-    status: 'active',
-    cat: 'ai',
-    desc: 'Autonomous knowledge acquisition agent scanning project directories and generating semantic indices. Self-enhances by learning from repository specifications and configs.',
-    features: [
-      'Scans files and builds unified semantic index',
-      'Interfaces with local Llama 3.1 8B & Qwen models',
-      'Dynamic multi-step capability learning',
-      'Audit logging and operator status dashboards',
-      'Sudo-ops sandbox controller setup',
-      'Context windows optimized for large codebases'
-    ],
-    tech: ['Python', 'Ollama', 'ChromaDB', 'Sentence-Transformers'],
-    url: 'https://github.com/sniper4u2',
-    lang: 'Python'
-  },
-  {
-    id: 'ai-discovery',
-    name: 'ai_llm_discovery.py',
-    icon: '🔍',
-    status: 'live',
     cat: 'platform',
-    desc: 'Custom Python systems auditing tool designed to scan filesystems, locate AI models, index configuration schemas, and build unified machine profiles.',
+    desc: 'Complete WebDriverAgent v11.1.2 implementation for iOS 26.1 automation. Auto-built via GitHub Actions CI/CD with comprehensive test coverage and Fastlane integration.',
     features: [
-      'Scans disk for GGUF, GGML, ONNX, and Pt weights',
-      'Detects environment variables and key configurations',
-      'Analyzes LLM software runtimes (Ollama, LMStudio, Continue)',
-      'Outputs structured JSON & markdown telemetry report',
-      'Parallel file-walking optimizing disk read overhead',
-      'Pattern matching on 50+ deep learning keywords'
+      'Full WebDriverAgent implementation for iOS device automation',
+      'Supports iOS 26.1 with comprehensive API coverage',
+      'Auto-built via GitHub Actions CI/CD pipeline (1,575 commits)',
+      'Complete test suite with mocha testing framework',
+      'Custom build scripts and Fastlane integration',
+      'Production-ready codebase with extensive documentation'
     ],
-    tech: ['Python', 'JSON', 'Systems API'],
-    url: 'https://github.com/sniper4u2',
-    lang: 'Python'
+    tech: ['Objective-C', 'JavaScript', 'GitHub Actions', 'Fastlane', 'iOS'],
+    url: 'https://github.com/spaypeur/WebDriverAgent',
+    lang: 'Objective-C / JavaScript'
+  },
+  {
+    id: 'betting-platform',
+    name: 'Sports Betting Platform (Full-Stack)',
+    icon: '🎰',
+    status: 'paused',
+    cat: 'backend',
+    desc: 'Full-stack sports betting platform with real-time odds integration, Supabase backend, Cloudflare Workers, and comprehensive betting engine. Development paused due to client payment dispute.',
+    features: [
+      'Full-stack application with React/Vite frontend',
+      'Supabase PostgreSQL database with edge functions',
+      'Cloudflare Workers for serverless API architecture',
+      'Real-time odds integration with multiple sports APIs',
+      'Bet placement, history tracking, and settlement workflows',
+      'Comprehensive audit reports and deployment documentation',
+      'Database migrations and fixture management systems',
+      'Local development only - code not publicly shared'
+    ],
+    tech: ['React', 'Vite', 'TypeScript', 'Supabase', 'Cloudflare Workers', 'PostgreSQL'],
+    url: null,
+    lang: 'TypeScript / JavaScript'
   }
 ];
 
@@ -276,7 +231,8 @@ const CONTACTS = [
   { icon: '🛡️', label: 'VaultGuard Org', val: 'vaultguard.eu.org', href: 'https://vaultguard.eu.org', highlight: true },
   { icon: '🛠️', label: 'Tools Case', val: 'hamzaoui-sofiene-tools-case', href: 'https://start.me/p/KMJvbw/hamzaoui-sofiene-tools-case' },
   { icon: '📧', label: 'Email', val: 'admin@vaultguard.eu.org', href: 'mailto:admin@vaultguard.eu.org' },
-  { icon: '📄', label: 'CV / Resume', val: 'CV (Complete PDF)', href: 'CERTS/Hamzaoui_Sofiene_CV_Complete.pdf' }
+  { icon: '📄', label: 'CV (PDF)', val: 'CV (Complete PDF)', href: 'CERTS/Hamzaoui_Sofiene_CV_Complete.pdf' },
+  { icon: '📝', label: 'CV (Plain Text for ATS)', val: 'ATS-Optimized CV', href: 'CERTS/Hamzaoui_Sofiene_CV_PlainText.txt' }
 ];
 
 /* ==========================================================================
