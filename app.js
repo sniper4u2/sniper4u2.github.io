@@ -244,7 +244,7 @@ const CONTACTS = [
                driver, and the telemetry source. It knows nothing about the DOM
                beyond #scene.
      app.js    owns the interface: navigation, the telemetry console, the boot
-               console, modals and the per-section cinematography. It writes only
+               console, modals and section rendering. It writes only
                Scenic.setGrade() / Scenic.setShot() and reads only
                Scenic.telemetry() / Scenic.gates.
 
@@ -254,7 +254,7 @@ const CONTACTS = [
 
 /* ========= SECTION TABLE — ONE SOURCE OF TRUTH =========
    Nav label, shot and grade live together, so the command bar, the rail, the
-   observer and the cinematography cannot disagree about what a section is. The
+   observer and the section rendering cannot disagree about what a section is. The
    grade values preserve the original director's intent: sections with long copy
    dim the frame so the text keeps its contrast. */
 const SECTIONS = [
@@ -384,7 +384,7 @@ function renderTelemetry(t) {
       const el = teleNodes[row.key];
       if (!el) { return; }
       el.textContent = row.fmt(t);
-      el.classList.toggle('is-warn', row.key === 'tier' && t.tier !== 'cinema');
+      el.classList.toggle('is-warn', row.key === 'tier' && t.tier !== 'balanced');
       el.classList.toggle('is-soft', row.key === 'gpu');
     });
     const meter = document.getElementById('tele-meter');
