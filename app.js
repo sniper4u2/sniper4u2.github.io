@@ -14,7 +14,7 @@ window.addEventListener('error', function () {
 
 /* ==========================================================================
    SOFIENE.AI — DATA TABLES & RENDERERS  (app.js v7.0)
-   Clearance 55 Systems Architecture & Frontier AI Portfolio
+   Systems Architecture & AI Portfolio
    --------------------------------------------------------------------------
    Static portfolio facts (projects, certificates, contacts) and the DOM
    renderers built from them. The frame itself is scene.js; the controller
@@ -25,7 +25,7 @@ window.addEventListener('error', function () {
 /* ========= DATA DEFINITIONS ========= */
 
 const ROLES = [
-  "Frontier AI & LLM Systems Architect",
+  "AI & LLM Systems Architect",
   "Neuro-Symbolic ARC-AGI Researcher",
   "LLM Fine-Tuning & SFT Dataset Engineer",
   "Senior Systems Architect & Forensics Investigator",

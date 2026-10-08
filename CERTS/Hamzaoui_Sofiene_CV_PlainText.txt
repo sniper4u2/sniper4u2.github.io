@@ -1,25 +1,40 @@
 SOFIENE HAMZAOUI
-Machine Learning Engineer | AI Engineer | Full Stack Developer | Security Engineer | Systems Architect
+AI/LLM Engineer | Full Stack Developer | Security Engineer | Professional Truck Driver
 Email: admin@vaultguard.eu.org
 Phone: +216 22 090 800
-GitHub: github.com/sniper4u2
+GitHub: github.com/sniper4u2 | github.com/spaypeur
 Hugging Face: huggingface.co/sofienehmz
 Portfolio: sniper4u2.github.io
 VaultGuard: vaultguard.eu.org
+Location: Tunisia · Remote · Available for EU & USA positions
 
 PROFESSIONAL SUMMARY
-Machine Learning Engineer, AI Engineer, Full Stack Developer, Security Engineer, and Systems Architect with expertise in LLM fine-tuning, SFT dataset curation, neuro-symbolic AI frameworks, Python/TypeScript development, cybersecurity, and building complete technology stacks from infrastructure to AI agent orchestration.
+AI/LLM Engineer, Full Stack Developer, and Security Engineer with 6 years of specialized experience in machine learning, cybersecurity, and systems architecture. 20 years of technical experience with computers and software. Since 2018, focused on ethical hacking, security tools, shell scripting, and full-stack development (8 years cybersecurity). Since 2020, specialized in AI/LLM engineering, fine-tuning, and SFT dataset curation (6 years AI/LLM). Also experienced as a professional heavy vehicle driver (C+E license) with 3 years of commercial transport operations.
 
-TECHNICAL SKILLS
+TECHNICAL SKILLS - AI & MACHINE LEARNING
 Programming Languages: Python, TypeScript, JavaScript, Objective-C, SQL
 AI/ML: LLM Fine-Tuning, SFT Datasets, Neuro-Symbolic AI, PyTorch, Hugging Face Transformers
+RAG & Vector Databases: ChromaDB, Embeddings, Semantic Search
+Model Quantization: GGUF, llama.cpp, CUDA GPU offloading
+Agent Frameworks: smolagents, CodeAgent, Gradio UI
 Backend: FastAPI, Node.js, Cloudflare Workers, Docker, Redis, PostgreSQL
-Frontend: React, Vite, HTML/CSS, Gradio
-Security: Penetration Testing, Systems Forensics, CVE Analysis, WebAuthn/FIDO2
-Infrastructure: Cloudflare, Supabase, Linux, Git/GitHub
-Databases: PostgreSQL, DuckDB, ChromaDB
+Frontend: React, Vite, HTML/CSS
 
-KEY PROJECTS
+TECHNICAL SKILLS - CYBERSECURITY
+Penetration Testing: Red Team Operations, Vulnerability Assessment
+Systems Forensics: Incident Response, Malware Analysis
+CVE Analysis: Security Research, Threat Intelligence
+Authentication: WebAuthn/FIDO2, JWT, AES-256-GCM encryption
+SS7/GSM: Telecom Protocol Security (for authorized security research)
+Infrastructure: Cloudflare, Supabase, Linux, Git/GitHub
+
+TECHNICAL SKILLS - HEAVY VEHICLE OPERATIONS
+License Class: C+E (Heavy Vehicles with Trailers)
+Vehicle Types: Semi-remorque trucks, articulated trucks, commercial transport
+Vocational Training: 1.5 years certified professional training
+Operations: Logistics, long-haul transport, route planning, load management
+
+KEY PROJECTS - AI & MACHINE LEARNING
 
 VaultGuard Institutional P2P Platform
 - Institutional-grade crypto security and OTC settlement engine
@@ -61,7 +76,7 @@ C2 Server Framework
 - Advanced Command & Control framework with FastAPI and WebSockets
 - Autonomous AI pentesting agent orchestration
 - Dynamic CVE threat intelligence mapping
-- SS7/GSM exploitation capabilities
+- SS7/GSM exploitation capabilities (for authorized security research)
 - Comprehensive CVE exploitation database
 - Private repository - access restricted due to sophisticated capabilities
 
@@ -75,9 +90,68 @@ Zindi Competition Projects
   - URL: zindi.world/competitions/bias-bounty-mapping-equity
 - Both projects: Local development for competition entries
 
-CERTIFICATIONS & EDUCATION
+Tutti Phone Extractor
+- Web scraping tool for automotive platform listings
+- Developed for client project
+- Discontinued after discovering client intended to intercept listings before publication
+- GitHub: github.com/spaypeur/tutti-phone-extractor
+
+PROFESSIONAL EXPERIENCE
+
+Independent Technical Consultant
+2018 - Present
+- AI/LLM Engineering: Fine-tuning models, building SFT datasets, creating RAG systems
+- Cybersecurity: Penetration testing, security auditing, vulnerability assessment
+- Full-Stack Development: Building web applications, APIs, and backend systems
+- Systems Architecture: Designing secure, scalable infrastructure
+- Client work across Europe (98%) and USA (2%)
+
+Professional Heavy Vehicle Driver
+2012 - 2015
+- 3 years commercial heavy vehicle driving experience
+- License Class C+E (vehicles with trailers)
+- Semi-remorque and articulated truck operations
+- Long-haul transport, logistics coordination, route planning
+- Vocational Training Certificate (1.5 years certified training)
+- Available for truck driving positions in EU and USA
+
+Client Services Coordinator
+2008 - 2011
+- International hotels in Tunisia and Turkey
+- Caribbean World Monastir, Thalasso Monastir, Ksar Kervansaray (Tunisia)
+- 5-star hotel in Bodrum, Turkey
+- Client relations, event coordination, multilingual daily operations
+- Languages used: Arabic, French, English, Russian, German
+
+EDUCATION
+
+Pharmaceutical Studies in Russia
+2013 - 2016
+- 1 year Russian language learning (B2 level)
+- 3 years pharmacy studies at Perm State Pharmacy Academy, Russia
+- Ryazan State Medical University: Pharmacy program (2nd year)
+
+Civil Aviation Training
+2008
+- Flight Dispatcher Diploma N°228/2008 (Ministry of Transport, Tunisia)
+- CMFC Personnel Navigant Commercial (Cabin Crew)
+
+Vocational Training
+2010 - 2011
+- Heavy Vehicle C+E License (1.5 years certified training)
+- Professional heavy vehicle driving certification
+
+Baccalaureate Diploma
+2007
+- Arts Baccalaureate (Tunisia)
+
+CERTIFICATIONS
+
+AI & Machine Learning
 - HuggingFace AI Agents Course
 - HuggingFace / DeepLearning.AI Fundamentals of LLMs
+
+Cybersecurity (IBM SkillsBuild)
 - IBM Incident Response & Systems Forensics
 - IBM Security Operations & Management
 - IBM Vulnerability Management
@@ -86,30 +160,20 @@ CERTIFICATIONS & EDUCATION
 - IBM GRC & Data Privacy
 - IBM Cybersecurity Fluency Pathway
 - IBM Getting Started with Cybersecurity
+
+Software Engineering
 - Microsoft / freeCodeCamp Foundational C#
 - freeCodeCamp Scientific Computing with Python
 - freeCodeCamp Frontend Dev Libraries V8
 - freeCodeCamp Web Design Certification V8
 - freeCodeCamp Legacy Frontend Development
-- IELTS General Training Band 5.5 / B2
-- Civil Aviation Flight Dispatcher Diploma N°228/2008 (Ministry of Transport, Tunisia)
-- CMFC Personnel Navigant Commercial (Cabin Crew)
-- Perm State Pharmacy Academy (Russia) - 3rd Year Certificate
-- Ryazan State Medical University (Russia) - 2nd Year Pharmacy Certificate
-- Heavy Vehicle C+E License
-- Heavy Vehicle Driving Vehicles with Trailers License
-- Baccalaureate Diploma (Arts, Tunisia)
 
-EDUCATION
-Pharmaceutical Sciences in Russia (2015-2016)
-- Ryazan State Medical University: 2nd year Pharmacy studies
-- Perm State Pharmacy Academy: 3rd year pharmacy studies
-
-Civil Aviation Training
-- Flight Dispatcher Diploma N°228/2008
+Language & Aviation
+- IELTS General Training Band 5.5 / B2 (British Council)
+- Civil Aviation Flight Dispatcher Diploma N°228/2008
 - CMFC Personnel Navigant Commercial (Cabin Crew)
 
-Vocational Training
+Vocational
 - Heavy Vehicle C+E License
 - Driving Vehicles with Trailers License
 
@@ -117,23 +181,21 @@ LANGUAGES
 - Arabic: Native
 - French: Fluent
 - English: Professional (IELTS B2)
-- Russian: Academic (4 years of pharmacy studies in Russia)
+- Russian: B2 (1 year language study + 3 years university in Russia)
+- German: Good
 - Dutch: Basic
 - Italian: Basic
 
-EXPERIENCE
-AI Engineer, Full Stack Developer, Security Engineer, Systems Architect
-2020 - Present
-- Published B13 Cybersecurity SFT Dataset on Hugging Face
-- Built VaultGuard institutional crypto security platform
-- Developed iOS automation frameworks and betting platforms
-- Worked on ARC-AGI, Barbados OCR, and Bias Bounty competitions
-- Expertise in LLM fine-tuning, SFT datasets, neuro-symbolic AI, cybersecurity
+INTERESTS & HOBBIES
+- Archaeological field research and historical site exploration
+- Roman, Punic, and Islamic-era archaeology
+- Ancient Mediterranean civilizations
+- Cultural heritage documentation
 
 CONTACT
 Email: admin@vaultguard.eu.org
 Phone: +216 22 090 800
-GitHub: github.com/sniper4u2
+GitHub: github.com/sniper4u2 | github.com/spaypeur
 Hugging Face: huggingface.co/sofienehmz
 VaultGuard: vaultguard.eu.org
 Portfolio: sniper4u2.github.io

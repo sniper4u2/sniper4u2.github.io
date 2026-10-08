@@ -1521,6 +1521,18 @@ html[data-tier="still"] .tele {
   gap: 24px;
   align-items: start;
 }
+.about-photo {
+  text-align: center;
+  padding: 20px;
+}
+.profile-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid var(--accent, #00f2ff);
+  box-shadow: 0 4px 20px rgba(0, 242, 255, 0.2);
+}
 .about-text p { font-size: 0.94rem; line-height: 1.88; color: var(--dim); }
 .about-text p + p { margin-top: 16px; }
 .about-text strong { color: var(--ice); font-weight: 600; }
