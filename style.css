@@ -1577,6 +1577,18 @@ span.ledger__src { color: var(--dimmer); }
   gap: 24px;
   align-items: start;
 }
+.about-photo {
+  text-align: center;
+  padding: 20px;
+}
+.profile-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid var(--accent, #00f2ff);
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+}
 .about-text p { font-size: 0.94rem; line-height: 1.88; color: var(--dim); }
 .about-text p + p { margin-top: 16px; }
 .about-text strong { color: var(--ice); font-weight: 600; }
